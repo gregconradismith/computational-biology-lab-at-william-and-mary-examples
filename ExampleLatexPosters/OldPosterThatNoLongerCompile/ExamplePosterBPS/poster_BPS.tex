@@ -1,0 +1,449 @@
+% Template file for an a0 landscape poster.
+% Written by Graeme, 2001-03 based on Norman's original microlensing
+% poster.
+%
+% See discussion and documentation at
+% <http://www.astro.gla.ac.uk/users/norman/docs/posters/> 
+%
+% $Id: poster-template-landscape.tex,v 1.2 2002/12/03 11:25:46 norman Exp $
+
+
+% Default mode is landscape, which is what we want, however dvips and
+% a0poster do not quite do the right thing, so we end up with text in
+% landscape style (wide and short) down a portrait page (narrow and
+% long). Printing this onto the a0 printer chops the right hand edge.
+% However, 'psnup' can save the day, reorienting the text so that the
+% poster prints lengthways down an a0 portrait bounding box.
+%
+% 'psnup -w85cm -h119cm -f poster_from_dvips.ps poster_in_landscape.ps'
+
+\documentclass[a0]{a0poster}
+% You might find the 'draft' option to a0 poster useful if you have
+% lots of graphics, because they can take some time to process and
+% display. (\documentclass[a0,draft]{a0poster})
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+
+% The textpos package is necessary to position textblocks at arbitary 
+% places on the page.
+\usepackage[absolute]{textpos}
+
+% Graphics to include graphics. Times is nice on posters, but you
+% might want to switch it off and go for CMR fonts.
+% Greg commented this out 
+% \usepackage{graphics,wrapfig,times}
+
+% Greg's additions 
+\input{math_def}
+\input{ca_def}
+\input{common_def}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% These colours are tried and tested for titles and headers. Don't
+% over use color!
+\usepackage{color}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
+\definecolor{Red}{rgb}{0.9,0.0,0.1}
+
+% see documentation for a0poster class for the size options here
+\let\Textsize\normalsize
+\def\Head#1{\noindent\hbox to \hsize{\hfil{\LARGE\color{DarkBlue} #1}}\bigskip}
+\def\LHead#1{\noindent{\LARGE\color{DarkBlue} #1}\bigskip}
+\def\CHead#1{\begin{center} {\LARGE\color{DarkBlue} #1} \end{center}}
+\def\Subhead#1{\noindent{\large\color{DarkBlue} #1}\bigskip}
+
+%\def\Title#1{\noindent{\VeryHuge\color{Red} #1}}
+%\def\Title#1{\begin{center} {\sc \VeryHuge\color{Red} #1} \end{center} }
+%\def\Title#1{\begin{center} {\sc \Huge\color{Red} #1} \end{center} }
+\def\Title#1{\begin{center} {\sc \Huge\color{DarkBlue} #1} \end{center} }
+
+% Set up the grid
+%
+% Note that [40mm,40mm] is the margin round the edge of the page --
+% it is _not_ the grid size. That is always defined as 
+% PAGE_WIDTH/HGRID and PAGE_HEIGHT/VGRID. In this case we use
+% 23 x 12. This gives us three columns of width 7 boxes, with a gap of
+% width 1 in between them. 12 vertical boxes is a good number to work
+% with.
+%
+% Note however that texblocks can be positioned fractionally as well,
+% so really any convenient grid size can be used.
+%
+% GREG: 5.3 0.6 5.3 0.6 5.3 0.6 5.3 
+% GREG: 0 5.9 11.8 17.7 
+%
+
+\TPGrid[40mm,40mm]{23}{12}      % 3 cols of width 7, plus 2 gaps width 1
+
+\parindent=0pt
+\parskip=0.5\baselineskip
+
+\begin{document}
+
+% Understanding textblocks is the key to being able to do a poster in
+% LaTeX. In
+%
+%    \begin{textblock}{wid}(x,y)
+%    ...
+%    \end{textblock}
+%
+% the first argument gives the block width in units of the grid
+% cells specified above in \TPGrid; the second gives the (x,y)
+% position on the grid, with the y axis pointing down.
+
+% You will have to do a lot of previewing to get everything in the 
+% right place.
+
+% This gives good title positioning for a portrait poster.
+% Watch out for hyphenation in titles - LaTeX will do it
+% but it looks awful.
+\begin{textblock}{23}(0,0)
+\Title{markov chain models of instantaneously-coupled calcium channels}
+\end{textblock}
+
+\begin{textblock}{23}(0,0.4)
+\CHead{Gregory D.~Smith, Vien D.~Nguyen, Jie (Vivian) Zhang\\[0.2in]
+Department of Applied Science, College of William and Mary, Williamsburg, VA 23187} 
+%({\tt greg@as.wm.edu, marco@as.wm.edu, jxgrof@wm.edu})
+\end{textblock}
+
+% Uni logo in the top right corner. A&A in the bottom left. Gives a
+% good visual balance, but you may want to change this depending upon
+% the graphics that are in your poster.
+%\begin{textblock}{2}(0,11.5)
+%Your logo here
+%\includegraphics{/usr/local/share/images/AandA.epsf}
+%\end{textblock}
+%\begin{textblock}{2}(21.2,0)
+%Another logo here
+%\resizebox{2\TPHorizModule}{!}{\includegraphics{/usr/local/share/images/GUVIu/GUVIu.eps}}
+%\end{textblock}
+
+\begin{textblock}{5.3}(0,0.7)
+\CHead{--- Introduction ---}
+The effect of feedback inhibition on retinogeniculate transmission is studied
+using a minimal network model that includes $\sim$10--100 representative
+thalamocortical (TC) neurons of the dorsal lateral geniculate nucleus (dLGN)
+reciprocally connected with thalamic reticular (RE) neurons of the
+perigeniculate nucleus (PGN).  \end{textblock}
+
+\begin{textblock}{5.3}(0,2.2)
+\CHead{--- TC- \& RE-like IFB Models --- }
+Network simulations are based on 
+the {\it integrate-and-fire-or-burst} 
+(IFB) model (Smith et al.~2000, Rinzel 1980)  
+constructed by adding a slow variable to a classical
+integrate-and-fire neuron model.  The slow variable, $h$, represents the
+inactivation of the low-threshold \Ca\ conductance, $I_T$.  
+\bnea
+C \ddt{V} &=& - I_L - I_T \nonumber \\
+  \ddt{h} &=& \left\{ \begin{array}{cc}
+                      -h/\tau_h^-  & \( V > V_h \) \\
+                      (1-h)/\tau_h^+ & \( V < V_h \)
+                      \end{array}
+              \right. 
+\nonumber 
+\enea
+A spike occurs whenever the membrane potential reaches a threshold
+($V_\theta$) for firing an action potential, \[ V(t) = V_\theta
+\Longrightarrow V(t^+) = V_{reset} \] and the current balance equation
+includes two constant conductance leakage currents $I_L = g_{KL} \( V -
+V_{KL} \) + g_{NL} \( V - V_{NL} \)$ and the low-threshold \Ca\ current, $I_T
+= g_T \mu \{ V - V_h \} h \( V - V_T \)$, where $\mu$ and $h$ characterize
+the activation and inactivation of $I_T$, respectively. 
+
+A subtle change in parameters converts an IFB model designed to
+reproduce TC neuron responses into an IFB model that responds like the
+inhibitory RE neurons of the PGN.  
+\begin{center} 
+\includegraphics[width=20cm,height=10cm,clip=]{FigMarco01.eps} \end{center}
+The distinction is the relationship between $V_h$ ({\it vertical red line}),
+the threshold for $I_T$, and $V_L$ ({\it filled circle}), the resting
+membrane potential. In the TC-like IFB model, $I_{T}$ is inactivated at rest
+($V_L > V_h$), while the RE-like IFB model is primed to burst in response to
+depolarizing input ($V_{L} < V_h$).
+\end{textblock}
+
+%=========== SECOND COLUMN ==========
+
+\begin{textblock}{5.3}(5.9,1.2)
+\CHead{--- Network Equations --- }
+In the dLGN/PGN network, each TC and RE neuron is described
+by an IFB model.  The TC cells receive spontaneous or visually-driven
+excitatory synaptic currents ($I_{RET}$) and feedback inhibition from
+associated RE cells ($I_{GABA}$).  The RE cells receive excitatory input from
+the TC cells ($I_{AMPA}$) and are inhibited by neighboring RE cells
+($I_{GABA_{RE}}$).  
+\bnea 
+C \ddt {V_{TC}^i} &=& - I_{MEM_{TC}}^i - I_{RET}^i - I_{GABA}^i \nonumber \\
+C \ddt {V_{RE}^i} &=& - I_{MEM_{RE}}^i - I_{AMPA}^i-I_{GABA_{RE}}^i  \nonumber 
+\enea 
+\[ I_{syn}^i = g_{syn} \sum_{j} w_{ji} s_{j} \( V^{i} - V_{syn} \) 
+\quad \mbox{where} \quad w_{ij} = w_{ij} \( | x_i - x_j | \) . \] 
+where the synaptic footprint ($w_{ij}$) 
+is either exponentially decaying or all-to-all 
+and alpha-function postsynaptic conductances ($s_j$) are triggered by spiking
+of the presynaptic neuron (Golomb et al. 1996). 
+
+A gamma process modulated at rate $\rho(x,t)$ gives the event times for
+excitatory postsynaptic conductances representing spontaneous or
+visually-stimulated retinal input calculated via convolution of a
+luminance profile with the spatio-temporal receptive field of one class
+(e.g., Xon) of retinal ganglion cell.  Drifting grating-like retinal drive
+takes the form \[ \rho \( t\) = \rho_{DC} + \rho_{AC} \cos \( 2 \pi k x - 2
+\pi f t \) \] with spatial and temporal frequency $k$ and $f$, respectively.
+\end{textblock}
+
+\begin{textblock}{5.3}(5.9,6.0)
+\begin{center}
+%\includegraphics[width=18cm,height=17cm]{FigThal13.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{7.3}(0,9.0)
+\CHead{--- Neuromodulation \& Tuning of Synaptic Strengths --- }
+\end{textblock}
+
+\begin{textblock}{3.33}(0,9.7)
+Subcortical neuromodulation of TC and RE neuron state is
+simulated by changing the potassium leakage conductances, $g_{KL}^{TC}$ and
+$g_{KL}^{RE}$.  This conductance affects $V_L$, the
+de-inactivation level of $I_T$, and burst vs.\ tonic response mode of
+both cell types.  Synaptic strengths in the\\ dLGN/PGN model were chosen so
+in the {\it Sleep state} rhythmic bursting occurs in the presence of the
+30 Hz spontaneous drive of the dark-adapted retina.  
+An increase of $g_{KL}^{RE}$ and decrease of
+$g_{KL}^{TC}$ puts the network into the {\it Awake State} 
+and rhythmic bursting does not persist.  \end{textblock}
+
+\begin{textblock}{3.33}(3.93,9.4)
+\begin{center}
+%\includegraphics[width=15cm,height=15cm,clip=]{RhythBurstSleepAwakeState.eps}
+\end{center}
+\end{textblock}
+
+%==============  THIRD COLUMN ================
+\begin{textblock}{5.3}(11.9,1.2)
+\CHead{--- Full-Field Stimulation --- } 
+\end{textblock}
+
+\begin{textblock}{2.6}(11.9,1.5)
+\CHead{\large High Contrast \& Low Freq} 
+\begin{center}
+%\includegraphics[width=11cm,height=13cm]{InhibitionOnOffModulatedInput.eps}
+
+{\small $\rho_{DC}$ = 30 Hz, $\rho_{AC}$ = 60 Hz, $f$ = 1.53 Hz }
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.6}(14.5,1.5)
+\CHead{\large Low Contrast \& High Freq} 
+\begin{center}
+%\includegraphics[width=11cm,height=13cm]{LowContrastInhibitionOnOffModulatedInput.eps}
+
+{\small $\rho_{DC}$ = 70 Hz, $\rho_{AC}$ = 20 Hz, $f$ = 4 Hz }
+\end{center}
+\end{textblock}
+
+\begin{textblock}{5.3}(11.9,4.4)
+Feedback-inhibition from RE cells leads to
+post-inhibitory rebound bursting ({\it red}) in TC cells that can dominate
+network throughput. Conversely, TC cells faithfully transmit retinal input in
+the absence of feedback inhibition. 
+Although the network is ``awake'' and does not
+support rhythmic bursting in the 
+presence of spontaneous retinal drive (see {\bf
+Neuromodulation}), episodes of irregular
+bursting can be triggered by visually-driven retinal input. 
+\end{textblock}
+
+\begin{textblock}{5.3}(11.8,5.6)
+\CHead{--- Temporal Frequency Analysis --- } 
+\end{textblock}
+
+\begin{textblock}{2.65}(11.8,6.0)
+\begin{center}
+%\includegraphics[width=9cm,height=9cm]{ResponseMeasuresHighContrast.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.65}(14.45,6.0)
+\begin{center}
+%\includegraphics[width=9cm,height=9cm,clip=]{ResponseMeasuresLowContrast.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{5.3}(11.8,7.8)
+Fourier fundamental response ($F_1$) plotted as a function of stimulation
+frequency ($f$) during {\bf Full-Field Stimulation} with 
+maximum retinal input rate of $\rho_{DC}+\rho_{AC}$ = 90 Hz.  {\it
+High Contrast}: At high temporal frequencies, TC cell fundamental responses
+is proportional to retinal input. At low frequencies, TC cell fundamental
+response follows RE cell (as opposed to retinal) activity. 
+{\it Low Contrast}: 
+The higher value of $\rho_{DC}$ leads to RE activity  
+that persists at high stimulation frequencies. 
+
+\end{textblock}
+
+\begin{textblock}{9.1}(8,9.0)
+\CHead{--- Firing Rate Model, RE State \& Transmission --- } 
+RE cell neuromodulation ($g_{KL}^{RE}$) 
+influences the input/output properties of the
+dLGN/PGN model by changing RE response 
+({\it silent}, {\it burst}, 
+{\it gap}, {\it tonic}) 
+to TC cell excitation. Network throughput also
+depends on TC neuron state ($g_{KL}^{TC}$, not shown). 
+\end{textblock}
+
+\begin{textblock}{0.2}(7.7,10.2)
+RE\\[1in] TC\\[1in] RET
+\end{textblock}
+
+\begin{textblock}{2.6}(7.8,9.8)
+\begin{center}
+RE burst 
+
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingGkl0.008.eps}
+
+$g_{KL}^{RE}$ large (hyperpolarized)
+\end{center}
+\end{textblock}
+\begin{textblock}{2.6}(10.2,9.8)
+\begin{center}
+RE gap 
+
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingGkl-0.018.eps}
+\end{center}
+\end{textblock}
+\begin{textblock}{2.6}(12.6,9.8)
+\begin{center}
+RE tonic 
+
+%%%%%%%%%\includegraphics[width=10cm,height=10cm]{DriftingGratingGkl-0.022.eps}
+\end{center}
+\end{textblock}
+\begin{textblock}{2.6}(15.0,9.8)
+\begin{center}
+RE tonic 
+
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingGkl-0.026.eps}
+
+$g_{KL}^{RE}$ small (depolarized) 
+\end{center}
+\end{textblock}
+
+% ================== FOURTH COLUMN ============
+
+\begin{textblock}{5.3}(17.7,0.7)
+\CHead{--- Drifting Grating Stimulation --- } 
+\end{textblock}
+
+\begin{textblock}{2.6}(17.7,1.1)
+\CHead{\Large IFB Network} 
+\end{textblock}
+
+\begin{textblock}{2.6}(20.4,1.1)
+\CHead{\Large FR Network} 
+\end{textblock}
+
+\begin{textblock}{2.6}(17.7,1.4)
+\begin{center}
+$k$ = 1 Hz
+
+%\includegraphics[width=10cm,height=10cm,clip=]{DriftingGratingWavelength1.0Footprint0.1.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.6}(17.7,3.3)
+\begin{center}
+$k$ = 2 Hz
+
+%\includegraphics[width=10cm,height=10cm,clip=]{DriftingGratingWavelength0.5Footprint0.1.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.6}(17.7,5.2)
+\begin{center}
+$k$ = 10 Hz
+
+%\includegraphics[width=10cm,height=10cm,clip=]{DriftingGratingWavelength0.1Footprint0.1.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{5.3}(17.7,7.2)
+\CHead{--- Spatial Frequency \& Transmission --- } 
+In the {\it IFB Network} model and a corresponding 
+firing-rate reduction ({\it FR Network}, see Smith et al.~2001),
+the spatial frequency of drifting grating-like retinal drive influences the 
+activity of RE cells, feedback inhibition, and throughput.
+Here the temporal frequency of 4 Hz is fixed, while the spatial
+frequency is varied (1--3 Hz). 
+The exponential synaptic footprint has length constant 
+of 1/10 the spatial domain.
+At low spatial frequency the RE cells respond to periodic excitation 
+from TC cells with bursts, periodically inhibit the TC cells, and 
+influence network throughput.  
+At high spatial frequency the RE cells fail to respond 
+to periodic excitation from TC cells and the
+network throughput follows the retinal drive. 
+Note that the drift rate of the grating is slower
+at high spatial frequency, so this phenomenon is to be distinguished
+from the high temporal frequency cut-off 
+in RE cell activity shown in {\bf Temporal Frequency Analysis}. 
+\end{textblock}
+
+\begin{textblock}{2.6}(20.5,1.4)
+\begin{center} $k$ = 1 Hz 
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingSF1.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.6}(20.5,3.3)
+\begin{center} $k$ = 2 Hz 
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingSF2.eps}
+\end{center}
+\end{textblock}
+
+\begin{textblock}{2.6}(20.5,5.2)
+\begin{center} $k$ = 3 Hz
+
+%\includegraphics[width=10cm,height=10cm]{DriftingGratingSF3.eps}
+\end{center}
+\end{textblock}
+
+
+\begin{textblock}{5.3}(17.7,9.9)
+\CHead{--- References --- } 
+{\small 
+J. Rinzel.  Models in neurobiology.  In: R.H. Enns et al., {\it Nonlinear
+phenomena in physics and biology,} 1980, pp.~347--367. 
+
+D. Golomb, X.J. Wang, and J. Rinzel. 
+Propagation of spindle waves in a thalamic Slice model. 
+{\it J.~Neurophysiol.} 72(2):750--769, 1996. 
+
+G.D. Smith and C.L. Cox and S.M. Sherman and J. Rinzel.  Fourier analysis of
+sinusoidally-driven thalamocortical relay neurons and a minimal
+integrate-and-fire-or-burst model.  J. Neurophys., 83(1):588-610, 2000.
+
+G.D. Smith and C.L. Cox and S.M. Sherman and J. Rinzel.  Spike-frequency
+adaptation in sinusoidally-driven thalamocortical relay neurons.  Thalamus and
+Related Systems. 11:1-22, 2001.
+}
+\end{textblock}
+
+
+%================== BOTTOM ===================
+\begin{textblock}{23}(0,12.1)
+\begin{center}
+Supported by NSF grants IBN 0228273 and MCB 0133132 to GDS, the Thomas F. and
+Kate Miller Jeffress Memorial Trust, and computational facilities at W\&M
+enabled by NSF and Sun Microsystems.  GDS acknowledges conversations with
+J Rinzel, S Coombes, K Srinivasan, and P Brewer.  \end{center} \end{textblock}
+
+\end{document}
