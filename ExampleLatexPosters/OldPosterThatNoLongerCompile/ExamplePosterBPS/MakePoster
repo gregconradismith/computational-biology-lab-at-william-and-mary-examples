@@ -1,8 +1,0 @@
-#! /bin/csh -vf
-
-set file = poster_BPS
-latex ${file}.tex
-dvips ${file}.dvi -o ${file}.ps
-psnup -w85cm -h119cm -f ${file}.ps ${file}-cl.ps 
-a0toa4.pl ${file}-cl.ps 
-gv -landscape -media a4 ${file}-cl_a4.ps 
