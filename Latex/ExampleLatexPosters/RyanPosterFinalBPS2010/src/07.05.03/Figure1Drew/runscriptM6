@@ -1,0 +1,2 @@
+#!/bin/csh
+nohup matlab -nodisplay < Fig1M6N48Meth222.m > output1 &

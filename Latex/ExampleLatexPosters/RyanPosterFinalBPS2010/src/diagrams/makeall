@@ -1,0 +1,4 @@
+#!/bin/sh
+makepic threestate
+makepic sixstate
+makepic diagrams

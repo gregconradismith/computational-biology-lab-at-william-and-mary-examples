@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+%\usepackage{pst-ode}
+%\pgfplotsset{compat=1.8}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage{filecontents}
+
+\begin{filecontents}{xyz.tex}
+\input pst-ode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%solve dy/dx=x^2 + y^2 - 1 numerically for different initial values of y in the
+%interval x=[-1.1,1.1]; write resulting curves as tables with 100 output points
+%into text files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%y0=-0.5 --> y0=-0.5.dat
+\pstODEsolve[algebraicOutputFormat,algebraic,saveData]{y0=-0.5}{t | x[0]}{-1.1}{1.1}{100}{-0.5}{t^2+x[0]^2-1}
+
+%y0=0.0 --> y0=0.0.dat
+\pstODEsolve[algebraicOutputFormat,algebraic,saveData]{y0=0.0}{t | x[0]}{-1.1}{1.1}{100}{0.0}{t^2+x[0]^2-1}
+
+%y0=0.5 --> y0=0.5.dat
+\pstODEsolve[algebraicOutputFormat,algebraic,saveData]{y0=0.5}{t | x[0]}{-1.1}{1.1}{100}{0.5}{t^2+x[0]^2-1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bye
+\end{filecontents}
+
+\immediate\write18{tex xyz}
+\immediate\write18{dvips xyz}
+\immediate\write18{ps2pdf -dNOSAFER xyz.ps}
+
+
+\begin{filecontents}{abc.tex}
+\input pst-ode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pstVerb{  /alpha -0.1 def  /beta 1 def}
+
+\pstODEsolve[algebraicOutputFormat,algebraic,saveData]{second}{t | x[0] | x[1]}{0}{20}{1000}{1 0}{ alpha*x[0]-beta*x[1] | beta*x[0]+alpha*x[1]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bye
+\end{filecontents}
+
+\immediate\write18{tex abc}
+\immediate\write18{dvips abc}
+\immediate\write18{ps2pdf -dNOSAFER abc.ps}
+
+
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\textwidth}{6.75in}
+\topmargin -0.5in
+\textheight 9.0in
+
+\input{math_def}
+
+\input{ion_def}
+
+%Greg:  LS questions, phase plane or dynamics or bifurcation question for M version, linear algebra question for all exams
+
+
+\begin{document}
+
+\begin{center}
+\section*{QAS Example Questions\\ \large Gregory D.\ Smith}
+\end{center}
+
+
+\begin{enumerate}
+
+%\item Consider the one-parameter family of equations 
+%\bnea
+%\ddt{x} &=& x^3 + x^2 - (2+\mu) x + \mu \nonumber \\
+%&=& (x-1)(x^2+2x-\mu) \nonumber
+%\enea
+%where $\mu$ is a bifurcation parameter and the second equality shows that the cubic factorizes.
+%
+%Sketch an accurate picture of the bifurcation diagram where $\mu$ is on the horizontal axis and the $x$-value of fixed points (equilibiria) for each value of $\mu$ is located on the vertical axis.  Indicate which branches of equilibria are stable or unstable using solid and dotted lines.  Clearly indicate in your work the analytical expressions for the equilibria used in making your sketch.  What type of bifurcation is located at $(\mu,x) = (-1,-1)$?  What type of bifurcation is located at  $(\mu,x) = (3,1)$?
+%
+
+
+
+
+
+\item And here is another question:
+
+\pgfplotsset{every axis/.style={ 
+        width=7cm,
+        height=7cm,  
+        xmin=-1.1, xmax=1.1, % Axis limits
+        ymin=-1.1, ymax=1.1,
+        axis x line=center,
+        xlabel style={{at=(current axis.right of origin)},anchor=west},
+        xlabel={},
+        xtick=\empty,    
+        axis y line=middle,
+        ylabel={},
+        ylabel style={{at=(current axis.above origin)},anchor=south},
+        ytick=\empty,no markers}} 
+
+\begin{tikzpicture}
+  \begin{axis}[axis equal image,  title={$\dfrac{\mathrm{d}y}{\mathrm{d}x}=x^2+y^2-1$},
+    view={0}{90},samples=21,domain=-1.1:1.1, y domain=-1.1:1.1, %for direction field
+  ]
+  \addplot3 [gray, quiver={u={1}, v={x^2+y^2-1}, scale arrows=0.075, every arrow/.append style={-latex}}] (x,y,0);
+  \addplot table {y0=-0.5.dat};
+  \addplot table {y0=0.0.dat};
+  \addplot table {y0=0.5.dat};
+  \end{axis}
+\end{tikzpicture}
+
+
+\item My first:
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[xmin=0,xmax=20,width=10cm, xlabel={$t$}, title={$\dfrac{\mathrm{d}x}{\mathrm{d}t}=-ax-by \quad \dfrac{\mathrm{d}y}{\mathrm{d}t}=bx-ay \quad a,b>0$}]
+  %\addplot3 [gray, quiver={u={1}, v={x^2+y^2-1}, scale arrows=0.075, every arrow/.append style={-latex}}] (x,y,0);
+    \addplot[green,ultra thick,->] table[x index=0,y index=1] {second.dat};
+       \addlegendentry{$x(t)$}
+    \addplot[red,ultra thick,->] table[x index=0,y index=2] {second.dat};
+       \addlegendentry{$y(t)$}
+  \end{axis}
+\end{tikzpicture}
+\pgfmathsetmacro{\a}{-0.1}
+\pgfmathsetmacro{\b}{1}
+\def\fxy{\a*x+\b*y}
+\def\gxy{-\b*x+\a*y}
+\def\length{sqrt((\fxy)^2+(\gxy)^2)}
+\begin{tikzpicture}
+  \begin{axis}[axis equal image,xlabel={$x$},ylabel={$y$},
+  view={0}{90},samples=21,domain=-1.1:1.1, y domain=-1.1:1.1,clip=false]
+  %\addplot3 [gray, quiver={u={1}, v={x^2+y^2-1}, scale arrows=0.075, every arrow/.append style={-latex}}] (x,y,0);
+  \addplot3[gray,quiver={u={(\fxy)/(\length)}, v={(\gxy)/(\length)}, scale arrows=0.1}, -stealth,samples=20] {0};
+    \addplot[blue,ultra thick,->] table[x index=1,y index=2] {second.dat};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\end{enumerate}
+
+\end{document}
+
+
+
+\end{document}

@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}
+
+\bibitem{Berridge93}
+MJ~Berridge.
+\newblock Inositol trisphosphate and {\Ca} signaling.
+\newblock {\em Nature}, 361(6410):315--25, 1993.
+
+\bibitem{Berridge97}
+MJ~Berridge.
+\newblock Elementary and global aspects of {\Ca} signalling.
+\newblock {\em J Physiol (London)}, 499(Pt 2):291--306, 1997.
+
+\bibitem{Berridge98}
+MJ~Berridge.
+\newblock Neuronal {\Ca} signaling.
+\newblock {\em Neuron}, 21(1):13--26, 1998.
+
+\bibitem{LiEtal95a}
+YX~Li, J~Keizer, SS~Stojilkovic, and J~Rinzel.
+\newblock {\Ca} excitability of the {ER} membrane: an explanation for
+  {\Ip}-induced {\Ca} oscillations.
+\newblock {\em Am J Physiol}, 269(5 Pt 1):C1079--92, 1995.
+
+\bibitem{KeizerEtal95}
+J~Keizer, YX~Li, S~Stojilkovic, and J~Rinzel.
+\newblock {\Ip}-induced {\Ca} excitability of the endoplasmic reticulum.
+\newblock {\em Mol Biol Cell}, 6(8):945--51, 1995.
+
+\bibitem{LiEtal94}
+YX~Li, J~Rinzel, J~Keizer, and SS~Stojilkovic.
+\newblock {\Ca} oscillations in pituitary gonadotrophs: comparison of
+  experiment and theory.
+\newblock {\em Proc Natl Acad Sci {USA}}, 91(1):58--62, 1994.
+
+\bibitem{WilsonEtal98}
+BS~Wilson, JR~Pfeiffer, AJ~Smith, JM~Oliver, JA~Oberdorf, and RJ~Wojcikiewicz.
+\newblock {\Ca}-dependent clustering of inositol 1,4,5-trisphosphate receptors.
+\newblock {\em Mol Biol Cell}, 9(6):1465--78, 1998.
+
+\bibitem{SmithEtal96}
+GD~Smith, J~Wagner, and J~Keizer.
+\newblock Validity of the rapid buffering approximation near a point source of
+  {\Ca} ions.
+\newblock {\em Biophys J}, 70(6):2527--2539, 1996.
+
+\bibitem{DuPontEtal91}
+G~Dupont, MJ~Berridge, and A~Goldbeter.
+\newblock Signal-induced {\Ca} oscillations: properties of a model based on
+  {\Ca}-induced {\Ca} release.
+\newblock {\em Cell Calcium}, 12(2--3):73--85, 1991.
+
+\bibitem{DuPontGoldbeter92}
+G~Dupont and A~Goldbeter.
+\newblock Oscillations and waves of cytosolic {\Ca}: insights from theoretical
+  models.
+\newblock {\em Bioessays}, 14(7):485--93, 1992.
+
+\bibitem{LyttonEtal92}
+J.~Lytton, M.~Westlin, S.E. Burk, G.E. Shull, and D.H. MacLennan.
+\newblock Functional comparisons between isoforms of the sarcoplasmic or
+  endoplasmic reticulum family of calcium pumps.
+\newblock {\em J Biol Chem}, 267(20):14483--14489, Jul 1992.
+
+\bibitem{DeYoungKeizer92}
+GW~{De~Young} and J~Keizer.
+\newblock A single-pool inositol 1,4,5-trisphosphate-receptor-based model for
+  agonist-stimulated oscillations in {\Ca} concentration.
+\newblock {\em Proc Natl Acad Sci {USA}}, 89(20):9895--9, 1992.
+
+\bibitem{BezprozvannyEtal91}
+I~Bezprozvanny, J~Watras, and BE~Ehrlich.
+\newblock Bell-shaped {\Ca}-response curves of {Ins(1,4,5)P3}- and {\Ca}-gated
+  channels from endoplasmic reticulum of cerebellum.
+\newblock {\em Nature}, 351(6329):751--4, 1991.
+
+\bibitem{ParkerIvorra90}
+I~Parker and I~Ivorra.
+\newblock Inhibition by {\Ca} of inositol trisphosphate-mediated {\Ca}
+  liberation: a possible mechanism for oscillatory release of {\Ca}.
+\newblock {\em Proc Natl Acad Sci {USA}}, 87(1):260--4, 1990.
+
+\bibitem{LiRinzel94}
+YX~Li and J~Rinzel.
+\newblock Equations for {\Ipr}-mediated {\Cai} oscillations derived from a
+  detailed kinetic model: a {H}odgkin-{H}uxley like formalism.
+\newblock {\em J Theor Biol}, 166(4):461--73, 1994.
+
+\end{thebibliography}

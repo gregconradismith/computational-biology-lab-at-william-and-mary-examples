@@ -1,0 +1,960 @@
+% \iffalse
+% This is textpos.dtx, which allows you to place text (and graphics)
+% anywhere on the LaTeX page.  It's useful for posters.
+%
+%% This software is copyright, 1999, 2001--2003, Norman Gray. 
+%% 
+%% This program is free software; you can redistribute it and/or
+%% modify it under the terms of the GNU General Public License
+%% as published by the Free Software Foundation; either version 2
+%% of the License, or (at your option) any later version.
+%% 
+%% This program is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU General Public License for more details.
+%% 
+%% You should have received a copy of the GNU General Public License
+%% along with this program; if not, write to the Free Software
+%% Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+%% 
+%% Author: Norman Gray, norman@astro.gla.ac.uk.
+%% Department of Physics and Astronomy, University of Glasgow, UK
+%%
+%% See the file LICENCE for a copy of the GPL.
+%% You can also find an online copy at http://www.gnu.org/copyleft/gpl.html .
+%
+%<+package|driver|example>
+%%% Source: $Id: textpos.dtx,v 1.12 2003/06/25 21:04:16 norman Exp $
+\def\ParseRCSDate$#1: #2 #3 ${\def\TP@Date{#2}}
+\ParseRCSDate$Date: 2003/06/25 21:04:16 $
+\def\filename{textpos}
+\def\fileversion{1.3a}  %%VERSION%%
+\def\filedate{\TP@Date}
+\def\docdate{\TP@Date}
+%<+package>\NeedsTeXFormat{LaTeX2e}
+%<+package>\ProvidesPackage{textpos}[\filedate\space v\fileversion]
+%<+package>\typeout{Package: `textpos' \fileversion\space<\filedate>}
+%
+%<*driver>
+\documentclass{ltxdoc}
+\title{Textpos: absolute positioning of text on the page%
+  \thanks{This file has version number \fileversion, last revised
+  \filedate}}
+\author{Norman Gray\\(\texttt{norman@astro.gla.ac.uk})}
+\date{Version \fileversion, \filedate}
+\newcommand\Lopt[1]{\textsf {#1}}
+\newcommand\file[1]{\texttt {#1}}
+\newcommand\Lcount[1]{\textsl {\small#1}}
+\newcommand\pstyle[1]{\textsl {#1}}
+% Make command strings easier to write
+{\catcode`\<=\active \gdef<#1>{\meta{#1}}}
+\def\cmd{\begingroup
+  \catcode`\\=12 \catcode`\{=12 \catcode`\}=12 
+  \catcode`\<=\active \catcode`\|=12
+  \docmd}
+\def\docmd|#1|{\texttt{#1}\endgroup}
+%% \url macro (url.sty does this better)
+\def\setpathdots{\discretionary{.}{}{.}}
+\def\setpathslash{\discretionary{/}{}{/}}
+{\catcode`\.=\active 
+ \catcode`\/=\active 
+  \gdef\pathcats{%
+    \catcode`\%=12      \catcode`\~=12 
+    \catcode`\.=\active  \let.\setpathdots
+    \catcode`\/=\active \let/\setpathslash
+    \catcode`\#=12      \catcode`\_=12}%
+    }
+\def\setpath#1{\ttfamily <\nobreak #1\nobreak>\endgroup}
+\def\url{\begingroup\pathcats\setpath}
+%\RecordChanges
+\OnlyDescription
+\begin{document}
+\maketitle
+\DocInput{textpos.dtx}
+\end{document}
+%</driver>
+%
+% \fi
+%
+%
+%
+% \CheckSum{422}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%
+% \changes{v1.0a}{1998/04/29}{Robin Fairbairns pointed out and adjusted errors in the documentation}
+% \changes{v1.0b}{1998/04/30}{Reorganised documentation -- properly this time}
+% \changes{v1.1b}{1999/03/05}{Added note to the effect that everyshi can be found at CTAN}
+% \changes{v1.1c}{1999/03/09}{Corrected checksum (again!)}
+% \changes{v1.1d}{1999/06/06}{Clarified copyright and licence status}
+%
+%
+% This package facilitates placing boxes at absolute positions on the
+% \LaTeX\ page.  There are several reasons why this might be useful, but
+% the main one (or at least my motivating one) is to help produce a
+% large-format conference poster.  
+%
+% This package provides a single environment, which contains the text
+% (or graphics, or table, or whatever) which is to be placed on the
+% page, and which specifies where it is to be placed.
+%
+% The package tries not to get in the way.  That is, you should be
+% able to use most of the apparatus of \LaTeX\ in your poster, such as
+% section headings, citations, graphics inclusion, and so on.  Please
+% let me know if you experience problems in this respect.
+%
+% This package requires the services of Martin Schr\"oder's package
+% \texttt{everyshi}.  You will need to download this package from CTAN
+% first.  See
+% \url{http://www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/ms/} 
+% or one of the other CTAN hosts.
+%
+% This software is copyright, 1999, 2001--03, Norman Gray.  It is released under
+% the terms of the GNU General Public Licence.  See the copyright
+% declaration at the top of file \texttt{textpos.dtx}, and the file
+% \texttt{LICENCE} for the licence conditions.  You can find an
+% online copy of the GPL at \url{http://www.gnu.org/copyleft/gpl.html}.
+%
+% \section{Description}
+%
+% The environment is used as follows
+% \DescribeEnv{textblock}
+% \begin{quote}\begin{raggedright}
+% \cmd|\begin{textblock}{<hsize>}(<hpos>,<vpos>)|\\
+% text...\\
+% |\end{textblock}|
+% \end{raggedright}
+% \end{quote}
+% The \meta{hsize} and \meta{hpos} arguments are given in units of a
+% module |\TPHorizModule|, and \meta{vpos} is given in units of a
+% module |\TPVertModule|.  You set these using
+% the command 
+% \cmd|\setlength{\TPHorizModule}{<dimen>}|,
+% and similarly for |\TPVertModule|.
+% The arguments may be any dimension, and you may use the modules as
+% units elsewhere in your document if you wish to, for example in
+% \texttt{\bslash makebox[2\bslash TPHorizModule]\{gnus\}}.  The text in the
+% environment will be set in a 
+% box \meta{hsize} modules wide, and placed on the page with its
+% upper left corner at the position (\textit{hpos,vpos}).  As is
+% natural in \TeX, the \meta{vpos} parameter indicates distance
+% \emph{down} from the reference point.
+%
+% The \texttt{textblock} parameters may be whole numbers or
+% fractional.  If you want or need to give explicit sizes here, see
+% the \texttt{textblock*} environment below.
+%
+% Notice that the positioning arguments for the \texttt{textblock}
+% command -- the coordinates \cmd|...(<hpos>,<vpos>)| -- are in
+% \emph{round} brackets, not 
+% curly ones.  This is in imitation of the \texttt{picture}
+% environment, and whether or not this is sensible, it's not going to
+% change now.
+%
+% \DescribeMacro{\TPGrid}
+% You will often wish to set up a grid on your page.  Rather than
+% calculate and specify the two modules explicitly, you can set up the
+% grid with a command
+% \cmd|\TPGrid{<nhoriz>}{<nvert>}|, which sets
+% |\TPHorizModule| to be \meta{paper
+% width}/\meta{nhoriz}, and |\TPVertModule| to be
+% \meta{paper height}/\meta{nvert}.  This takes an optional pair of
+% dimension arguments, which specify a coordinate, as follows.
+% \begin{quote}\begin{raggedright}
+%   \cmd|\TPGrid[<x>,<y>]{<nhoriz>}{<nvert>}|
+% \end{raggedright}\end{quote}
+% If these are present, then the modules are set
+% up to leave a border of the given size around the grid.  That is, 
+% |\TPHorizModule| is set to be (\meta{paper
+% width}${}-{}2$\meta{x})/\meta{nhoriz}, and similarly for
+% |\TPVertModule|.  Further, if the package was given
+% the `absolute' option, then the text origin is set to be
+% (\meta{x},\meta{y}) through a call to |\textblockorigin|
+% (see below).  For example, the declaration
+% \begin{quote}\begin{raggedright}
+%   \cmd|\TPGrid[40mm,20mm]{10}{5}|
+% \end{raggedright}\end{quote}
+% would choose \cmd|\TPHorizModule| and \cmd|\TPVertModule| so as to
+% give a grid of 10~intervals across and 5~intervals down, after
+% leaving 40mm of a border on the right and left sides, and a 20mm
+% border top and bottom.
+%
+% You may give a optional argument to the \texttt{textblock}
+% environment, specifying which point in the box
+% is to be placed at the specified point:
+% \begin{quote}
+% \begin{raggedright}
+% \cmd|\begin{textblock}{<hsize>}[<ho>,<vo>](<hpos>,<vpos>)|\\
+% text...\\
+% |\end{textblock}|
+% \end{raggedright}
+% \end{quote}
+% The coordinates \meta{ho} and \meta{vo} are fractions of the
+% width and height of the text box, respectively, and state that the
+% box is to be placed so that the
+% point (\meta{ho},\meta{vo}) within the box is to be placed at the point
+% (\meta{hpos},\meta{vpos}) on the page.  The default specification is
+% [0,0], the top left of the box: [0,1] would be the bottom left, and
+% [0.5,0.5] the middle.
+%
+% \DescribeEnv{textblock*}
+% There is an alternative, starred, form of the textblock
+% environment.  In the argument to the |{textblock*}| environment, the 
+% block width, and the block position (but \emph{not} the
+% specification of the block reference point) are given as absolute
+% dimensions, rather than as numbers in units of the horizontal and
+% vertical modules.  Thus
+% \begin{quote}
+% \begin{raggedright}
+% \cmd|\begin{textblock*}{<hsize>}[<ho>,<vo>](<hpos>,<vpos>)|\\
+% text...\\
+% \cmd|\end{textblock*}|
+% \end{raggedright}
+% \end{quote}
+% produces a textblock of the given size, where this time \meta{hsize},
+% \meta{hpos} and \meta{vpos} are absolute dimensions, but \meta{ho}
+% and \meta{vo} are pure-number offsets (that is, fractions of the
+% width and height of the textblock), as above.
+%
+% Each textblock environment takes up zero space on the page (which
+% means, by the way, that it cannot detect that it's overprinting or
+% being overprinted), so you can (and typically will) use several of
+% the environments in a row to scatter text all over the page.
+%
+% This package works in two modes, relative and absolute.  In the
+% first one, the default, the block-positioning parameters in the
+% \texttt{textblock} envirionment are taken to be relative to the
+% current position on the page.  This will be appropriate if you are
+% laying out text within a \texttt{figure} environment or the like.
+% In this mode, you will typically give several \texttt{textblock}
+% environments one after the other, so that they are all relative to
+% the same point.
+%
+% If, however, your entire 
+% document is to be laid out piece by piece (which is the case in the
+% canonical use of the package, to lay out a poster), then you might
+% want to be more sure of where the origin is.  In this case, you make
+% the package work in its absolute mode, by invoking it with
+% the `absolute' option: |\usepackage[absolute]{textpos}|.
+% In this mode, all the block-positioning parameters are given
+% relative to a single origin on the page.  By default, this is the
+% top-left corner of the page, but you may change it with the 
+% command \cmd|\textblockorigin{<hpos>}{<vpos>}|.
+% Here \meta{hpos} and \meta{vpos} are dimensions such as `10mm',
+% relative to the top-left corner of the paper.  You may use this
+% command only if the package was invoked with the `absolute' option.
+%
+% The package is compatible with the \pstyle{calc} package, so that
+% you may use calc-style expressions when specifying lengths.  Thus
+% \begin{quote}
+% \begin{raggedright}
+% |\usepackage{calc}|\\
+% |\textblockorigin{56.9055pt-10mm}{0pt+1cm}|\\
+% |\begin{textblock*}{10mm+14cm}(0.3cm*5,10\TPVertModule+5mm)|\\
+% text\dots\\
+% |\end{textblock*}|\\
+% \end{raggedright}
+% \end{quote}
+% Note that you can only use calc-style expressions where you would
+% specify a length with units, such as the width and location
+% arguments of |{textblock*}| or the arguments to |\textblockorigin|
+% -- you can't use them when specifying a
+% length in units of the horizontal and vertical modules, such as in
+% the width and location arguments to the (unstarred) |{textblock}|
+% environment.
+%
+% \DescribeMacro{\textblockcolour}
+% The text blocks can be coloured in.  If you load the \Lopt{color}
+% package, then the commands of that package, |\textcolor|,
+% |\pagecolor| and the like, should work perfectly well.  The
+% \Lopt{textpos} package adds a new command, however,
+% |\textblockcolour|.  If you give the command
+% \begin{quote}
+% |\textblockcolour{|\meta{colour}|}|
+% \end{quote}
+% all text blocks following will have their background filled with the
+% specified colour, which has to be declared, as usual, in a
+% |\definecolor| declaration in the document preamble.  This colour
+% may be overridden for individual text blocks by giving this command
+% within the |{textblock}| environment.  If you wish a block not to
+% have any background colour, you can suppress it, again for one block
+% at a time, with the command |\textblockcolour{}|.
+%
+% \DescribeMacro{\textblockcolor}
+% For the benefit of those who observe Webster's spelling
+% reforms, |\textblockcolor| is defined as a synonym for
+% |\textblockcolour|, but those who would condemn such anaemic half measures 
+% \DescribeMacro{\tekstblokkulur}
+% can use |\tekstblokkulur| instead.
+%
+% \subsection{Package options}
+%
+% There are several package options:
+% \begin{description}
+% \item[\Lopt{showboxes}]When you are laying things out, it can be
+% useful to have the boxes drawn in for you.  This option draws a box
+% fitting closely round the set text.
+% \item[\Lopt{noshowtext}]This suppresses the display of the text in
+% each block (so it's not really usable without the \Lopt{showboxes}
+% option).  The resulting box will be the correct size, but empty,
+% unless the |\textblocklabel| command has been given.  This
+% can be useful when you are previewing a document.
+% \item[\Lopt{absolute}]If this is present, then the positions on the
+% \texttt{textblock} environment are taken to be absolute positions on
+% the page.  See above.
+% \item[\Lopt{overlay}]When using the absolute-position mode, the
+% textblocks are placed under any other text on the page.  This is
+% normally what you want, but if you have page contents, and they have
+% something 
+% which \emph{obscures} the textblocks (for example, a block of opaque
+% colour), then the positioned textboxes disappear.  In this case,
+% specify the option \Lopt{overlay}, to request that the positioned
+% blocks of text overlay any other page contents, rather
+% than being overlayed.
+% \item[\Lopt{verbose}, \Lopt{quiet}]The package writes a few messages
+% to the output, describing its calculations.  These are potentially
+% irritating, so you can turn them off with the \Lopt{quiet} option or
+% on with the \Lopt{verbose} option.  The default is currently
+% \Lopt{verbose}, but this might change in future.
+% \end{description}
+%
+% \subsection{Package parameters}
+% \begin{raggedright}
+% \begin{description}
+% \item[\texttt{\bslash TPHorizModule}]
+% \DescribeMacro{\TPHorizModule}
+% The length unit which is used for the horizontal positioning and
+% size parameters of the textblock environment.  Set it using
+% the command \cmd|\setlength{\TPHorizModule}{<dimen>}| (or indeed
+% |\addtolength|).
+% The default is one sixteenth of the paper width.
+% \item[\texttt{\bslash TPVertModule}]
+% \DescribeMacro{\TPVertModule}
+% The length unit which is used for the vertical positioning and
+% size parameters of the textblock environment.  Set it using
+% the command \cmd|\setlength{\TPVertModule}{<dimen>}| (or |\addtolength|). 
+% The default is one sixteenth of the paper height.
+% \item[\texttt{\bslash TPboxrulesize}]
+% \DescribeMacro{\TPboxrulesize}
+% When you use the \Lopt{showboxes} option,
+% the lines drawn are of this width.  If this too small to show up
+% when you are previewing your document, you may adjust the size using
+% |\setlength| or |\addtolength|.  The default is 0.4pt. 
+% \item[\texttt{\bslash textblocklabel}]
+% \DescribeMacro{\textblocklabel}
+% This may be used within any textblock
+% environment.  It is ignored, unless the \Lopt{noshowtext} option has
+% been specified, when it will be used to label the textblock it is
+% inside.  Use: |\textblocklabel{Identifying text}|.
+% \item[\texttt{\bslash showtextsize}]
+% \DescribeMacro{\showtextsize}
+% When |\textblocklabel| is being
+% shown, the text appears in size |\showtextsize|, which is
+% defined by default to be |\normalsize|.  If this is too
+% small, you may adjust it using |\newcommand{\showtextsize}{\large}|, or
+% whatever size you prefer.
+% \item[\texttt{\bslash textblockorigin}]
+% \DescribeMacro{\textblockorigin}
+% Sets the position of the top-left of the
+% printable area.  See above.
+% \end{description}
+% \end{raggedright}
+%
+% \subsection{Suggestions: Producing large-format posters}
+% 
+% If you are producing a large-format poster, such as A0 size, you
+% might want to use Gerlinde Kettl and Matthias Weiser's a0poster
+% class, which painlessly deals with the miscellaneous hassles of
+% printing to a large-format postscript printer.
+%
+% I have a collection of suggestions for producing such posters at
+% \url{http://www.astro.gla.ac.uk/users/norman/docs/posters/}.
+%
+% The text on a large poster will typically use a very large font.  It
+% can be a hassle to create (or have dvips create) these fonts, and
+% they take up a good deal of space on your disk.  You might want to
+% investigate the BlueSky/AMS fonts (available at CTAN), which are
+% postscript versions of the Computer Modern fonts, and which can
+% therefore be scaled arbitrarily.
+%
+% \section{Credits}
+%
+% Olaf Maibaum, \texttt{Olaf.Maibaum@informatik.uni-oldenburg.de},
+% made an elegant improvement to an earlier version of this package,
+% by producing the code which I've incorporated here as the `absolute
+% mode' (I'd had something like this before, but it was \emph{very}
+% kludgy).
+%
+% Bjoern Pedersen, \texttt{bjoern@poseidon.org.chemie.tu-muenchen.de},
+% made the excellent suggestion that the horizontal and vertical
+% modules should be independent, and provided code to implement this.
+%
+% Rolf Niepraschk, \texttt{niepraschk@ptb.de}, provided the code changes
+% which made textpos compatible with the \pstyle{calc} package.
+%
+% Wybo Dekker, \texttt{wybo@servalys.nl}, reported a problem when
+% box~255 was (erroneously) not a vbox, and passed on a fix from Hans Hagen.
+%
+% \section{Example}
+%
+% Here is a short example file.
+%    \begin{macrocode}
+%<*example>
+\documentclass{article}
+
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{10mm}{10mm} % start everything near the top-left corner
+
+\begin{document}
+
+\begin{textblock}{3}(0,0)
+This block is 3 modules wide, and is placed with its top left corner
+at the `origin' on the page.  Note that the length of the block is not
+specified in the arguments -- the box will be as long as necessary to
+accomodate the text inside it.  You need to examine the output of the
+text to adjust the positioning of the blocks on the page.
+\end{textblock}
+
+\begin{textblock}{2}(2,1)
+\textblocklabel{block two}
+Here is another, slightly narrower, block, at position (2,1) on the page.
+\end{textblock}
+
+\begin{textblock}{3}[0.5,0.5](1,3)
+This block is at position (1,3), but because the optional argument
+[0.5,0.5] has been given, it is the centre of the block which is
+located at that point, rather than the top-left corner.
+\end{textblock}
+
+\end{document}
+%</example>
+%    \end{macrocode}
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+%
+% \subsection{Options}
+%
+% Allow the user to switch on display of boxes round the text.
+%    \begin{macrocode}
+%<*package>
+\newif\ifTP@showboxes
+\TP@showboxesfalse
+\DeclareOption{showboxes}{\TP@showboxestrue}
+%    \end{macrocode}
+% \dots and switch off printing of text.
+%    \begin{macrocode}
+\newif\ifTP@showtext
+\TP@showtexttrue
+\DeclareOption{noshowtext}{\TP@showtextfalse}
+%    \end{macrocode}
+%
+% User may declare that the positions given to the |\textblock|
+% environment are to be absolute on the page, rather than relative to
+% the current position.
+%    \begin{macrocode}
+\newif\ifTP@abspos
+\TP@absposfalse
+\DeclareOption{absolute}{\TP@abspostrue}
+%    \end{macrocode}
+%
+% When using the absolute-position mode, the holdbox is placed into
+% box~255 in front of the previous contents of box~255.  This is
+% normally what you want, but if the page contents have something
+% which \emph{obscures} the hold box (for example, a block of opaque
+% colour), then the positioned textboxes disappear.  In this case,
+% allow the user to specify that the holdbox is to be placed
+% \emph{after} the contents of box~255, so that it overlays it rather
+% than being overlayed.
+% \changes{v1.1c}{1999/03/22}{Added overlay option}
+%    \begin{macrocode}
+\newif\ifTP@overlay
+\TP@overlayfalse
+\DeclareOption{overlay}{\TP@overlaytrue}
+%    \end{macrocode}
+%
+% The package can produce some messages reporting on its progress.
+% Allow these to be turned off and on explicitly.  The default is
+% (currently) on.
+% \changes{v1.2}{2002/04/21}{Added verbose and quiet options}
+%    \begin{macrocode}
+\newif\ifTP@chatter
+\TP@chattertrue
+\DeclareOption{quiet}{\TP@chatterfalse}
+\DeclareOption{verbose}{\TP@chattertrue}
+%    \end{macrocode}
+%
+% That's it.  Now process the options and get on with it.
+%    \begin{macrocode}
+\ProcessOptions
+%    \end{macrocode}
+%
+% \subsection{Required Packages}
+%
+% To manipulate |\box255|, this package needs the package
+% \texttt{everyshi}, which provides the command |\EveryShipout|.
+%    \begin{macrocode}
+\ifTP@abspos
+  \RequirePackage{everyshi}
+\fi
+%    \end{macrocode}
+%
+% \subsection{The Details}
+% The box we construct will be put into the box |\TP@textbox|.
+%    \begin{macrocode}
+\newbox\TP@textbox
+%    \end{macrocode}
+% When the package is invoked in `absolute' mode, the contents of
+% |\TP@textbox| are not shipped out immediately, but instead put into the box
+% |\TP@holdbox|, which holds the boxes until the page as a whole is
+% shipped out (these additions contributed by Olaf Maibaum).
+% \changes{v1.1}{1999/02/22}{Introduce holdbox, and absolute/relative modes}
+%   \begin{macrocode}
+\ifTP@abspos
+  \newbox\TP@holdbox
+  \setbox\TP@holdbox\vbox to 0mm{}
+\fi
+%    \end{macrocode}
+% All the dimensions (except the optional argument of the textblock
+% environment) are in terms of the modules |\TPHorizModule| and
+% |\TPVertModule|.
+% \changes{v1.1}{1999/02/22}{Distinguish horizontal and vertical modules}
+%    \begin{macrocode}
+\newdimen\TPHorizModule
+\newdimen\TPVertModule
+%    \end{macrocode}
+%
+% \begin{macro}{\TPGrid}
+% Rather than declare the modules to be specific sizes, they can be
+% declared to be proportions of the paper size.  The command
+% |\TPGrid{16}{10}| would declare the horizontal module to be a
+% sixteenth of the paper size, and the vertical one to be a tenth of
+% the paper height.  Set the textblockorigin if the optional arguments
+% were provided.
+% \changes{v1.1c}{1999/03/09}{Add optional argument to TPGrid}
+%    \begin{macrocode}
+\def\TPGrid{%
+  \@ifnextchar[{\@tempswatrue\TP@Grid}{\@tempswafalse\TP@Grid[0pt,0pt]}}
+\def\TP@Grid[#1,#2]#3#4{
+  \setlength{\@tempdima}{#1}
+  \multiply\@tempdima by 2
+  \TPHorizModule=\paperwidth
+  \advance\TPHorizModule by -\@tempdima
+  \divide\TPHorizModule by #3
+  \setlength{\@tempdima}{#2}
+  \multiply\@tempdima by 2
+  \TPVertModule=\paperheight
+  \advance\TPVertModule by -\@tempdima
+  \divide\TPVertModule by #4
+  \ifTP@chatter
+    \typeout{Grid set #3 x #4 = \the\TPHorizModule\space x \the\TPVertModule}%
+  \fi
+  \ifTP@abspos\if@tempswa \textblockorigin{#1}{#2}\fi\fi
+}
+%    \end{macrocode}
+% \end{macro}
+% And use this to initialise initialise the modules to a suitable
+% default -- one sixteenth of the paper width and height.
+%    \begin{macrocode}
+\TPGrid{16}{16}
+%    \end{macrocode}
+%
+% The rules round the boxes are of width |\TPboxrulesize|, and the
+% label text within them is |\normalsize|.
+%    \begin{macrocode}
+\newdimen\TPboxrulesize
+\setlength{\TPboxrulesize}{0.4pt}
+\def\showtextsize{\normalsize}
+%    \end{macrocode}
+%
+% \begin{macro}{\textblockorigin}
+% If we're producing a single page of text, it can be convenient to
+% set an origin.  This command may only be used in absolute mode.
+%
+% First, we need two dimensions, to hold the position of the origin.
+% These are relative to the top-left corner of the page, so we need to
+% shift them by (1in,1in) to make them relative to the \TeX\ origin.
+%    \begin{macrocode}
+\ifTP@abspos
+  \newdimen\TP@ox
+  \newdimen\TP@oy
+\fi
+%    \end{macrocode}
+% The |\textblockorigin| command sets the origin of the page.  It may
+% only be called if the package was loaded with the \Lopt{absolute}
+% option, so output an error message if that's not the case.
+%    \begin{macrocode}
+\def\textblockorigin#1#2{%
+\ifTP@abspos
+  \TP@ox=-1in    \addtolength\TP@ox{#1}%\advance\TP@ox by #1
+  \TP@oy=-1in    \addtolength\TP@oy{#2}%\advance\TP@oy by #2
+  \ifTP@chatter\typeout{TextBlockOrigin set to #1 x #2}\fi
+\else
+  \PackageError{textpos}
+    {The \protect\textblockorigin\space command\MessageBreak
+     may only be used if the package was given\MessageBreak
+     the`absolute' option when it was invoked}
+    {If you want to use the \protect\textblockorigin\space command, then
+       \MessageBreak
+     invoke the package with the syntax\MessageBreak
+     \protect\usepackage[absolute]{textpos}}
+\fi
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\textblocklabel}
+% When we're only displaying rules boxes, instead of the text contents
+% of the blocks, it's useful to be able to identify which block is
+% which.  The contents of |\textblocklabel| are ignored except when
+% the \Lopt{noshowtext} option has been used.
+%    \begin{macrocode}
+\def\textblocklabel#1{\gdef\TP@textblocklabel{#1}}
+% (should I use \@bsphack...\@esphack for this?)
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\textblockcolour}
+% \changes{v1.3}{2003/06/25}{Add textblockcolour}
+% \changes{v1.3a}{2003/06/25}{Fix textblockcolour so it works when {color} not loaded}
+%    \begin{macrocode}
+\def\textblockcolour#1{%
+  \@ifundefined{color}%
+    {\gdef\TP@blockcolour{}}% ignore argument, switch off colour blocking below
+    {%
+      \def\@tempa{#1}
+      \gdef\TP@blockcolour{#1}
+      \ifx\TP@defaultblockcolour\@undefined
+        \gdef\TP@defaultblockcolour{#1}
+      \fi
+    }}
+\def\TP@blockcolour{}           % safe initial default
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\textblockcolor}
+% Add a synonym for those who follow Webster's half-hearted spelling reforms.
+%    \begin{macrocode}
+\let\textblockcolor\textblockcolour
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\tekstblokkulur}
+% \dots and one for the hard-core reformers, too.
+%    \begin{macrocode}
+\let\tekstblokkulur\textblockcolour
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\textblock}
+% Now define the start of the textblock environment.  Read the first
+% argument, and save it for the moment as |\@tempdima|, then check
+% that we're in vertical mode (positionings will probably  go
+% skee-whiff otherwise), and warn if we're not.  Then call
+% |\TP@textblock| to read the remaining arguments and start off the
+% |\vbox| the body text will be set in.
+% \changes{v1.1}{1999/02/22}{Add par here, to put us back into vertical mode}
+%    \begin{macrocode}
+\def\textblock#1{%
+  \@tempdima=#1\TPHorizModule
+  \ifvmode\else    
+    \PackageWarning{textpos}{environment textblock not in vertical mode.
+      \MessageBreak
+      Environment textblock should not have any text\MessageBreak
+      or printable material appearing before it.\MessageBreak 
+      Alignment may work out wrongly.}%
+    \par % force us back into vertical mode
+  \fi
+  \@ifnextchar[{\TP@textblock}{\TP@textblock[0,0]}%] bracematch
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\textblock*}
+% |\begin{textblock*}| is a variant of |\begin{textblock}| which takes 
+% absolute values for its arguments.  It uses |\setlength| throughout, 
+% and is therefore compatible with the \pstyle{calc} package.
+% \changes{1.2a}{2002/04/28}{Added textblock* env}
+%    \begin{macrocode}
+\def\TP@textblockstar#1{%
+  \setlength{\@tempdima}{#1}
+  \ifvmode\else    
+    \PackageWarning{textpos}{environment textblock* not in vertical mode.
+      \MessageBreak
+      Environment textblock* should not have any text\MessageBreak
+      or printable material appearing before it.\MessageBreak 
+      Alignment may work out wrongly.}%
+    \par % force us back into vertical mode
+  \fi
+  \@ifnextchar[{\TP@textblock}{\TP@textblock[0,0]}%] bracematch
+}
+\expandafter\let\csname textblock*\endcsname\TP@textblockstar
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\TP@textblock}
+% Command |\TP@textblock| saves all its arguments in a token list, for
+% use in |\TP@endtextblock| later, then it starts a vbox.
+%    \begin{macrocode}
+\newtoks\TP@tbargs
+\def\TP@textblock[#1,#2](#3,#4){%
+  \TP@tbargs={{#1}{#2}{#3}{#4}}%
+  \setbox\TP@textbox=\vbox\bgroup
+%    \end{macrocode}
+% If we're showing boxes, then draw a rule here
+%    \begin{macrocode}
+    \ifTP@showboxes
+      \hrule height0pt depth \TPboxrulesize 
+      \vskip-\TPboxrulesize
+    \fi
+%    \end{macrocode}
+% Set the |\hsize| to the temporary dimension set in |\textblock|
+% above, and set the other \LaTeX{} parameters to match.
+%    \begin{macrocode}
+    \hsize=\@tempdima
+    \textwidth\hsize \columnwidth\hsize \linewidth\hsize
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\endtextblock}
+% \begin{macro}{\endtextblock*} 
+% We have two slight variants of the end-block code, depending on
+% whether we're in a |{textblock}| or a |{textblock*}| environment.
+% The |\if@tempswa| set here is tested below, in |\TP@endtextblock|.
+% \changes{1.2a}{2002/04/28}{Added commonendtextblock, and starred variant}
+%    \begin{macrocode}
+\def\endtextblock{\global\@tempswatrue\TP@commonendtextblock}
+\@namedef{endtextblock*}{\global\@tempswafalse\TP@commonendtextblock}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\TP@commonendtextblock}
+% At the end of the environment, draw the matching horizontal rule
+% (if we're showing boxes),
+% and finish off the vbox begun in |\TP@textblock|.  Then call
+% |\TP@endtextblock| with the arguments we saved in the token register
+% in |\TP@tbargs|.
+%    \begin{macrocode}
+\def\TP@commonendtextblock{%
+  \ifTP@showboxes 
+    \vskip-\TPboxrulesize
+    \hrule depth 0pt height \TPboxrulesize
+  \fi
+  \egroup
+%    \end{macrocode}
+%
+% \TeX\ does not call the output routine if there is nothing on the
+% page.  To deal with this situation, put a zero-size box on the page
+% just here, at the end of the \texttt{textblock} environment: the
+% page is no longer empty, so the output routine must be called at
+% some point.
+%
+% An alternative approach to this is to set a switch true
+% whenever anything is put into the holdbox, and clear it when that
+% box is shipped out.  I could add a test for this at the end of the document,
+% using |\AtEndDocument|, and if the switch is true, shipout the
+% holdbox.  This solution is attractive because it deals more-or-less
+% directly with the problem.  However, messing with |\AtEndDocument|
+% brings us too close for comfort to the swamp of \LaTeX's internals,
+% and means we'd have to worry about side-effects, interactions with
+% other packages, timings, and we'd sink.  This solution is hacky but,
+% paradoxically, more robust than the `correct' solution
+% (thanks to Bjoern Pedersen for diagnosing this).
+% \changes{v1.1a}{1999/03/05}{Added the vbox to ensure some output on page}
+% \changes{v1.1c}{1999/03/22}{Added a nointerlineskip to avoid spacing bug}
+%
+% The order is important here, as we need to avoid causing the
+% insertion of more space in the case where this \texttt{textblock} is
+% between paragraphs of text.  Save the |\prevdepth|, then set it to
+% $-1000pt$, suppressing interline glue; then add the zero-size vbox;
+% then restore |\prevdepth| to what it was before.  See the discussion
+% of interline glue (ie, |\baselineskip| and |\prevdepth|) in
+% Chapter~12 (p.~80) of the \TeX book (thanks to Peter M\"unster
+% \texttt{<peter@univ-rennes1.fr>} for spotting that I'd got this
+% wrong in the previous version).
+% \changes{v1.1e}{2001/04/29}{Replace randomly-placed nointerline skip with prevdepth acrobatics, to avoid spacing misfeatures}
+%    \begin{macrocode}
+  \@tempdimb=\prevdepth
+  \prevdepth=-1000pt  % \nointerlineskip
+  \vbox to 0pt{\hbox to 0pt{}}%
+  \prevdepth=\@tempdimb
+%    \end{macrocode}
+% Finally, call |\TP@endtextblock| to do the work of putting the text
+% on the page, directly or indirectly.
+%    \begin{macrocode}
+  \expandafter\TP@endtextblock\the\TP@tbargs
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\TP@endtextblock}
+% This is where most of the calculations are. Set temporary dimensions
+% a and b to be the coordinates (again, in units of the modules), and
+% then adjust them by subtracting the position of the `reference point'
+% given by parameters~1 and~2.  These dimensions are pure numbers,
+% fractions of the width and height, respectively, of the text block.
+% Parameters~3 and~4 indicate where the reference point will be
+% positioned.  In the unstarred case (|\if@tempswa| true), these are
+% pure numbers, indicating dimensions in units of the |\TPHorizModule| 
+% and |\TPVertModule| respectively; in the starred case (|\if@tempswa| 
+% false), they're dimensions.
+%
+% That is, position the box |\TP@textbox|, which was build up between
+% |\TP@textblock| and |\endtextblock|, at (x,y)=|(#3,#4)|.  
+% The point that is so positioned is at |(#1\wd,#2\ht)| of
+% |\TP@textbox|, so that |(#1,#2)| =(0,0) means top left.
+%
+% If we're in the absolute-position mode, then we need to make further
+% adjustments to these dimensions.
+%    \begin{macrocode}
+\def\TP@endtextblock#1#2#3#4{%
+  \if@tempswa % modular/unstarred endtextblock
+    \@tempdima=#3\TPHorizModule
+    \@tempdimb=#4\TPVertModule  
+  \else % absolute/starred endtextblock
+    \setlength{\@tempdima}{#3}
+    \setlength{\@tempdimb}{#4}
+  \fi
+  \@tempdimc=-#1\wd\TP@textbox
+  \advance\@tempdima\@tempdimc
+  \@tempdimc=-#2\ht\TP@textbox
+  \advance\@tempdimb\@tempdimc
+  \ifTP@abspos
+    \advance\@tempdima by \TP@ox
+    \advance\@tempdimb by \TP@oy
+  \fi
+%    \end{macrocode}
+% Then create an hbox inside a vbox, both of size 0pt, in each case
+% with the contents prefixed by a skip of the appropriate size, and
+% suffixed by |\hss| or |\vss| respectively.  Put the result into the
+% temporary box~0
+% \changes{v1.3}{2003/06/25}{Add colouring of textblocks}
+%    \begin{macrocode}
+  \setbox0=\vbox to 0pt{\vskip\@tempdimb
+    \hbox to 0pt{\hskip\@tempdima
+    \ifx\TP@blockcolour\@empty \else
+      {% defaults for TP@blockcolour mean we should never get here if
+       % the {color} package is not loaded 
+        \color{\TP@blockcolour}%
+        \color@block{\wd\TP@textbox}{\ht\TP@textbox}{\dp\TP@textbox}%
+      }%
+    \fi
+    \ifx\TP@defaultblockcolour\@undefined \else
+      \global\let\TP@blockcolour\TP@defaultblockcolour
+    \fi
+    \ifTP@showboxes \vrule width \TPboxrulesize \hskip -\TPboxrulesize \fi
+    \ifTP@showtext
+      \box\TP@textbox
+    \else
+      \vbox to\ht\TP@textbox{%
+        \ifTP@showboxes 
+          \hrule depth 0pt height \TPboxrulesize \vskip-\TPboxrulesize
+        \fi
+        \vskip\smallskipamount
+        \hbox to\wd\TP@textbox{%
+          \ifx\TP@textblocklabel\undefined
+            \hbox{}%
+          \else
+            \hskip\smallskipamount
+            \fbox{\showtextsize \TP@textblocklabel}%
+            \global\let\TP@textblocklabel\undefined
+          \fi
+          \hss
+        }%
+        \vss
+        \ifTP@showboxes 
+          \vskip -\TPboxrulesize
+          \hrule depth 0pt height \TPboxrulesize
+        \fi
+      }%
+    \fi
+    \ifTP@showboxes \hskip -\TPboxrulesize \vrule width \TPboxrulesize \fi
+    \hss}%
+  \vss
+  }%  end of box0
+%    \end{macrocode}
+% Now switch behaviour depending on whether or not we're in the
+% absolute-position mode.  If we are, then add the newly-constructed
+% box 0 to (the beginning of) the holdbox.
+%    \begin{macrocode}
+  \ifTP@abspos
+    \global\setbox\TP@holdbox\vbox{%
+      \box0
+      \unvbox\TP@holdbox
+    }%
+%    \end{macrocode}
+% Else, place the box on the page immediately, adding
+% |\nointerlineskip| to suppress interbox space, so that we can 
+% list several textblock environments one after another, and have them
+% all offset from the same point
+%    \begin{macrocode}
+  \else
+    \box0
+    \nointerlineskip
+  \fi
+  }%
+%    \end{macrocode}
+% \end{macro}
+%
+% Finally, and only if we are in the absolute-position mode, set up
+% the output routine with |\EveryShipout|, and set the textblockorigin
+% to the (default) upper-left corner of the paper.  Respect the
+% \Lopt{overlay} option by putting the |\TP@holdbox| contents
+% \emph{after} the |\@cclv| contents, putting the latter into a size-0
+% box (could this cause a problem with spacing?  I don't think so, at
+% this stage).
+%
+% Box 255 should be either a vbox or void (see \TeX Book pp.~125
+% or~253), but if it is an hbox, because some package has misbehaved,
+% then we ought to try not to simply collapse.  Work round this by
+% testing explicitly whether box~255 is a vbox or not.
+% \changes{v1.2b}{2002/07/01}{Defend against box 255 not being a vbox}
+%    \begin{macrocode}
+\ifTP@abspos
+  \ifTP@overlay
+    \EveryShipout{%
+      \global\setbox\@cclv\vbox{%
+        \vbox to 0pt{\ifvbox\@cclv \unvbox\@cclv \else \box\@cclv \fi \vss}%
+        \unvbox\TP@holdbox
+      }%
+      \global\setbox\TP@holdbox\vbox to 0mm{}%
+    }%
+  \else
+    \EveryShipout{%
+      \global\setbox\@cclv\vbox{%
+        \unvbox\TP@holdbox
+        \ifvbox\@cclv \unvbox\@cclv \else \box\@cclv \fi
+      }%
+      \global\setbox\TP@holdbox\vbox to 0mm{}%
+    }%
+  \fi
+  \textblockorigin{0pt}{0pt}%
+\fi
+%    \end{macrocode}
+% Done!
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \Finale
+%
+\endinput
