@@ -1,69 +1,26 @@
-# W&M CBL Matlab Examples
+# Computational Biology Lab @ William & Mary
 
-This is a set of example Matlab scripts for the Computational Biology Laboratory at William & Mary.
+This repository contains materials for research students in the [Computational Biology Laboratory](https://wmcbl.wordpress.com) at [William & Mary](https://www.wm.edu). Anyone interested in the mathematical aspects of life sciences is welcome to use and contribute to these materials.
 
 ## Decription 
 
-# Project Title
-
-A simple overview of use/purpose.
-
-## Description
-
-An in-depth paragraph about your project and overview of use.
-
-## Getting Started
-
-### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Most of the contents of this repository are topically organized **examples**, **helps**, or **notes**. For example, the directory/folder titled `LaTeX` includes example `.tex` files and other resources to help you learn how to typeset publication-quality mathematical equations. The folders `Nonlinear Dynamics` and `Linear Algebra` contain links to recommended videos, Matlab scripts, and Sagemath Jupyter Notebooks to help you explore these mathematical topics.
 
 ## Author
 
-Greg Conradi Smith
-Professor, Department of Applied Science
-Neuroscience Program Faculty Affiliate
-Computational and Applied Mathematics and Statistics (CAMS) Faculty Affiliate
-William & Mary
+[Greg Conradi Smith](https://gregconradismith.wordpress.com)\
+Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/)\
+[Neuroscience](https://www.wm.edu/as/neuroscience/) and [CAMS Mathematical Biology](https://www.wm.edu/as/cams/) faculty affilate\
+[William & Mary](https://www.wm.edu)
 
-For more information see the following web pages:
-[gdCS](https://gregconradismith.wordpress.com)
-[W&M CBL](https://wmcbl.wordpress.com) 
+### Contributors 
 
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+Contributions from current and former students are acknowledged and can be found in the directories/folders that bear their names. 
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+These materials are released under the [MIT License](https://en.wikipedia.org/wiki/MIT_License) - see the LICENSE.md file for details.
 
-## Acknowledgments
 
 
 
