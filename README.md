@@ -13,7 +13,7 @@ Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/
 [Neuroscience](https://www.wm.edu/as/neuroscience/) and [CAMS Mathematical Biology](https://www.wm.edu/as/cams/) faculty affilate\
 [William & Mary](https://www.wm.edu)
 
-## Contributors 
+### Contributors 
 
 Contributions from current and former students are acknowledged and can be found in the directories/folders that bear their names. 
 
