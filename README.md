@@ -13,6 +13,10 @@ Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/
 [Neuroscience](https://www.wm.edu/as/neuroscience/) and [CAMS Mathematical Biology](https://www.wm.edu/as/cams/) faculty affilate\
 [William & Mary](https://www.wm.edu)
 
+## Contributors 
+
+Contributions from current and former students are acknowledged in directories/folders that bear their names. 
+
 ## License
 
 These materials are released under the [MIT License](https://en.wikipedia.org/wiki/MIT_License) - see the LICENSE.md file for details.
