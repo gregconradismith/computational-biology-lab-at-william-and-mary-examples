@@ -1,8 +1,0 @@
-
-Here's what you do to compile and view example.tex 
-
-pdflatex example
-
-xpdf example.pdf
-
-

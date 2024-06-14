@@ -1,5 +1,0 @@
-#!/bin/bash 
-
-latex poster.tex
-xdvi -s 20 poster.dvi 
-
