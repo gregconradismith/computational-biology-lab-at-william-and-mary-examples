@@ -1,0 +1,41 @@
+
+\exercise[(heat equation with discontinuous data)]{9.3}
+
+\begin{enumerate}
+
+\item Modify \verb+heat_CN.m+ to solve the heat equation for
+$-1\leq x \leq 1$ with step function  initial data
+\begin{equation} \label{9.3a}
+u(x,0) = \begin{choices}  1 \when x<0\\  0 \when x\geq 0. \end{choices}
+\end{equation} 
+With appropriate Dirichlet boundary conditions, the exact solution is
+\begin{equation} \label{9.3b}
+u(x,t) = \half \, \text{erfc} \left(x / \sqrt{4 \kappa t}\right),
+\end{equation} 
+where erfc is the complementary error function
+\[
+\text{erfc}(x) = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-z^2}\,dz.
+\]
+
+\begin{enumerate}
+\item
+Test this routine $m=39$ and $k = 4h$.  Note that there is an initial rapid
+transient decay of the high wave numbers that is not captured well with this
+size time step.
+
+\item
+How small do you need to take the time step to get reasonable results?
+For a suitably small time step, explain why you get much better results by
+using $m=38$ than $m=39$.  What is the observed order of accuracy as $k\goto
+0$ when $k = \alpha h$ with $\alpha$ suitably small and $m$ even?
+
+\end{enumerate}
+
+\item Modify \verb+heat_trbdf2.m+ (see Exercise~9.2)
+to solve the heat equation for
+$-1\leq x \leq 1$ with step function  initial data as above.
+Test this routine using $k=4h$ and estimate the order of accuracy as $k\goto
+0$ with $m$ even.  Why does the TR-BDF2 method work better than
+Crank-Nicolson?
+
+\end{enumerate} 

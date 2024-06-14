@@ -1,0 +1,61 @@
+
+\exercise[($R(z)$ for Runge-Kutta methods)]{5.18}
+
+Any $r$-stage Runge-Kutta method applied to $u'=\lambda u$ will give an
+expression of the form
+\[
+U^{n+1} = R(z)U^n
+\]
+where $z=\lambda k$ and $R(z)$ is a rational function, a ratio of
+polynomials in $z$ each having degree at most $r$.  For an explicit method
+$R(z)$ will simply be a polynomial of degree $r$ and for an implicit method
+it will be a more general rational function.
+
+Since $u(t_{n+1}) = e^z u(t_n)$ for this problem, we expect that a $p$th
+order accurate method will give a function $R(z)$ satisfying
+\eqlex{a}
+\qquad  R(z) = e^z + \bigo(z^{p+1}) \quad\text{as}~z \goto 0,
+\end{equation}
+as discussed in the Remark on page 129.  The rational function $R(z)$ also
+plays a role in stability analysis as discussed in Section 7.6.2.
+
+One can determine the value of $p$ in \eqnex{a}. 
+by expanding $e^z$ in a Taylor
+series about $z=0$, writing the $\bigo(z^{p+1})$ term as
+\[
+Cz^{p+1} + \bigo(z^{p+2}),
+\]
+multiplying through by the denominator of $R(z)$, and then collecting terms.
+For example, for the trapezoidal method of Exercise 5.17,
+\[
+\frac{1+z/2}{1-z/2} = \left(1+z+\frac 1 2 z^2 + \frac 1 6 z^3 + \cdots\right)
++Cz^{p+1} + \bigo(z^{p+2})
+\]
+gives
+\begin{equation*}
+\begin{split}
+1+\half z &= \left(1-\half z\right)\left( 1+z+\half z^2 + \frac 1 6 z^3 +
+\cdots\right) + Cz^{p+1} + \bigo(z^{p+2})\\
+&= 1 + \half z - \frac{1}{12} z^3 + \cdots + Cz^{p+1}  + \bigo(z^{p+2})
+\end{split}
+\end{equation*}
+and so
+\[
+Cz^{p+1} = \frac{1}{12} z^3 + \cdots,
+\]
+from which we conclude that $p=2$.
+
+\begin{enumerate}
+\item Let 
+\[
+R(z) = \frac{1 + \frac 1 3 z}{1 - \frac 2 3 z + \frac 1 6 z^2}.
+\]
+Determine $p$ for this rational function as an approximation to $e^z$.
+
+\item Determine $R(z)$ and $p$ for the backward Euler method.
+
+\item Determine  $R(z)$ and $p$ for the TR-BDF2 method (5.36).
+\end{enumerate}
+
+
+

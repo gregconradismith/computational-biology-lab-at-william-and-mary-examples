@@ -1,0 +1,28 @@
+
+
+\exercise[(computing with leapfrog)]{10.9}
+
+The m-file \verb+advection_LW_pbc.m+ implements the Lax-Wendroff method for
+the advection equation on $0\leq x\leq 1$ with periodic boundary conditions.
+
+\begin{enumerate}
+\item Modify the m-file to create a version \verb+advection_lf_pbc.m+
+implementing the leapfrog method and verify that this is second order accurate.
+Note that you will have to specify two levels of initial data.  For the
+convergence test set $U^1_j = u(x_j,k)$, the true solution at time $k$.
+
+\item Modify \verb+advection_lf_pbc.m+ so that the initial data consists of
+a wave packet
+\eqlex{a}
+\eta(x) = \exp(-\beta(x-0.5)^2) \sin(\xi x)
+\end{equation} 
+Work out the true solution $u(x,t)$ for this data.
+Using $\beta = 100$, $\xi=80$ and $U^1_j = u(x_j,k)$, test that your code
+still exhibits second order accuracy for $k$ and $h$ sufficiently small.
+
+\item Using $\beta = 100$, $\xi=150$ and $U^1_j = u(x_j,k)$, estimate the
+group velocity of the wave packet computed with leapfrog using $m=199$ and
+$k = 0.4h$.  How well does this compare with the  value (10.52) predicted by
+the modified equation?
+
+\end{enumerate} 

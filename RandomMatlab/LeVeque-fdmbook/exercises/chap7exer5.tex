@@ -1,0 +1,68 @@
+
+\exercise[(fixed point iteration of implicit methods)]{7.5}
+
+Let $g(x)=0$ represent a system of $s$ nonlinear equations in $s$ unknowns,
+so $x\in\reals^s$ and $g: \reals^s \goto \reals^s$.  A vector $\bar
+x\in\reals^s$ is a {\em fixed point} of $g(x)$ if 
+\eqlex{a}
+\bar x = g(\bar x).
+\end{equation}
+One way to attempt to compute $\bar x$ is with {\em fixed point iteration}:
+from some starting guess $x^0$, compute
+\eqlex{b}
+x^{j+1} = g(x^j)
+\end{equation}
+for $j=0,~1,~\ldots$.
+
+\begin{enumerate}
+\item Show that if there exists a norm $\|\cdot\|$ such that $g(x)$ is
+Lipschitz continuous with constant $L<1$ in a neighborhood of $\bar x$, then
+fixed point iteration converges from any starting value in this
+neighborhood.
+{\bf Hint:} Subtract equation \eqnex{a} from \eqnex{b}.
+
+\item Suppose $g(x)$ is differentiable and let $g'(x)$ be the $s\times s$
+Jacobian matrix.  Show that if the condition of part (a) holds then
+$\rho(g'(\bar x)) < 1$, where $\rho(A)$ denotes the spectral radius of a
+matrix.
+
+\item Consider a predictor-corrector method (see Section 5.9.4) consisting
+of forward Euler as the predictor and backward Euler as the corrector, and
+suppose we make $N$ correction iterations, i.e., we set
+\begin{tabbing}
+xxxxxxxxx\=xxxx\=\kill\\
+\>$\hat U^0 = U^n + kf(U^n)$\\
+\>for $j = 0,~1,~\ldots,~N-1$\\
+\>\>$\hat U^{j+1} = U^n + kf(\hat U^j)$\\
+\>\>end\\
+\>$U^{n+1} = \hat U^N$.
+\end{tabbing}
+Note that this can be interpreted as a fixed point iteration for solving the
+nonlinear equation
+\[
+\unp = U^n + kf(\unp)
+\]
+of the backward Euler method.  Since the backward Euler method is implicit
+and has a stability region that includes the entire left half plane, as
+shown in Figure 7.1(b), one might hope that this predictor-corrector method
+also has a large stability region.
+
+Plot the stability region $S_N$
+of this method for $N=2,~5,~10,~20$ (perhaps using
+{\tt plotS.m} from the webpage) and observe that in fact the stability
+region does not grow much in size.
+
+\item Using the result of part (b), show that the fixed point iteration
+being used in the predictor-corrector method of part (c) can only be
+expected to converge if $|k\lambda| < 1$ for all eigenvalues $\lambda$ of the
+Jacobian matrix $f'(u)$.  
+
+\item Based on the result of part (d) and the shape of the stability region
+of Backward Euler, what do you expect the stability region $S_N$ of part (c)
+to converge to as $N\goto\infty$?
+
+\end{enumerate}
+
+
+
+

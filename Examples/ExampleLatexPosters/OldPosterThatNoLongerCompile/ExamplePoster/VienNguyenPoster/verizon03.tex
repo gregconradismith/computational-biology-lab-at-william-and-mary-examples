@@ -1,0 +1,392 @@
+% Template file for an a0 landscape poster.
+% Written by Graeme, 2001-03 based on Norman's original microlensing
+% poster.
+%
+% See discussion and documentation at
+% <http://www.astro.gla.ac.uk/users/norman/docs/posters/> 
+%
+% $Id: poster-template-landscape.tex,v 1.2 2002/12/03 11:25:46 norman Exp $
+
+
+% Default mode is landscape, which is what we want, however dvips and
+% a0poster do not quite do the right thing, so we end up with text in
+% landscape style (wide and short) down a portrait page (narrow and
+% long). Printing this onto the a0 printer chops the right hand edge.
+% However, 'psnup' can save the day, reorienting the text so that the
+% poster prints lengthways down an a0 portrait bounding box.
+%
+% 'psnup -w85cm -h119cm -f poster_from_dvips.ps poster_in_landscape.ps'
+
+\documentclass[a0]{a0poster}
+% You might find the 'draft' option to a0 poster useful if you have
+% lots of graphics, because they can take some time to process and
+% display. (\documentclass[a0,draft]{a0poster})
+
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+
+% The textpos package is necessary to position textblocks at arbitary 
+% places on the page.
+\usepackage[absolute]{textpos}
+
+% Graphics to include graphics. Times is nice on posters, but you
+% might want to switch it off and go for CMR fonts.
+% \usepackage{graphics,wrapfig,times}
+
+\input{math_def}
+\input{ca_def}
+\usepackage{epsfig}
+
+% These colours are tried and tested for titles and headers. Don't
+% over use color!
+\usepackage{color}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
+\definecolor{Red}{rgb}{0.9,0.0,0.1}
+
+% see documentation for a0poster class for the size options here
+\let\Textsize\normalsize
+\def\Head#1{\noindent \hbox to \hsize{\hfil{\LARGE\color{DarkBlue} #1}}\bigskip}
+\def\LHead#1{\noindent{\LARGE\color{DarkBlue} #1}\bigskip}
+\def\CHead#1{\begin{center} {\LARGE\color{DarkBlue} #1} \end{center} \bigskip}
+\def\Subhead#1{\noindent{\large\color{DarkBlue} #1}\bigskip}
+
+%\def\Title#1{\noindent{\VeryHuge\color{Red} #1}}
+\def\Title#1{\begin{center} {\VeryHuge\color{Red} #1} \end{center} }
+
+
+% Set up the grid
+%
+% Note that [40mm,40mm] is the margin round the edge of the page --
+% it is _not_ the grid size. That is always defined as 
+% PAGE_WIDTH/HGRID and PAGE_HEIGHT/VGRID. In this case we use
+% 23 x 12. This gives us three columns of width 7 boxes, with a gap of
+% width 1 in between them. 12 vertical boxes is a good number to work
+% with.
+%
+% Note however that texblocks can be positioned fractionally as well,
+% so really any convenient grid size can be used.
+%
+\TPGrid[40mm,40mm]{23}{12}      % 3 cols of width 7, plus 2 gaps width 1
+
+\parindent=0pt
+\parskip=0.5\baselineskip
+
+%-----------------------------------------------------------------%
+
+\begin{document}
+
+\begin{textblock}{23}(0,0)
+
+%\Title{ Modeling of Intracellular Calcium Signaling \\[0.1in] that Accounts for Domain \Ca\ Inactivation }
+\Title{ Equilibrium Open Probability Calculations of \\[0.1in] Instantaneously-Coupled Intracellular Calcium Channel Models } 
+
+\end{textblock}
+
+\begin{textblock}{23}(0,1.1)
+\CHead{Vien D. Nguyen and Gregory D. Smith\\
+Department of Applied Science, College of William and Mary, Williamsburg VA\\
+({\tt vdnguy@wm.edu and greg@as.wm.edu})}
+\end{textblock}
+
+
+%-----------------------------------------------------------------%
+
+
+% Uni logo in the top right corner. A&A in the bottom left. Gives a
+% good visual balance, but you may want to change this depending upon
+% the graphics that are in your poster.
+%\includegraphics{/usr/local/share/images/AandA.epsf}
+
+\begin{textblock}{7}(0,2)
+\hrule\medskip
+\CHead{Introduction}
+
+The endoplasmic reticulum (ER), a membrane-bound compartment within cells,
+is an intracellular \Ca\ store.  
+Within the cytosol, a normal [\Ca]\ reaches 0.1 \UM,\ while inside the ER the [\Ca]\ is in the range
+of 10--1000 \UM.  
+Transient increases of [\Ca]\ in the cytosol (approx.\ 1 \UM) is an important intracellular signal. 
+Intracellular \Ca\ channels such as the inositol 1,4,5-trisphosphate receptor (\Ipr) that open and close 
+in a \Ca\-regulated fashion are often responsible for these intracellular [\Ca] increases. When these ion channels are 
+open or `activated', \Ca\ from inside the ER diffuses through the ER membrane into the cytosol and increases the 
+cytosolic [\Ca]. Here I derive the equilibrium open probability for two minimal intracellular \Ca\ channel models.  
+In the first model, \Ca\ binds the \Ipr\ and leads to activation; in the second model, a slower process of 
+\Ca\ inactivation is also included.  When multiple channels of either type are modeled in a manner that accounts for 
+the diffusion of \Ca\ between channels, the equilibrium open probability of this \Ca\ channel cluster or `\Ca\ release site' 
+as a collective entity is found to depend on the distance between the channels, the background [\Ca], the `domain' [\Ca] 
+when a channel is open, and the details of the single-channel model.
+
+
+%\begin{center}
+%\includegraphics{FIG08_02.eps}
+%\\ Reproduced from Jafri and Keizer, 1994.
+%\end{center}
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+
+\begin{textblock}{7}(0,5.08)
+\CHead{Calculating P$_o^{eq}$ for the Two-State Model}
+
+\begin{minipage}{2in} 
+\ \\
+\includegraphics{twostate_transition.ps}
+\end{minipage}
+\begin{minipage}{1in}
+\ \\
+\end{minipage}
+\begin{minipage}{10in} 
+The two-state \Ipr\ \Ca\ channel model accounts for \Ca\ activation and includes two rate constants ($k^-$ and $k^+$).
+The latter rate constant is bimolecular and the rate of activation is given by $k^+c_\infty$ where $c_\infty$ is 
+the background or `bulk' [\Ca]. 
+\end{minipage}
+\\
+
+Equilibrium open probability for the two-state \Ipr\ model:
+\[0 = \frac {dP_o} {dt} = k^+c_\infty P_c - k^-P_o\]
+\[0 = \frac {dP_c} {dt} = k^-P_c - k^+c_\infty P_o\]
+\[P_c = 1 - P_o \]
+\[P_o = \frac {k^+ c_\infty} {k^+(c_\infty + k^-)} = 
+\frac {c_\infty} {c_\infty+K} \] 
+where $K = k^-/k^+$.
+
+\begin{center}
+\begin{minipage}{4in} 
+%\includegraphics[scale=0.5]{summerfig1.eps} 
+\includegraphics[scale=0.6]{single_twostate.eps} 
+\end{minipage}
+\begin{minipage}{1in} 
+\ \\ 
+\end{minipage}
+\begin{minipage}{7in} 
+As background \Ca\ concentration increases, the closed probability 
+goes to zero and the open probability increases. In this simulation, $k^+$ = 0.1 $\uM^{-1}$$ sec^{-1}$ and $k^-$ = 0.1 $sec^{-1}$.
+
+\end{minipage}
+\end{center}
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(0,10)
+\CHead{The Four-State Model Includes Calcium Inactivation}
+\begin{center}
+\begin{minipage}{2.5in}
+\includegraphics{fourstate_transition.ps}
+\end{minipage}
+\begin{minipage}{1in}
+\ \\
+\end{minipage}
+\begin{minipage}{7.5in}
+The four-state \Ipr\ \Ca\ channel model accounts for both \Ca\ activation and inactivation 
+and includes eight rate constants ($k^-_i$ and $k^+_i$
+where $i \in \{ A, B, C, D \}$. Notice that one of the transitions 
+out of the open state involves `domain' \Ca\ ($c_d$). 
+\end{minipage}
+\end{center}
+\medskip\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(8,2.1)
+\hrule\smallskip
+\CHead{Calculating P$_o^{eq}$ for the Four-State Model}
+
+Using ODEs similar to the two-state model, the equilibrium open probability is found to be:
+\[ P_{o}^{eq} = z_O/D \]
+where $D = z_{C1} + z_O + z_{C2} + z_{C3}$ and
+\bnea z_{C_1} &=& \kappa_b^+ \kappa_c^- \kappa_d^- + \kappa_a^- \kappa_d^-
+\kappa_c^- + \kappa_b^- \kappa_a^- \kappa_d^- + \kappa_c^+ \kappa_b^-
+\kappa_a^- \\  z_{O} &=& \kappa_d^+ \kappa_c^+ \kappa_b^- + \kappa_c^-
+\kappa_d^- \kappa_a^+ + \kappa_d^- \kappa_a^+ \kappa_b^- + \kappa_a^+
+\kappa_b^- \kappa_c^+ \\  z_{C_2} &=& \kappa_b^+ \kappa_d^+ \kappa_c^+ +
+\kappa_a^- \kappa_d^+ \kappa_c^+ + \kappa_d^- \kappa_a^+ \kappa_b^+ +
+\kappa_a^+ \kappa_b^+ \kappa_c^+ \\ z_{C_3} &=& \kappa_d^+ \kappa_b^+
+\kappa_c^- + \kappa_a^- \kappa_d^+ \kappa_c^- + \kappa_b^- \kappa_a^-
+\kappa_d^+ + \kappa_a^+ \kappa_b^+ \kappa_c^- \enea
+and $\kappa_i^+ = k_i^+c_\infty$, $\kappa_i^- = k_i^-$, and
+$\kappa_b^+ = k_b^+c_d$.
+\\
+
+\begin{minipage}{3in}
+\includegraphics[scale=0.6]{summerfig3_1.eps}
+\end{minipage}
+\begin{minipage}{2in}
+\ \\
+\end{minipage}
+\begin{minipage}{7in}
+As background \Ca\ 
+concentration increases, the equilibrium open probability of the four-state model first increases and then decreases.
+This bell-shaped curve is typical of the type 1 \Ipr. 
+Parameters follow De~Young and Keizer 1992: 
+$k_a^+$ = 20 $\uM^{-1}sec^{-1}$, $k_a^-$ = 1.6468 $sec^{-1}$, $k_b^+$ = 0.2 $\uM^{-1} sec^{-1}$, $k_b^-$ = 0.2 $sec^{-1}$, $k_c^+$ = 20 $\uM^{-1}sec^{-1}$, $k_c^-$ = 1.6468 $sec^{-1}$, $k_d^+$ = 0.2 $\uM^{-1}sec^{-1}$.  The eighth rate constant, $k_d^-$, 
+is given by a thermodynamic constraint.
+\end{minipage}
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(8,6.8)
+\CHead{Modeling Instantaneously-Coupled Channels}
+\begin{itemize}
+\item In general, for any channel model, the equilibrium open 
+probability can be found by solving: 
+\[ 
+\pi Q = 0,
+\]
+\vspace{0.1in} 
+where $\pi$\ (a vector with length given by the number of channel states) 
+is a `stationary distribution' and $Q$ is the `infinitesimal generator matrix' or  `transition matrix'
+for the channel model. 
+
+\item For example, for the two-state \Ca\ channel model, 
+\[
+Q = \left( \begin{array}{cc}
+-k^+ c_\infty & k^+ c_\infty \\
+k^- & -k^- \\
+\end{array}
+\right) 
+\]
+
+\item For multiple interacting \Ca\ channels, the equilibrium open probability can also be calculated
+by `expanding' the transition matrix, $Q$. 
+We assume fast diffusion between channels (i.e., instantaneous coupling), given by 
+\[ c_{ij} = \frac {\sigma} {2\pi D r_{ij}} e^{-r_{ij}/\lambda} \]
+where 
+$c_{ij}$ is the concentration increase above background experienced by channel
+$j$ when channel $i$ is open and 
+$r_{ij}$ is the distance between the two channels. 
+\\
+
+$\sigma$ = source amplitude of \Ca\ channel \\
+$r$ = distance between channels \\
+$D$ = diffusion constant for \Ca \\ 
+$\lambda$ = length constant for \Ca\ domain \\
+\\
+Note that $c_{ij}$ becomes smaller as $r_{ij}$ becomes larger, 
+that is, the interaction between channels is weaker when 
+the channels are farther apart.
+
+
+%where the $\diamond$\ denotes the opposite of the sum of the other entries in each row
+%so that $Qe = 0$ where $e$ is a commensurate unit vector. 
+
+\end{itemize}
+\bigskip
+\hrule
+\end{textblock}
+
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(16,2)
+\hrule\medskip
+\Head{Modeling Instantaneously-Coupled Channels (continued)}
+\begin{itemize}
+
+\item For multiple interacting \Ca\ channels, the equilibrium open probability can be calculated by `expanding' the transition matrix, $Q$.  For three 
+two-state channels, the expanded Q-matrix is  
+\\
+
+\footnotesize
+\[ 
+Q^{(3)} = \left(
+\begin{array}{cccccccc} \diamond & k^+ c_\infty & k^+ c_\infty & \cdot & k^+
+c_\infty & \cdot & \cdot & \cdot \\ k^- & \diamond & \cdot & k^+ \( c_\infty +
+c_{12} \) & \cdot & k^+ \( c_\infty + c_{13} \) & \cdot & \cdot \\ k^- & \cdot
+& \diamond & k^+ \( c_\infty + c_{21} \) & \cdot & \cdot & k^+ \( c_\infty +
+c_{23} \) & \cdot \\ \cdot & k^- & k^- & \diamond & \cdot & \cdot & \cdot & k^+
+\( c_\infty + c_{13} + c_{23} \) \\ k^- & \cdot & \cdot & \cdot & \diamond &
+k^+ \( c_\infty + c_{31} \) & k^+ \( c_\infty + c_{32} \) & \cdot \\ \cdot &
+k^- & \cdot & \cdot & k^- & \diamond & \cdot & k^+ \( c_\infty + c_{12} +
+c_{32} \) \\ \cdot & \cdot & k^- & \cdot & k^- & \cdot & \diamond & k^+ \(
+c_\infty + c_{13} + c_{23} \) \\ \cdot & \cdot & \cdot & k^- & \cdot & k^- &
+k^- & \diamond \\ \end{array} \right) 
+\label{TWOSTATEQ3}
+\] 
+\normalsize 
+\\
+\item The expanded Q matrix for three coupled four-state channels can be derived in a similar manner.  here the cluster of channels has a total of $4^3 = 256$ states (so Q$^{(3)}$ has 256x256 elements)!
+
+\end{itemize}
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(16,5.5)
+\Head{Two-state versus Four-state Multiple Channel Simulation}
+\begin{center}
+\begin{minipage}{4in}
+\includegraphics[scale=0.7]{ptotal_2state_graph.ps}	
+\end{minipage}
+\begin{minipage}{3in}
+\ \\
+\end{minipage}
+\begin{minipage}{4in}
+\includegraphics[scale=0.7]{ptotal_4state_graph_ncoop_1_kconstants.ps}	
+%\includegraphics[scale=0.6]{ptotal_4state_graph_DYK_fixedparams.ps}	
+\end{minipage}
+\end{center}
+\ \\ 
+
+The equilibrium open probability of three coupled channels arranged 
+in an equilateral triangle as a function of the distance between 
+the channels.  The left and right graph are for the two-state and four-state channel models, respectively.  Parameters as in the single channel simulation
+above.  As expected, the two-state channels activate each other on average 
+as they get close.  The four-state channels 
+can either activate or inactivate each other 
+on average, depending on their distance. 
+However, this inactivation does not appear until the channels' distance 
+is smaller than the distance between the pore and binding site of a 
+single channel (r$_{ii}$).
+\\
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+\begin{textblock}{7}(16,9.5)
+\CHead{Future Research}
+
+
+In future work we will explore if it is true in general that closely positioned 
+\Ca\ channels are unlikely to inactivate one another, even when the individual 
+channel models include \Ca-inactivation.
+
+\bigskip
+\hrule
+\end{textblock}
+
+%-----------------------------------------------------------------%
+
+\begin{textblock}{7}(16,10.7)
+\CHead{Acknowledgments}
+
+This project was supported in part by the College of William and Mary's Physics
+REU program, NSF CAREER award \#0133132, and the Thomas F. and Kate Miller
+Jeffress Memorial Trust and performed in part using computational
+facilities at the College of William and Mary enabled by grants from the NSF
+and Sun Microsystems.  Thanks to Chi-Kwong Li, Roy Mathias, and Thomas
+Milligan for helpful conversations.  Special thanks goes to Dr. Smith for
+getting this project started and helping out on this project.
+
+\bigskip
+\hrule
+\end{textblock}
+
+\end{document}

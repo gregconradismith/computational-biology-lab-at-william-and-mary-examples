@@ -1,0 +1,119 @@
+#Number of components
+10
+#correlation between component ID and component name:
+#(<id> <name>)*
+0 Highlevel_defaultnet
+1 ch1
+2 ch2
+3 ch3
+4 ch4
+5 ch5
+6 ch6
+7 ch7
+8 ch8
+9 ch9
+10 ch10
+#Number of transitions: local + synchronized
+100
+#correlation between transition ID and transition name for synchronized transitions:
+#(<id> <name>)*
+1 t1 0
+2 t2 0
+3 t3 0
+4 t4 0
+5 t5 0
+6 t6 0
+7 t7 0
+8 t8 0
+9 t9 0
+10 t10 0
+11 t11 0
+12 t12 0
+13 t13 0
+14 t14 0
+15 t15 0
+16 t16 0
+17 t17 0
+18 t18 0
+19 t19 0
+20 t20 0
+21 t21 0
+22 t22 0
+23 t23 0
+24 t24 0
+25 t25 0
+26 t26 0
+27 t27 0
+28 t28 0
+29 t29 0
+30 t30 0
+31 t31 0
+32 t32 0
+33 t33 0
+34 t34 0
+35 t35 0
+36 t36 0
+37 t37 0
+38 t38 0
+39 t39 0
+40 t40 0
+41 t41 0
+42 t42 0
+43 t43 0
+44 t44 0
+45 t45 0
+46 t46 0
+47 t47 0
+48 t48 0
+49 t49 0
+50 t50 0
+51 t51 0
+52 t52 0
+53 t53 0
+54 t54 0
+55 t55 0
+56 t56 0
+57 t57 0
+58 t58 0
+59 t59 0
+60 t60 0
+61 t61 0
+62 t62 0
+63 t63 0
+64 t64 0
+65 t65 0
+66 t66 0
+67 t67 0
+68 t68 0
+69 t69 0
+70 t70 0
+71 t71 0
+72 t72 0
+73 t73 0
+74 t74 0
+75 t75 0
+76 t76 0
+77 t77 0
+78 t78 0
+79 t79 0
+80 t80 0
+81 t81 0
+82 t82 0
+83 t83 0
+84 t84 0
+85 t85 0
+86 t86 0
+87 t87 0
+88 t88 0
+89 t89 0
+90 t90 0
+91 t91 0
+92 t92 0
+93 t93 0
+94 t94 0
+95 t95 0
+96 t96 0
+97 t97 0
+98 t98 0
+99 t99 0
+100 t100 0

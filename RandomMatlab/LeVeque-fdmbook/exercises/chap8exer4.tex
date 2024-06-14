@@ -1,0 +1,20 @@
+
+\exercise[(Implicit midpoint method)]{8.4}
+
+Consider the implicit Runge-Kutta method
+\eqlex{implmidpt}
+\begin{split}
+U^* &= U^n + \frac{k}{2} f\large(U^*, t_n + k/2\large),\\
+U^{n+1} &= U^n + k f\large(U^*, t_n + k/2\large).
+\end{split}
+\end{equation} 
+The first step is Backward Euler to determine an approximation to the value
+at the midpoint in time and the second step is the midpoint method using
+this value.
+
+\begin{enumerate}
+\item Determine the order of accuracy of this method.
+\item Determine the stability region.
+\item Is this method A-stable?  Is it L-stable?
+\end{enumerate}
+

@@ -1,0 +1,27 @@
+
+\exercise[(computing with Lax-Wendroff and upwind)]{10.8}
+
+The m-file \verb+advection_LW_pbc.m+ implements the Lax-Wendroff method for
+the advection equation on $0\leq x\leq 1$ with periodic boundary conditions.
+
+\begin{enumerate}
+\item Observe how this behaves with $m+1 = 50,~100,~200$ grid points.
+Change the final time to {\tt tfinal = 0.1} and use
+the m-files \verb+error_table.m+ and \verb+error_loglog.m+ to verify second
+order accuracy.  
+
+\item Modify the m-file to create a version \verb+advection_up_pbc.m+
+implementing the upwind method and verify that this is first order accurate.
+
+\item Keep $m$ fixed and observe what happens with \verb+advection_up_pbc.m+
+if the time step $k$ is reduced, e.g. try $k = 0.4h$, $k= 0.2h$, $k=0.1h$.
+When a convergent method is applied to
+an ODE we expect better accuracy as the time step is reduced and we can
+view the upwind method as an ODE solver applied to an MOL system.  However,
+you should observe decreased accuracy as $k\goto 0$ with $h$ fixed.  Explain
+this apparent paradox.  
+{\bf Hint:} What ODE system are we solving more accuracy?  You might also
+consider the modified equation (10.44).
+
+\end{enumerate}
+

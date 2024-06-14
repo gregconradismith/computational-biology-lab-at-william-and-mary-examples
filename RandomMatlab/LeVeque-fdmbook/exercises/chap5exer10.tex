@@ -1,0 +1,27 @@
+
+\exercise[(Derivation of Adams-Moulton)]{5.10}
+
+Determine the coefficients $\beta_0,~\beta_1,~\beta_2$ for the third
+order, 2-step Adams-Moulton method.  Do this in two different ways:
+\begin{enumerate} 
+ \item Using the expression for the local truncation error in Section 5.9.1,
+ \item Using the relation
+ \[
+ u(t_{n+2}) = u(t_{n+1}) + \int_{t_{n+1}}^{t_{n+2}}\,f(u(s))\,ds.
+ \]
+ Interpolate  a quadratic polynomial $p(t)$ through the three values
+ $f(U^n),~f(U^{n+1})$ and $f(U^{n+2})$ and then integrate this polynomial
+ exactly to obtain the formula.  The coefficients of the polynomial will
+ depend on the three values $f(U^{n+j})$.   It's easiest to use the
+ ``Newton form'' of the interpolating polynomial and consider the three
+times $t_n=-k$, $t_{n+1}=0$, and $t_{n+2}=k$ so that $p(t)$ has the form
+\[
+p(t) = A + B(t+k) + C(t+k)t
+\]
+where $A,~B$, and $C$ are the appropriate divided differences based on the
+data.  Then integrate from $0$ to $k$.   (The method has the same
+coefficients at any time, so this is valid.)
+\end{enumerate}
+
+
+

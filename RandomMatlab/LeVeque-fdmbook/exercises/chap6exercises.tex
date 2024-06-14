@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{epsfig,psfrag}
+\usepackage{amsmath}
+
+\setlength{\textwidth}{6.2in}
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.7in}
+\setlength{\voffset}{-.7in}
+\setlength{\headsep}{26pt}
+\setlength{\parindent}{10pt}
+\begin{document}
+
+\input{../latex/macros.tex}  % input some useful macros
+\input{exermacros.tex}       % more macros for exercise formatting
+
+% For exercises,
+% set enumerate to give parts a, b, c, ...  rather than numbers 1, 2, 3...
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+
+% header:
+\chapexercises{6}
+
+\input{chap6exer1}
+\input{chap6exer2}
+\input{chap6exer3}
+\input{chap6exer4}
+\input{chap6exer5}
+\input{chap6exer6}
+\input{chap6exer7}
+\input{chap6exer8}
+\end{document}

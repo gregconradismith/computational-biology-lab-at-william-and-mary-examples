@@ -1,0 +1,37 @@
+
+\exercise[(trapezoid method for advection)]{10.4}
+
+Consider the method
+\eqlex{a}
+U_j^{n+1} = U_j^n - \frac{ak}{2h}(U_j^n-U_{j-1}^n + U_j^{n+1}-U_{j-1}^{n+1}).
+\end{equation}
+for the advection equation $u_t+au_x=0$ on $0\leq x \leq 1$ with periodic
+boundary conditions.  
+
+\begin{enumerate}
+\item This method can be viewed as the trapezoidal method applied to an ODE
+system $U'(t) = AU(t)$ arising from a method of lines discretization of the
+advection equation.  What is the matrix $A$?  Don't forget the boundary
+conditions.
+
+\item Suppose we want to fix the Courant number $ak/h$ as $k,~h\goto 0$.
+For what range of Courant numbers will the method be stable if $a>0$?
+If $a<0$?  Justify your answers in terms of eigenvalues of the matrix $A$
+from part (a) and  the stability regions of the trapezoidal method.
+
+\item Apply von Neumann stability analysis to the method \eqnex{a}.
+What is the amplification factor $g(\xi)$?
+
+\item For what range of $ak/h$ will the CFL condition be satisfied for this
+method (with periodic boundary conditions)?
+
+\item Suppose we use the same method \eqnex{a} for the initial-boundary value
+problem with $u(0,t)=g_0(t)$ specified.  Since the method has a one-sided
+stencil, no numerical boundary condition is needed at the right boundary
+(the formula \eqnex{a} can be applied at $x_{m+1}$).  For what range of $ak/h$
+will the CFL condition be satisfied in this case?  What are the eigenvalues
+of the $A$ matrix for this case and when will the method be stable?
+
+\end{enumerate} 
+
+

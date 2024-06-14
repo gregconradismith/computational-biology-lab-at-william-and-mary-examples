@@ -1,0 +1,229 @@
+#Num of matrices in file
+ 20
+#partition groups
+  1
+#Size: first element always 0, 2nd element num rows + 1
+  0
+  3
+#Matrix ID:
+  0
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.07500000000000001110
+#Number of non-zero entries in row 1:
+  2
+#Col jj has entry X(ii,jj)
+  0 50.00000000000000000000
+#Col jj has entry X(ii,jj)
+  2 7.50000000000000000000
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  1 1.50000000000000000000
+#Matrix ID:
+  9
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 19
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 29
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 39
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 49
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 59
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 69
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 79
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000
+#Matrix ID:
+ 81
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.36519968652699730249
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 36.51996865269972403212
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 82
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.44577954800672747737
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 44.57795480067274951352
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 83
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.15936116472638711672
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 15.93611647263871056168
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 84
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.11614709243530081662
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 11.61470924353008093988
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 85
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.11047343966850045605
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 11.04734396685004682581
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 86
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.10267124525604655327
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 10.26712452560465571594
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 87
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.08447235862686712504
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 8.44723586268671233768
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 88
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.08424174932294262175
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 8.42417493229426206369
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 89
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 90
+#Number of non-zero entries in row 0:
+  1
+#Col jj has entry X(ii,jj)
+  1 0.24784893641535027387
+#Number of non-zero entries in row 1:
+  1
+#Col jj has entry X(ii,jj)
+  2 24.78489364153502805266
+#Number of non-zero entries in row 2:
+  0
+#Matrix ID:
+ 99
+#Number of non-zero entries in row 0:
+  0
+#Number of non-zero entries in row 1:
+  0
+#Number of non-zero entries in row 2:
+  1
+#Col jj has entry X(ii,jj)
+  2 1.00000000000000000000

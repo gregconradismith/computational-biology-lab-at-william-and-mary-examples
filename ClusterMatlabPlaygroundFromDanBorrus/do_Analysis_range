@@ -1,0 +1,27 @@
+#!/bin/tcsh
+
+# The idea is to range over a number of parameters, so we will give the shell file two inputs, the min and max of the range of parameters
+# Check for the right number of arguments
+if ($# != 2) then
+	echo "Please include two parameters - the start and end points (usage: qsub -F "start end" do_Analysis_range)
+	exit 1
+endif
+
+# Make sure the first input is less than the second input
+if ($1 > $2) then
+	echo "Error: Beginning value is larger than the end value. Are you crazy!?! You could start a black hole!!"
+	exit 1
+endif
+
+
+# Generate an array of jobs
+qsub -N SineWavewNoise -t $1-$2 <<EOF
+#!/bin/tcsh
+#PBS -l nodes=1:vortex:ppn=1
+#PBS -l walltime=00:01:00
+#PBS -j oe
+#PBS -d data10/ClusterMatlabPlayground
+#PBS -q matlab
+matlab -nodisplay -r "Analysis(\$PBS_ARRAYID)"
+EOF
+exit

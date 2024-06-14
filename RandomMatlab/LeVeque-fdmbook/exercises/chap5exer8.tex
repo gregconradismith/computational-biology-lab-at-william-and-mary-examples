@@ -1,0 +1,41 @@
+
+\exercise[(Use of {\tt ode113} and {\tt ode45})]{5.8}
+
+This problem can be solved by a modifying the m-files odesample.m and
+odesampletest.m available from the webpage.
+
+Consider the third order initial value problem
+\begin{equation*}
+\begin{split}
+&v'''(t) + v''(t) + 4v'(t) + 4v(t) = 4t^2 + 8t - 10,\\
+&v(0) = -3,\quad v'(0) = -2,\quad v''(0) = 2.
+\end{split}
+\end{equation*}
+
+\begin{enumerate}
+\item Verify that the function
+\[
+v(t) = -\sin(2t) + t^2 - 3
+\]
+is a solution to this problem.  How do you know it is the unique solution?
+
+\item Rewrite this problem as a first order system of the form $u'(t) =
+f(u(t), t)$ where $u(t) \in \reals^3$.  Make sure you also specify the
+initial condition $u(0) = \eta$ as a 3-vector.
+
+\item Use the \matlab\ function {\tt ode113} to solve this problem over the
+time interval $0\leq t \leq 2$.  Plot the true and computed solutions to
+make sure you've done this correctly.  
+
+\item Test the \matlab\ solver by specifying different tolerances spanning
+several orders of magnitude.  Create a table showing the maximum error in
+the computed solution for each tolerance and the number of function
+evaluations required to achieve this accuracy.
+
+\item Repeat part (d) using the \matlab\ function {\tt ode45}, which uses
+an embedded pair of Runge-Kutta methods instead of Adams-Bashforth-Moulton
+methods.
+
+\end{enumerate}
+
+

@@ -1,0 +1,46 @@
+
+\exercise[(Pad\'e approximations)]{5.19}
+
+A rational function $R(z) = P(z)/Q(z)$ with 
+degree $m$ in the numerator and degree $n$
+in the denominator is called the $(m,n)$ {\em Pad\'e approximation}
+to a function $f(z)$ if
+\[
+R(z) - f(z) = \bigo(z^q)
+\]
+with $q$ as large as possible.  The Pad\'e approximation can be uniquely
+determined by expanding $f(z)$ in a Taylor series about $z=0$ and then
+considering the series
+\[
+P(z) - Q(z)f(z),
+\]
+collecting powers of $z$, and choosing the coefficients of $P$ and $Q$ to
+make as many terms vanish as possible.  Trying to require that they all
+vanish will give a system of infintely many linear equations for the
+coefficients.  Typically these can not all be satisfied simultaneously, 
+while requiring the maximal number to hold will give a nonsingular linear
+system.  (Note that the $(m,0)$ Pad\'e approximation is simply the first
+$m+1$ terms of the Taylor series.)
+
+\vskip 5pt
+For this exercise, consider the exponential function $f(z) = e^z$. 
+\begin{enumerate}
+\item Determine the $(1,1)$ Pad\'e approximation of the form 
+\[
+R(z) = \frac{1 + a_1 z}{1 + b_1 z}.
+\]
+Note that this rational function arises from the trapezoidal method applied
+to $u' = \lambda u$ (see Exercise 5.18).
+\item Determine the $(1,2)$ Pad\'e approximation of the form 
+\[
+R(z) = \frac{1 + a_1 z}{1 + b_1 z + b_2 z^2}.
+\]
+\item Determine the $(2,2)$ Pad\'e approximation of the form
+\[
+R(z) = \frac{1 + a_1 z + a_2 z^2}{1 + b_1 z + b_2 z^2}.
+\]
+\end{enumerate}
+You can check your answers at {\tt
+http://mathworld.wolfram.com/PadeApproximant.html}, for example.
+
+

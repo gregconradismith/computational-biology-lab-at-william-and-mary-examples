@@ -1,0 +1,19 @@
+
+\exercise[(Convergence of backward Euler method)]{6.7}
+
+Suppose the function $f(u)$ is Lipschitz continuous over some domain
+$|u-\eta|\leq a$ with Lipschitz constant $L$.
+Let $g(u) = u - kf(u)$ and let $\Phi(v) = g^{-1}(v)$, the inverse function. 
+
+Show that for $k<1/L$, the function $\Phi(v)$ is Lipschitz continuous
+over some domain $|v-f(\eta)| \leq b$ and determine a Lipschitz constant.  
+
+{\bf Hint:} Suppose $v =  u - kf(u)$ and $v^* = u^* - kf(u^*)$ and 
+obtain an upper bound on $|u-u^*|$ in terms of $|v-v^*|$.
+
+{\bf Note:} The backward Euler method (5.21) takes the form
+\[
+U^{n+1} = \Phi(U^n)
+\]
+and so this shows that the implicit backward Euler method is convergent.
+

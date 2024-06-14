@@ -1,0 +1,53 @@
+
+\exercise[(Improved convergence proof for one-step methods)]{6.2}
+
+The proof of convergence of 1-step methods in Section 6.3 shows that the
+global error goes to zero as $k\goto 0$.
+However, this bound may be totally useless in estimating the actual error
+for a practical calculation.
+
+For example, suppose we solve $u'=-10u$ with $u(0)=1$ up to time $T=10$, so
+the true solution is $u(T)=e^{-100} \approx 3.7\times 10^{-44}$.
+Using forward Euler with a time step $k=0.01$,  
+the computed solution is $U^N = (.9)^{100}\approx 2.65 \times
+10^{-5}$, and so $E^N \approx U^N$.
+Since $L=10$ for this problem, the error bound (6.16) gives
+\eqlex{a}
+\|E^N\| \leq e^{100}\cdot 10 \cdot \|\tau \|_\infty \approx 2.7 \times
+10^{44} \|\tau\|_\infty.
+\end{equation} 
+Here $\|\tau\|_\infty =|\tau^0| \approx 50 k$, so this upper bound on the
+error does go to zero as $k\goto 0$, but obviously it is not a realistic
+estimate of the error. It is too large by a factor of about $10^{50}$.
+
+The problem is that the estimate (6.16) is based on the Lipschitz
+constant $L=|\lambda|$, which gives a bound that grows exponentially in time
+even when the true and computed solutions are decaying exponentially.
+
+\begin{enumerate}
+\item Determine the computed solution and error bound (6.16) for the problem
+$u' = 10u$ with $u(0)=1$ up to time $T=10$.  Note that the error bound is
+the same as in the case above, but now it is a reasonable estimate of the
+actual error.
+
+\item A more realistic error bound for the case where $\lambda<0$ can be
+obtained by rewriting (6.17) as
+\[
+\unp = \Phi(U^n)
+\]
+and then determining the Lipschitz constant for the function $\Phi$.  
+Call this constant $M$.  Prove that if $M\leq 1$  and $E^0=0$ then 
+\[
+|E^n| \leq  T\|\tau\|_\infty
+\]
+for $nk\leq T$, a bound that is similar to (6.16) but without the
+exponential term.
+
+
+\item Show that for forward Euler applied to $u'=\lambda
+u$ we can take $M = |1+k\lambda|$.  Determine $M$ for the case $\lambda =
+-10$ and $k=0.01$ and use this in the bound from part (b).
+Note that this is much better than the bound \eqnex{a}.
+
+\end{enumerate} 
+

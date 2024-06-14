@@ -1,0 +1,57 @@
+
+\exercise[(Stiff decay process)]{8.2}
+
+The mfile {\tt decay1.m} uses {\tt ode113} to solve 
+the linear system of ODEs arising from the decay process
+\eqlex{a}
+A \react{1} B \react{2} C
+\end{equation} 
+where $u_1=[A],~u_2=[B]$, and $u_3=[C]$, using $K_1=1$, $K_2=2$, and initial
+data $u_1(0)=1,~u_2(0)=0$, and $u_3(0)=0$.
+
+\begin{enumerate}
+\item Use {\tt decaytest.m} to determine how many function evaluations are
+used for four different choices of {\tt tol}.
+
+\item Now consider the decay process
+\eqlex{b}
+A \react{1} D \react{3} B \react{2} C
+\end{equation} 
+Modify the m-file
+{\tt decay1.m} to solve this system by adding $u_4 = [D]$ and using the
+initial data  $u_4=0$.  Test your modified program with a modest value of
+$K_3$, e.g., $K_3=3$, to make sure it gives reasonable results and produces
+a plot of all 4 components of $u$.
+
+\item  Suppose $K_3$ is much larger than $K_1$ and $K_2$ in \eqnex{b}.
+Then as $A$ is converted to $D$, it decays almost instantly into $C$.  In
+this case we would expect that $u_4(t)$ will always be very small (though
+nonzero for $t>0$) while $u_j(t)$ for $j=1,~2,~3$ will be nearly identical
+to what would be obtained by solving \eqnex{a} with the same reaction rates
+$K_1$ and $K_2$.  Test this out by using $K_3=1000$ and solving \eqnex{b}.
+(Using your modified m-file with {\tt ode113} and set {\tt tol=1e-6}).
+
+\item  Test {\tt ode113} with $K_3=1000$ and the four tolerances used in
+{\tt decaytest.m}.  You should observe two things:
+\begin{enumerate} 
+\item The number of function evaluations requires is much larger than when
+solving \eqnex{a}, even though the solution is essentially the same,
+\item The number of function evaluations doesn't change much as the
+tolerance is reduced.
+\end{enumerate}
+Explain these two observations.
+
+\item Plot the computed solution from part (d) with {\tt tol = 1e-2} and
+{\tt tol = 1e-4} and comment on what you observe.
+
+\item Test your modified system with three different values of $K_3 =
+500,~1000$ and $2000$.  In each case use {\tt tol = 1e-6}.  You should
+observe that the number of function evaluations needed grows linearly with
+$K_3$.  Explain why you would expect this to be true (rather than being
+roughly constant, or growing at some other rate such as quadratic in $K_3$).
+About how many function evaluations would be required if $K_3 = 10^7$?
+
+\item Repeat part (f) using {\tt ode15s} in place of {\tt ode113}.
+Explain why the number of function evaluations is much smaller and now
+roughly constant for large $K_3$.  Also try $K_3=10^7$.
+\end{enumerate} 

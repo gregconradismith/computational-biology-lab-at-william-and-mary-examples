@@ -1,0 +1,18 @@
+
+\exercise[(Modified equation for Gauss-Seidel)]{10.11}
+
+Exercise 9.4 illustrates how the Jacobi iteration for solving the boundary
+value problem $u_{xx}(x) = f(x)$ can be viewed as an explicit time-stepping
+method for the heat equation $u_t(x,t) = u_{xx}(x,t) - f(x)$ with a time step
+$k=h^2/2$.
+
+Now consider the Gauss-Seidel method  for solving the linear system,
+\eqlex{a}
+U_j^{n+1} = \half (U_{j-1}^{n+1} + U_{j+1}^n - h^2f(x_j)).
+\end{equation}
+This can be viewed as a time stepping method for some PDE.  Compute the
+modified equation for this finite difference method and determine what PDE
+it is consistent with if we let $k=h^2/2$ again.  Comment on how this
+relates to the observation in Section 4.2.1 that Gauss-Seidel takes roughly
+half as many iterations as Jacobi to converge.
+

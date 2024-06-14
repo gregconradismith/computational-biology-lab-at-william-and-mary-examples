@@ -1,0 +1,23 @@
+
+\exercise[(Strang splitting)]{11.2}
+
+\begin{enumerate}
+\item
+Show that the Strang splitting is second order accurate on the problem
+(11.18) by comparing
+\eqlex{a}
+\exp\left(\half Ak\right)\, \exp(Bk)\, \exp\left(\half Ak\right)
+\end{equation}
+with (11.22).
+
+\item Show that second order accuracy on (11.18) can also be achieved by
+alternating the splitting (11.17) in even numbered time steps with
+\eqlex{b}
+\begin{split} 
+U^* &= {\cal N}_B(U^n,k),\\
+U^{n+1} &= {\cal N}_A(U^*,k)
+\end{split}
+\end{equation}
+in odd numbered times steps.
+
+\end{enumerate} 

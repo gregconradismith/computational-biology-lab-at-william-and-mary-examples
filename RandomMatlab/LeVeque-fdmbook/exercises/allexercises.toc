@@ -1,0 +1,82 @@
+\contentsline {section}{Chapter 1}{4}
+\contentsline {subsection}{Exercise 1.1 \hskip 5pt (derivation of finite difference formula)}{4}
+\contentsline {subsection}{Exercise 1.2 \hskip 5pt (use of {\tt fdstencil})}{4}
+\contentsline {section}{Chapter 2}{5}
+\contentsline {subsection}{Exercise 2.1 \hskip 5pt (inverse matrix and Green's functions)}{5}
+\contentsline {subsection}{Exercise 2.2 \hskip 5pt (Green's function with Neumann boundary conditions)}{5}
+\contentsline {subsection}{Exercise 2.3 \hskip 5pt (solvability condition for Neumann problem)}{5}
+\contentsline {subsection}{Exercise 2.4 \hskip 5pt (boundary conditions in {\tt bvp} codes)}{5}
+\contentsline {subsection}{Exercise 2.5 \hskip 5pt (accuracy on nonuniform grids)}{6}
+\contentsline {subsection}{Exercise 2.6 \hskip 5pt (ill-posed boundary value problem)}{6}
+\contentsline {subsection}{Exercise 2.7 \hskip 5pt (nonlinear pendulum)}{7}
+\contentsline {section}{Chapter 3}{8}
+\contentsline {subsection}{Exercise 3.1 \hskip 5pt (code for Poisson problem)}{8}
+\contentsline {subsection}{Exercise 3.2 \hskip 5pt (9-point Laplacian)}{8}
+\contentsline {section}{Chapter 4}{9}
+\contentsline {subsection}{Exercise 4.1 \hskip 5pt (Convergence of SOR)}{9}
+\contentsline {subsection}{Exercise 4.2 \hskip 5pt (Forward vs.\ backward Gauss-Seidel)}{9}
+\contentsline {section}{Chapter 5}{11}
+\contentsline {subsection}{Exercise 5.1 \hskip 5pt (Uniqueness for an ODE)}{11}
+\contentsline {subsection}{Exercise 5.2 \hskip 5pt (Lipschitz constant for an ODE)}{11}
+\contentsline {subsection}{Exercise 5.3 \hskip 5pt (Lipschitz constant for a system of ODEs)}{11}
+\contentsline {subsection}{Exercise 5.4 \hskip 5pt (Duhamel's principle)}{11}
+\contentsline {subsection}{Exercise 5.5 \hskip 5pt (matrix exponential form of solution)}{11}
+\contentsline {subsection}{Exercise 5.6 \hskip 5pt (matrix exponential form of solution)}{12}
+\contentsline {subsection}{Exercise 5.7 \hskip 5pt (matrix exponential for a defective matrix)}{12}
+\contentsline {subsection}{Exercise 5.8 \hskip 5pt (Use of {\tt ode113} and {\tt ode45})}{12}
+\contentsline {subsection}{Exercise 5.9 \hskip 5pt (truncation errors)}{13}
+\contentsline {subsection}{Exercise 5.10 \hskip 5pt (Derivation of Adams-Moulton)}{13}
+\contentsline {subsection}{Exercise 5.11 \hskip 5pt (Characteristic polynomials)}{14}
+\contentsline {subsection}{Exercise 5.12 \hskip 5pt (predictor-corrector methods)}{14}
+\contentsline {subsection}{Exercise 5.13 \hskip 5pt (Order of accuracy of Runge-Kutta methods)}{14}
+\contentsline {subsection}{Exercise 5.14 \hskip 5pt (accuracy of TR-ZBDF2)}{14}
+\contentsline {subsection}{Exercise 5.15 \hskip 5pt (Embedded Runge-Kutta method)}{15}
+\contentsline {subsection}{Exercise 5.16 \hskip 5pt (accuracy of a Runge-Kutta method)}{15}
+\contentsline {subsection}{Exercise 5.17 \hskip 5pt ($R(z)$ for the trapezoidal method)}{15}
+\contentsline {subsection}{Exercise 5.18 \hskip 5pt ($R(z)$ for Runge-Kutta methods)}{16}
+\contentsline {subsection}{Exercise 5.19 \hskip 5pt (Pad\'e approximations)}{17}
+\contentsline {subsection}{Exercise 5.20 \hskip 5pt ($R(z)$ for Runge-Kutta methods)}{17}
+\contentsline {subsection}{Exercise 5.21 \hskip 5pt (starting values)}{18}
+\contentsline {section}{Chapter 6}{19}
+\contentsline {subsection}{Exercise 6.1 \hskip 5pt (Lipschitz constant for a one-step method)}{19}
+\contentsline {subsection}{Exercise 6.2 \hskip 5pt (Improved convergence proof for one-step methods)}{19}
+\contentsline {subsection}{Exercise 6.3 \hskip 5pt (consistency and zero-stability of LMMs)}{19}
+\contentsline {subsection}{Exercise 6.4 \hskip 5pt (Solving a difference equation)}{20}
+\contentsline {subsection}{Exercise 6.5 \hskip 5pt (Solving a difference equation)}{20}
+\contentsline {subsection}{Exercise 6.6 \hskip 5pt (Solving a difference equation)}{20}
+\contentsline {subsection}{Exercise 6.7 \hskip 5pt (Convergence of backward Euler method)}{21}
+\contentsline {subsection}{Exercise 6.8 \hskip 5pt (Fibonacci sequence)}{21}
+\contentsline {section}{Chapter 7}{22}
+\contentsline {subsection}{Exercise 7.1 \hskip 5pt (Convergence of midpoint method)}{22}
+\contentsline {subsection}{Exercise 7.2 \hskip 5pt (Example 7.10)}{22}
+\contentsline {subsection}{Exercise 7.3 \hskip 5pt (stability on a kinetics problem)}{22}
+\contentsline {subsection}{Exercise 7.4 \hskip 5pt (damped linear pendulum)}{22}
+\contentsline {subsection}{Exercise 7.5 \hskip 5pt (fixed point iteration of implicit methods)}{23}
+\contentsline {section}{Chapter 8}{24}
+\contentsline {subsection}{Exercise 8.1 \hskip 5pt (stability region of TR-BDF2)}{24}
+\contentsline {subsection}{Exercise 8.2 \hskip 5pt (Stiff decay process)}{24}
+\contentsline {subsection}{Exercise 8.3 \hskip 5pt (Stability region of RKC methods)}{25}
+\contentsline {subsection}{Exercise 8.4 \hskip 5pt (Implicit midpoint method)}{25}
+\contentsline {subsection}{Exercise 8.5 \hskip 5pt (The $\theta $-method)}{25}
+\contentsline {section}{Chapter 9}{26}
+\contentsline {subsection}{Exercise 9.1 \hskip 5pt (leapfrog for heat equation)}{26}
+\contentsline {subsection}{Exercise 9.2 \hskip 5pt (codes for heat equation)}{26}
+\contentsline {subsection}{Exercise 9.3 \hskip 5pt (heat equation with discontinuous data)}{27}
+\contentsline {subsection}{Exercise 9.4 \hskip 5pt (Jacobi iteration as time stepping)}{27}
+\contentsline {subsection}{Exercise 9.5 \hskip 5pt (Diffusion and decay)}{27}
+\contentsline {section}{Chapter 10}{29}
+\contentsline {subsection}{Exercise 10.1 \hskip 5pt (One-sided and centered methods)}{29}
+\contentsline {subsection}{Exercise 10.2 \hskip 5pt (Eigenvalues of $A_\epsilon $ for upwind)}{30}
+\contentsline {subsection}{Exercise 10.3 \hskip 5pt (skewed leapfrog)}{30}
+\contentsline {subsection}{Exercise 10.4 \hskip 5pt (trapezoid method for advection)}{30}
+\contentsline {subsection}{Exercise 10.5 \hskip 5pt (modified equation for Lax-Wendroff)}{31}
+\contentsline {subsection}{Exercise 10.6 \hskip 5pt (modified equation for Beam-Warming)}{31}
+\contentsline {subsection}{Exercise 10.7 \hskip 5pt (modified equation for trapezoidal)}{31}
+\contentsline {subsection}{Exercise 10.8 \hskip 5pt (computing with Lax-Wendroff and upwind)}{31}
+\contentsline {subsection}{Exercise 10.9 \hskip 5pt (computing with leapfrog)}{32}
+\contentsline {subsection}{Exercise 10.10 \hskip 5pt (Lax-Richtmyer stability of leapfrog as a one-step method)}{32}
+\contentsline {subsection}{Exercise 10.11 \hskip 5pt (Modified equation for Gauss-Seidel)}{34}
+\contentsline {section}{Chapter 11}{35}
+\contentsline {subsection}{Exercise 11.1 \hskip 5pt (two-dimensional Lax-Wendroff)}{35}
+\contentsline {subsection}{Exercise 11.2 \hskip 5pt (Strang splitting)}{35}
+\contentsline {subsection}{Exercise 11.3 \hskip 5pt (accuracy of IMEX method)}{35}

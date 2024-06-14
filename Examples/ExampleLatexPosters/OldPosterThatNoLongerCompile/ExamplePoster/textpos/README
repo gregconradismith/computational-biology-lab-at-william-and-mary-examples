@@ -1,0 +1,152 @@
+
+Textpos: absolute positioning of text on the LaTeX page
+-------------------------------------------------------
+
+%%VERSION%%
+Version 1.3a
+
+This package facilitates placing boxes at absolute positions on the
+LaTeX page.  There are several reasons why this might be useful, but
+the main one (or at least my motivating one) is to help produce a
+large-format conference poster.  
+
+This package provides a single environment, plus a starred variant,
+which contains the text (or graphics, or table, or whatever) which is
+to be placed on the page, and which specifies where it is to be
+placed.
+
+
+Changes in v1.3a, 25 June 2003
+------------------------------
+
+Blush.  I was prompted to run the regression tests (so _that's_ what
+they're for), and this fixes the error they expose.  You may now use
+textpos _without_ loading the {color} package.
+
+Changes in v1.3, 25 June 2003
+-----------------------------
+
+Added \textblockcolour command, to set the background colour of textblocks.
+
+Changes in v1.2b, 1 July 2002
+-----------------------------
+
+Added code to cope with the case when box 255 isn't a vbox at shipout
+(that's wrong, and not our fault, but we shouldn't collapse when it
+happens!).  Thanks to Wybo Dekker and Hans Hagen for the report and
+the fix.
+
+
+Changes in v1.2a, 28 April 2002
+-------------------------------
+
+The way that I implemented the {calc} compatibility was wrong in v1.2
+(Rolf's code was correct, but I `improved' it).  It meant that things
+went badly wrong if you tried to give fractional sizes in the
+dimensions arguments to the {textblock} environment (I choose the grid 
+so that I only ever use whole numbers for these, so I hadn't had any
+real numbers in my test cases).  There's now a {textblock*}
+environment, which has absolute dimensions (that is, not in terms of
+the module, though you can still use \TPHorizModule and \TPVertModule
+as dimensions), to which you can give calc-compatible dimensions if
+you wish.  You can't give expressions in the arguments to the
+unstarred {textblock} environment.
+
+Changes in  v1.2, 21 April 2002
+-------------------------------
+
+Rolf Niepraschk <niepraschk@ptb.de> provided code to make textpos
+compatible with the {calc} package.
+
+Added the [verbose] and [quiet] package options.
+
+Changes in v1.1e, 19 April 2001
+-------------------------------
+
+Corrected a spacing misfeature, which caused extra space when
+textblocks were interspersed with paragraphs.  Thanks to Peter
+Muenster <peter@univ-rennes1.fr> for spotting and reporting this.
+
+Changes in v1.1d, 6 June 1999
+-----------------------------
+
+Clarified the copyright and licence status, including a copy of the
+GPL in the distribution.  The immediate motivation was the CTAN
+campaign to do this for all the CTAN packages, but it should have been
+done before.
+
+Changes in v1.1c
+----------------
+
+Added an optional argument to \TPGrid, which controls a border round
+the grid.  Made the checksum correct!
+
+Added the `overlay' option.
+
+Corrected a spacing bug, which made textblocks in the non-`absolute'
+mode drift out of place.
+
+Changes in v1.1b
+----------------
+
+Added a note to the effect that the required everyshi package can also
+be found at CTAN
+
+Changes in v1.1a
+----------------
+
+Blush!  The example file distributed with the package exposed a bug!
+When there was no text on the page outside {textblock} blocks (the
+usual case, if you're producing a poster), the TeX engine didn't know
+there was anything on the page at all, and (sensibly) output nothing.
+I made the obvious fix (thanks to Bjoern Pedersen for diagnosing the
+problem, and to Wolfgang Erdmann <earthmen@mail1.cityweb.de> for
+reporting it so promptly).
+
+
+Changes in v1.1, and credits
+----------------------------
+
+The package now clearly distinguishes between a `relative' and an
+`absolute' mode of positioning text (the distinction was largely
+present before, but neither as clear nor as robust).  It also now
+distinguishes the horizontal and vertical units used for positioning.
+
+Olaf Maibaum (Olaf.Maibaum@informatik.uni-oldenburg.de)
+produced the elegant code which I've incorporated here as the
+`absolute mode'.
+
+Bjoern Pedersen (bjoern@poseidon.org.chemie.tu-muenchen.de)
+made the excellent suggestion (including code) that the horizontal and
+vertical modules should be independent.
+
+
+Installation
+------------
+
+Download the files textpos.dtx and textpos.ins.  Run LaTeX on the file
+textpos.ins -- this will create the files
+
+    textpos.sty
+    textpos.drv
+
+Install textpos.sty somewhere TeX will find it.  Run LaTeX on file
+textpos.drv to produce instructions and documentation.
+
+This package requires the services of Martin Schr\"oder's package
+everyshi.  You will need to download this package from CTAN first.  See
+\url{http://www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/ms/} 
+or one of the other CTAN hosts.
+
+Licence
+-------
+
+This software is copyright, 1999, Norman Gray.  It is released under
+the terms of the GNU General Public Licence.  See the copyright
+declaration at the top of file textpos.dtx, and the file LICENCE for
+the licence conditions.
+
+
+
+Norman Gray, (norman@astro.gla.ac.uk)
+http://www.astro.gla.ac.uk/users/norman

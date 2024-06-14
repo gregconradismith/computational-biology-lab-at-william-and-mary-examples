@@ -1,0 +1,142 @@
+
+% Some latex examples showing how to typeset various things needed
+% for writing about finite difference methods.
+
+% Some macros from the file macros.tex are used.
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{epsfig,psfrag}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.9in}
+\setlength{\voffset}{-1in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\input{macros}  % define some macros that are generally useful
+
+% some more macros, useful for this document
+\newcommand{\sixth}{\frac{1}{6}}  
+\newcommand{\bx}{\bar x}
+
+%-------------------------------------------------------------------
+\begin{document}          
+
+\hfill\vbox{\hbox{AMath 586}\hbox{Latex samples}\hbox{Spring, 2007}}
+
+\vskip .3in
+
+%-----------------------------------------------------------------
+
+\vskip 10pt
+\noindent 
+{\Large \bf Equations:}
+\vskip 5pt
+In-line equations or math symbols have dollar signs around them, e.g., 
+the function $u(t)$ satisfies $u' = \lambda u$.
+
+Displayed equations without equation numbers can be made either with
+\[
+\int_0^\infty f(x) \, dx
+\]
+or with 
+\begin{equation*}
+\|A^{-1}\|_\infty = k\sum_{m=1}^N |(1 + k\lambda)^{N-m}|
+\end{equation*} 
+To add an equation number, leave off the * in the equation environment,
+\begin{equation} \label{sum2}
+\sum_{j=1}^r a_{ij} = c_i,  \quad i=1,~2,~\ldots,~r.
+\end{equation}
+The label command lets you refer to this equation later as equation
+(\ref{sum2}), or using the shorthand macro, \eqn{sum2}.
+
+Labels can be added to other numbered things like figure captions too.
+
+
+%-----------------------------------------------------------------
+
+\vskip 10pt
+\noindent 
+{\Large \bf Equations lined up:}
+\vskip 5pt
+
+\begin{equation*}
+\begin{split}
+u''(t) &= f_u(u(t),t)u'(t) + f_t(u(t),t)\\
+&=  f_u(u(t),t)f(u(t),t) + f_t(u(t),t)
+\end{split}
+\end{equation*} 
+
+\noindent
+Another example:
+
+\begin{equation*}
+\begin{split} 
+Y_1 &= U^n\\
+Y_2 &= U^n + \half k f(Y_1,t_n)\\
+Y_3 &= U^n + \half k f(Y_2,t_n + k/2)\\
+Y_4 &= U^n +  k f(Y_3,t_n + k/2)\\
+\unp &= U^n + {k\over 6} [f(Y_1,t_n) + 2f(Y_2,t_n + k/2) \\
+&\qquad\null + 2f(Y_3,t_n + k/2) + f(Y_4,t_n+k)]
+\end{split}
+\end{equation*} 
+
+%-----------------------------------------------------------------
+
+\vskip 10pt
+\noindent
+{\Large \bf Vectors and matrices:}
+\vskip 5pt
+Here's a vector $u \in \reals^3$:
+\[
+u = \bcm u_1 \\ u_2 \\ u_3 \ecm.
+\]
+
+A linear system:
+\[
+\bcm a_{11} & a_{12} \\  a_{21} & a_{22} \ecm
+\bcm x_1 \\ x_2 \ecm = \bcm b_1 \\ b_2 \ecm.
+\]
+
+A tridiagonal matrix:
+\[
+A =\frac{1}{h^2} \bcm  h^2&0\\1&-2&1\\  &1&-2&1\\
+&&\ddots&\ddots&\ddots\\ &&&1&-2&1\\ &&&&1&-2&1\\ &&&&&0&h^2 \ecm.
+\]
+
+
+%-----------------------------------------------------------------
+
+\vskip 10pt
+\noindent
+{\Large \bf Butcher tableau (p. 131):}
+\vskip 5pt
+
+\begin{center}
+\begin{tabular}{c|ccc}
+$c_1$ & $a_{11}$ & $\ldots$ & $a_{1r}$\\
+$\vdots$ & $\vdots$ & & $\vdots$ \\
+$c_r$ & $a_{r1}$ & $\ldots$ & $a_{rr}$\\
+\hline\\
+&$b_1$ & $\ldots$ & $b_r$
+\end{tabular}
+\end{center}
+
+\vskip 10pt
+
+\begin{center}
+\begin{tabular}{c|cccc}
+0\\
+1/2&1/2\\
+1/2&0&1/2\\
+1&0&0&1\\
+\hline\\
+&1/6&1/3&1/3&1/6
+\end{tabular}
+\end{center}
+
+%-----------------------------------------------------------------
+
+
+\end{document}

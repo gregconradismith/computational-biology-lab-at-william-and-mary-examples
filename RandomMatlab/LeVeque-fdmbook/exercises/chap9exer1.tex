@@ -1,0 +1,22 @@
+
+\exercise[(leapfrog for heat equation)]{9.1}
+
+Consider the following method for solving the heat equation
+$u_t=u_{xx}$:
+\[
+U_i^{n+2} = U_i^n + \frac{2k}{h^2}(U_{i-1}^{n+1} - 2U_i^{n+1} +
+U_{i+1}^{n+1}).
+\]
+\begin{enumerate}
+\item Determine the order of accuracy of this method (in both space and time).
+
+\item Suppose we take $k=\alpha h^2$ for some fixed $\alpha>0$ and refine
+the grid.  For what values of $\alpha$ (if any) will this method be
+Lax-Richtmyer stable and hence convergent?  
+
+{\bf Hint:} Consider the MOL interpretation and the stability region of
+the time-discretization being used.
+
+\item Is this a useful method?
+\end{enumerate}
+

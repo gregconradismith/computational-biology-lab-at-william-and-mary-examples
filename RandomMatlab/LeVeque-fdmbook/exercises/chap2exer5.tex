@@ -1,0 +1,41 @@
+
+\exercise[(accuracy on nonuniform grids)]{2.5}
+
+In Example 1.4 a 3-point approximation to $u''(x_i)$ is determined based on
+$u(x_{i-1}),~ u(x_i)$, and $u(x_{i+1})$ (by translating from $x_1$, $x_2$,
+$x_3$ to general $x_{i-1}$, $x_i$, and $x_{i+1}$).  
+It is also determined that the truncation
+error of this approximation is $\frac 1 3 (h_{i-1}-h_i) u'''(x_i) + O(h^2)$,
+where $h_{i-1} = x_i-x_{i-1}$ and $h_i = x_{i+1}-x_i$, so the approximation is
+only first order accurate in $h$ if $h_{i-1}$ and $h_i$ are  $O(h)$ but
+$h_{i-1}\neq h_i$.  
+
+The program {\tt bvp2.m} is based on using 
+this approximation at each grid point, as described in Example 2.3.  
+Hence on a nonuniform grid the local
+truncation error is $O(h)$ at each point, where $h$ is some measure of the
+grid spacing (e.g., the average spacing on the grid).  If we
+assume the method is stable, then we expect the global error to be $O(h)$ as
+well as we refine the grid.
+
+\begin{enumerate}
+\item
+However, if you run {\tt bvp2.m} you should observe second-order
+accuracy, at least provided you take a smoothly varying grid (e.g., set
+{\tt gridchoice = 'rtlayer'} in {\tt bvp2.m}).  Verify this.
+
+\item
+Suppose that the grid is defined by $x_i = X(z_i)$ where $z_i = ih$ for
+$i=0,~1,~\ldots,~m+1$ with $h=1/(m+1)$
+is a uniform grid and $X(z)$ is some smooth mapping
+of the interval $[0,1]$ to the interval $[a,b]$.  Show that if $X(z)$ is
+smooth enough, then the local truncation error is in fact $O(h^2)$.
+Hint: $x_i-x_{i-1} \approx hX'(x_i)$.
+
+\item
+What average order of accuracy is observed on a random grid?  To test this,
+set {\tt gridchoice = 'random'} in {\tt bvp2.m} and increase the number of
+tests done, e.g., by setting {\tt mvals = round(logspace(1,3,50));}
+to do 50 tests for values of $m$ between 10 and 1000.
+\end{enumerate}
+

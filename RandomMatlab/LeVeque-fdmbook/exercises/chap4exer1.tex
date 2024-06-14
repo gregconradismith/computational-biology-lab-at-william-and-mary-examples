@@ -1,0 +1,31 @@
+
+\exercise[(Convergence of SOR)]{4.1}
+
+The m-file \verb+iter_bvp_Asplit.m+ implements the Jacobi, Gauss-Seidel, and
+SOR matrix splitting methods on the linear system arising from the boundary
+value problem $u''(x) = f(x)$ in one space dimension.  
+
+\begin{enumerate}
+\item Run this program for each method and produce a plot similar to 
+Figure~4.2.
+
+\item The convergence behavior of SOR is very sensitive to the choice of
+$\omega$ ({\tt omega} in the code).  Try changing from the optimal $\omega$
+to $\omega = 1.8$ or 1.95.
+
+\item Let $g(\omega) = \rho(G(\omega))$ be the spectral radius of the
+iteration matrix $G$ for a given value of $\omega$.  Write a program to
+produce a plot of $g(\omega)$ for $0\leq \omega \leq 2$.
+
+\item From equations (4.22) one might be tempted to try to implement SOR as
+\begin{verbatim}
+     for iter=1:maxiter
+        uGS = (DA - LA) \ (UA*u + rhs);
+        u = u + omega * (uGS - u);
+        end
+\end{verbatim}
+where the matrices have been defined as in \verb+iter_bvp_Asplit.m+.
+Try this computationally and observe that it does not work well.  Explain
+what is wrong with this and derive the correct expression (4.24).
+
+\end{enumerate} 

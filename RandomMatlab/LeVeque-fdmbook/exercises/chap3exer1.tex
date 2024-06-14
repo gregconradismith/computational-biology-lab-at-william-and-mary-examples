@@ -1,0 +1,20 @@
+
+\exercise[(code for Poisson problem)]{3.1}
+
+The \matlab\ script {\tt poisson.m} solves the Poisson problem on a square
+$m\times m$ grid with $\Delta x = \Delta y = h$, using the 5-point
+Laplacian.  It is set up to solve a test problem for which the exact
+solution is $u(x,y) = \exp(x+y/2)$, using Dirichlet boundary conditions and
+the right hand side $f(x,y) = 1.25 \exp(x+y/2)$.
+
+\begin{enumerate} 
+\item Test this script by performing a grid refinement study to verify that
+it is second order accurate.
+
+\item Modify the script so that it works on a rectangular domain $[a_x,b_x]
+\times [a_y,b_y]$, but still with $\Delta x = \Delta y = h$.  Test your
+modified script on a non-square domain.
+
+\item Further modify the code to allow $\Delta x \neq \Delta y$ and test the
+modified script.
+\end{enumerate} 

@@ -1,0 +1,46 @@
+
+\exercise[(ill-posed boundary value problem)]{2.6}
+
+Consider the following linear boundary value problem
+with Dirichlet boundary conditions:
+\begin{equation*} 
+\begin{split}
+&u''(x) +  u(x) = 0 \quad \text{for $a< x< b$}\\
+&u(a)=\alpha,\quad u(b)=\beta.
+\end{split}
+\end{equation*}
+Note that this equation arises from a linearized pendulum, for example.
+
+\begin{enumerate} 
+\item
+Modify the m-file {\tt bvp2.m} to solve this problem.  Test your modified
+routine on the problem with
+\[
+a = 0, \quad b = 1, \quad \alpha = 2, \quad \beta = 3.
+\]
+Determine the exact solution for comparison.
+
+\item 
+Let $a=0$ and $b=\pi$. 
+For what values of $\alpha$ and $\beta$  does this boundary value problem
+have solutions?
+Sketch a family of solutions in a case where there are infinitely many
+solutions.
+
+\item Solve the problem with 
+\[
+a = 0, \quad b = \pi, \quad \alpha = 1, \quad \beta = -1.
+\]
+using your modified {\tt bvp2.m}.  Which solution to the boundary value
+problem does this appear to converge to as $h\goto 0$?  Change the boundary
+value at $b=\pi$ to $\beta = 1$.  Now how does the numerical solution behave
+as $h\goto 0$?
+
+\item You might expect the linear system in part (c) to be singular since
+the boundary value problem is not well posed.  It is not, because of
+discretization error.  Compute the eigenvalues of the matrix $A$ for this
+problem and show that an eigenvalue approaches 0 as $h\goto 0$.
+Also show that $\|A^{-1}\|_2$ blows up as $h\goto 0$ so that the
+discretization is unstable.
+
+\end{enumerate} 

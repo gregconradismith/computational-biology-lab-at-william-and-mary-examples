@@ -1,0 +1,55 @@
+
+# create all pdf files for exercises
+# latex each file twice so labels come out correct
+
+
+latex chap1exercises
+latex chap1exercises
+dvi2pdf chap1exercises
+
+latex chap2exercises
+latex chap2exercises
+dvi2pdf chap2exercises
+
+latex chap3exercises
+latex chap3exercises
+dvi2pdf chap3exercises
+
+latex chap4exercises
+latex chap4exercises
+dvi2pdf chap4exercises
+
+latex chap5exercises
+latex chap5exercises
+dvi2pdf chap5exercises
+
+latex chap6exercises
+latex chap6exercises
+dvi2pdf chap6exercises
+
+latex chap7exercises
+latex chap7exercises
+dvi2pdf chap7exercises
+
+latex chap8exercises
+latex chap8exercises
+dvi2pdf chap8exercises
+
+latex chap9exercises
+latex chap9exercises
+dvi2pdf chap9exercises
+
+latex chap10exercises
+latex chap10exercises
+dvi2pdf chap10exercises
+
+latex chap11exercises
+latex chap11exercises
+dvi2pdf chap11exercises
+
+latex allexercises
+latex allexercises
+dvi2pdf allexercises
+
+rm *.aux *.log *.dvi
+

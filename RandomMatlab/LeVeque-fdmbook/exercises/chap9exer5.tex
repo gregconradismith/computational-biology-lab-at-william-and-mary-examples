@@ -1,0 +1,34 @@
+
+\exercise[(Diffusion and decay)]{9.5}
+
+Consider the PDE
+\eqlex{diffdecay}
+u_t = \kappa u_{xx} - \gamma u,
+\end{equation}
+which models a diffusion with decay provided $\kappa>0$ and $\gamma>0$.  
+Consider methods of the form
+\eqlex{ddtheta}
+U_j^{n+1} =U_j^n+{k\over 2h^2} [U_{j-1}^n-2U_j^n +U_{j-1}^n
++U_j^{n+1} - 2U_j^{n+1} + U_j^{n+1}]
+- k\gamma[(1-\theta)U_j^n + \theta U_j^{n+1}]
+\end{equation}
+where $\theta$ is a parameter.  In particular, if $\theta=1/2$ then the
+decay term is modeled with the same centered-in-time approach as the
+diffusion term and the method can be obtained by applying the Trapezoidal
+method to the MOL formulation of the PDE.   If $\theta=0$ then the decay
+term is handled explicitly.  For more general reaction-diffusion equations
+it may be advantageous to handle the reaction terms explicitly since these
+terms are generally nonlinear, so making them implicit would require solving
+nonlinear systems in each time step (whereas handling the diffusion term
+implicitly only gives a linear system to solve in each time step).
+
+\begin{enumerate}
+\item By computing the local truncation error, show that this method is
+$\bigo(k^p+h^2)$ accurate, where $p=2$ if $\theta = 1/2$ and $p=1$
+otherwise.
+\item Using von Neumann analysis, show that this method is unconditionally
+stable if $\theta \geq 1/2$.
+\item Show that if $\theta = 0$ then the method is stable provided $k\leq
+2/\gamma$, independent of $h$.
+\end{enumerate} 
+

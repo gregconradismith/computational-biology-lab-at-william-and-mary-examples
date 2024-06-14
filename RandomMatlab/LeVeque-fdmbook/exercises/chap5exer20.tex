@@ -1,0 +1,53 @@
+
+\exercise[($R(z)$ for Runge-Kutta methods)]{5.20}
+
+Consider a general $r$-stage Runge-Kutta method with tableau defined by an
+$r\times r$ matrix $A$ and a row vector $b^T$ of length $r$.  Let
+\[
+Y = \bcm Y_1 \\ Y_2\\ \vdots\\ Y_r\ecm, \qquad
+e = \bcm 1\\ 1\\ \vdots\\ 1\ecm
+\]
+and $z=\lambda k$.  
+\begin{enumerate}
+\item Show that if the Runge-Kutta method is applied to the equation
+$u'=\lambda u$ the formulas (5.34) can be written concisely as
+\begin{equation*}
+\begin{split}
+Y &= U^ne + zAY,\\
+U^{n+1} &= U^n + zb^TY,
+\end{split}
+\end{equation*}
+and hence
+\eqlex{a}
+\qquad U^{n+1} = \left( I + zb^T(I-zA)^{-1}e\right) U^n.
+\end{equation}
+
+\item
+Recall that by Cramer's rule that if $B$ is an $r\times r$ matrix then the
+$i$th element of the vector $y = B^{-1}e$ is given by 
+\[
+y_i = \frac{\det(B_i)}{\det(B)},
+\]
+where $B_i$ is the matrix $B$ with the $i$th column replaced by $e$, and
+$\det$ denotes the determinant.
+
+In the expression \eqnex{a}, $B=I-zA$ and each element of $B$ is linear in $z$.
+From the definition of the determinant it follows that $\det(B)$ will be a
+polynomial of degree at most $r$, while $\det(B_i)$ will be a polynomial
+of degree at most $r-1$ (since the column vector $e$ does does not involve $z$).
+
+From these facts, conclude that \eqnex{a} 
+yields $U^{n+1} = R(z)U^n$ where $R(z)$
+is a rational function of degree at most $(r,r)$.
+
+\item Explain why an explicit Runge-Kutta method (for which $A$ is strictly
+lower triangular) results in $R(z)$ being a polynomial of degree at most $r$
+(i.e., a rational function of degree at most $(r,0)$).
+
+\item Use \eqnex{a} to determine the function $R(z)$ for the TR-BDF2 method
+(5.36).  Note that in this case $I-zA$ is lower triangular and you can
+compute $(I-zA)^{-1}e$ by forward substitution.  You should get the same
+result as in Exercise 5.18(c).
+\end{enumerate}
+
+

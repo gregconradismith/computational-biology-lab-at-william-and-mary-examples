@@ -1,0 +1,30 @@
+
+\exercise[($R(z)$ for the trapezoidal method)]{5.17}
+
+\begin{enumerate}
+\item Apply the trapezoidal method to the equation $u' = \lambda u$ and show
+that
+\[
+U^{n+1} = \left( \frac{1 + z/2}{1 - z/2} \right) U^n,
+\]
+where $z = \lambda k$.
+
+\item Let 
+\[
+R(z) = \frac{1 + z/2}{1 - z/2}.
+\]
+Show that $R(z) = e^z + \bigo(z^3)$ and conclude that the one-step error of
+the trapezoidal method on this problem is $\bigo(k^3)$ (as expected since
+the method is second order accurate).
+
+Hint: One way to do this is to use the ``Neumann series'' expansion
+\[
+\frac{1}{1-z/2} = 1 + \frac z 2 + \left(\frac z 2\right)^2 + \left(\frac z
+2\right)^3 + \cdots
+\]
+and then multiply this series by $(1 + z/2)$.
+A more general approach to checking the accuracy of rational approximations
+to $e^z$ is explored in the next exercises.
+
+\end{enumerate}
+

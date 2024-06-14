@@ -1,0 +1,100 @@
+
+
+\exercise[(Lax-Richtmyer stability of leapfrog as a one-step method)]{10.10}
+Consider the leapfrog method for the advection equation $u_t + au_x=0$ on
+$0\leq x\leq 1$ with periodic boundary conditions.  From the von Neumann
+analysis of Example 10.4 we expect this method to be stable for $|ak/h|< 1$.  
+However, the Lax Equivalence theorem as stated in Section 9.5 only
+applies to 1-step (2-level) methods.  
+The point of this exercise is to show that the 3-level leapfrog method can
+be interpreted as a 1-step method to which the Lax Equivalence theorem
+applies.
+
+The leapfrog method $U^{n+1} = U^{n-1} + 2kAU^n$ can be rewritten as
+\eqlex{a}
+\bcm U^{n+1}\\ U^n\ecm = \bcm 2kA&I \\ I&0\ecm \bcm U^n\\U^{n-1}\ecm,
+\end{equation}
+which has the form $V^{n+1} = BV^n$.
+
+\begin{enumerate}
+\item
+Show that the matrix $B$ defined by \eqnex{a} has $2(m+1)$ eigenvectors of
+the form
+\eqlex{b}
+\bcm g_p^- u^p\\ u^p\ecm, \quad \bcm g_p^+ u^p\\ u^p\ecm, \quad\text{for}~
+p=1,~2,~\ldots,~m+1,  
+\end{equation}
+where $u^p\in\reals^{m+1}$ are the eigenvectors of $A$ given by (10.12) 
+and $g_p^{\pm}$ are the two roots of a quadratic equation.  Explain how this
+quadratic equation relates to (10.34) (what values of $\xi$ are relevant for
+this grid?)
+
+What are the eigenvalues of $B$?
+
+\item
+Show that if
+\eqlex{c}
+|ak/h|< 1
+\end{equation} 
+then the eigenvalues of $B$ are distinct with magnitude equal to 1.
+
+\item
+The result of part (b) is not sufficient to prove that leapfrog is
+Lax-Ricthmyer stable.  The matrix $B$ is not normal and the matrix of right
+eigenvectors $R$ with columns given by \eqnex{b} is not unitary.  By (D.8)
+in Appendix D we have
+\eqlex{d}
+\|B^n\|_2 \leq \|R\|_2 \|R^{-1}\|_2 = \kappa_2(R).
+\end{equation}
+To prove uniform power boundedness and stability we must show that the
+condition number of $R$ is uniformly bounded as $k\goto 0$ provided
+\eqnex{c} is satisfied.
+
+Prove this by the following steps:
+\begin{enumerate}
+\item Let 
+\eqlex{e}
+U = \frac 1 {\sqrt{m+1}} \left[u^1~~u^2~\cdots~ u^p\right]
+\in\reals^{(m+1)\times (m+1)}
+\end{equation}
+be an appropriately scaled right eigenvector matrix of $A$.  Show that with
+this scaling, $U$ is a unitary matrix:  $U^HU=I$.
+
+\item Show that the right eigenvector matrix of $B$ can be written as
+\eqlex{f}
+R = \bcm UG^- & UG^+\\ U&U\ecm
+\end{equation}
+where $G^{\pm} = \text{diag}(g_1^\pm,~\ldots,~g_{m+1}^\pm)$.  
+
+\item Show that if $x = \bcm x\\y\ecm \in\reals^{2(m+1)}$ has $\|z\|_2=1$
+then $\|Rz\|_2 \leq C$ for some constant independent of $m$, and hence
+$\|R\|_2 \leq C$ for all $k$.  (It is fairly easy to show this with
+$C=2\sqrt{2}$ and with a bit more work that in fact $\|R\|_2=2$ for all
+$k$.)
+
+\item Let
+\eqlex{g}
+L = \bcm G^-U^H & U^H\\ G^+ U^H & U^H\ecm.
+\end{equation}
+Show that $LR$ is a diagonal matrix and hence $R^{-1}$ is a diagonal scaling
+of the matrix $L$.  Determine $R^{-1}$.
+
+\item Use the previous result to show that
+\eqlex{h}
+\|R^{-1}\|_2 \leq \frac{C}{1-\nu^2}
+\end{equation}
+for some constant $C$, where $\nu = ak/h$ is the Courant number.
+
+\item Conclude from the above steps that $B$ is uniformly power bounded and
+hence the leapfrog method is Lax-Richtmyer stable provided that $|\nu|<1$.
+
+\end{enumerate} 
+
+\item Show that the leapfrog method with periodic boundary conditions is
+also stable in the case $|ak/h|=1$ if $m+1$ is not divisible by 4. 
+Find a good set of initial data $U^0$ and $U^1$ to illustrate the
+instability that arises if $m+1$ is divisible by 4 and perform a calculation
+that demonstrates nonconvergence in this case.
+
+\end{enumerate}
+

@@ -1,0 +1,23 @@
+
+\exercise[(Embedded Runge-Kutta method)]{5.15}
+
+Consider the embedded Runge-Kutta method defined by the tableau below.
+Apply one step of this method to 
+$u' = \lambda u$ to obtain both $U^{n+1}$ and $\hat U^{n+1}$.  What is the
+order of accuracy of each method?  What error estimate would be obtained
+when using this embedded method on this problem?  How does it compare to the
+actual error in the lower order method?  (Assume $U^n$ is the exact value at
+time $t_n$).
+
+\begin{center}
+\begin{tabular}{c|ccc}
+0\\
+1&1\\
+1/2&1/4&1/4\\
+\hline\\
+&1/2&1/2&0\\
+\hline\\
+&1/6&1/6&4/6
+\end{tabular}
+\end{center}
+

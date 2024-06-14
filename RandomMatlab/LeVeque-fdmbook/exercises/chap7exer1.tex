@@ -1,0 +1,19 @@
+
+\exercise[(Convergence of midpoint method)]{7.1}
+
+Consider the midpoint method $\unp = \unm + 2kf(U^n)$ applied to the test
+problem $u' = \lambda u$.  The method is zero-stable and second order
+accurate, and hence convergent.  If $\lambda<0$ then the true solution 
+is exponentially decaying.
+
+On the other hand, for $\lambda<0$ and $k>0$ the point $z=k\lambda$ is never
+in the region of absolute stability of this method (see Example 7.7),
+and hence the numerical solution should be growing exponentially for any
+nonzero time step.  (And yet it converges to a function that is exponentially
+decaying.)
+
+Suppose we take $U^0=\eta$, use Forward Euler to generate $U^1$, and then
+use the midpoint method for $n=2,~3,~\ldots$.  Work out the exact solution
+$U^n$ by solving the linear difference equation and explain how the apparent
+paradox described above is resolved.
+

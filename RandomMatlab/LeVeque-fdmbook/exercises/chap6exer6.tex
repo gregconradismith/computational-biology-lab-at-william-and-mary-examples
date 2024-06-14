@@ -1,0 +1,21 @@
+
+\exercise[(Solving a difference equation)]{6.6}
+
+\begin{enumerate}
+\item Find the general solution of the linear difference equation
+\[
+U^{n+2} - U^{n+1} + 0.25U^n =0.
+\]
+\item Determine the particular solution with initial data $U^0 = 2,
+~U^1=3$.  What is $U^{10}$?
+\item Consider the iteration
+\[
+\bcm U^{n+1} \\ U^{n+2}  \ecm =
+\bcm 0&1 \\ -0.25&1 \ecm \bcm U^n \\ \unp \ecm.
+\]
+The matrix appearing here is the ``companion matrix'' (D.19) for the above
+difference equation.   If this matrix is called $A$, then we can
+determine $U^n$ from the starting values using the $n$th power of this
+matrix.  Compute $A^n$ as discussed in Appendix D.2 and show that this gives
+the same solution found in part (b).
+\end{enumerate} 

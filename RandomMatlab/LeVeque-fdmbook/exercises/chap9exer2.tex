@@ -1,0 +1,42 @@
+
+\exercise[(codes for heat equation)]{9.2}
+
+\begin{enumerate} 
+\item The m-file \verb+heat_CN.m+ solves
+the heat equation $u_t = \kappa u_{xx}$ using the Crank-Nicolson method.
+Run this code, and by changing the number of grid points, confirm that it is
+second-order accurate.  (Observe how the error at some fixed time such as $T=1$
+behaves as $k$ and $h$ go to zero with a fixed relation between $k$ and $h$,
+such as $k = 4h$.)
+
+You might want to use the function \verb+error_table.m+ to print out this
+table and estimate the order of accuracy, and \verb+error_loglog.m+ to
+produce a log-log plot of the error vs.\ $h$.  See \verb+bvp_2.m+ for an
+example of how these are used.
+
+\item Modify \verb+heat_CN.m+ to produce a new m-file \verb+heat_trbdf2.m+ that
+implements the TR-BDF2 method on the same problem.  Test it to confirm that
+it is also second order accurate.  Explain how you determined the proper
+boundary conditions in each stage of this Runge-Kutta method.
+
+\item Modify \verb+heat_CN.m+ to produce a new m-file \verb+heat_FE.m+ that
+implements the forward Euler explicit 
+method on the same problem.  Test it to confirm that
+it is $\bigo(h^2)$ accurate as $h\goto 0$ provided when $k = 24 h^2$ is
+used, which is within the stability limit for $\kappa = 0.02$.  Note how
+many more time steps are required than with Crank-Nicolson or TR-BDF2,
+especially on finer grids.
+
+\item Test \verb+heat_FE.m+ with $k = 26 h^2$, for which it should be
+unstable.  Note that the instability does not become apparent until about
+time 1.6 for the parameter values $\kappa = 0.02,~ m=39,~\beta = 150$.
+Explain why the instability takes several hundred time steps to appear, and
+why it appears as a sawtooth oscillation. 
+
+{\bf Hint:} What wave numbers $\xi$ are growing exponentially for these
+parameter values?  What is the initial magnitude of the most unstable
+eigenmode in the given initial data?  The expression (16.52) for the Fourier
+transform of a Gaussian may be useful.
+
+\end{enumerate}
+

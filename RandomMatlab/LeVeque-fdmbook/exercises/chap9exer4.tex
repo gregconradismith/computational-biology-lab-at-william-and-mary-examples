@@ -1,0 +1,16 @@
+
+\exercise[(Jacobi iteration as time stepping)]{9.4}
+
+Consider the Jacobi iteration (4.4) for the linear system $Au=f$ arising
+from a centered difference approximation of the boundary value problem
+$u_{xx}(x) = f(x)$. Show that this iteration can be interpreted as forward
+Euler time stepping applied to the MOL equations arising from a centered
+difference discretization of the heat equation $u_t(x,t) = u_{xx}(x,t) -
+f(x)$ with time step $k = \half h^2$. 
+
+Note that if the boundary conditions are held constant then the solution to
+this heat equation decays to the steady state solution that solves the
+boundary value problem.  Marching to steady state with an explicit method
+is one way to solve the boundary value problem, though as we saw in Chapter
+4 this is a very inefficient way to compute the steady state.
+

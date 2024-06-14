@@ -1,0 +1,54 @@
+
+\exercise[(One-sided and centered methods)]{10.1}
+
+Let $U = [U_0,~U_1,~\ldots,~U_m]^T$ be a vector of function values at
+equally spaced points on the interval $0\leq x \leq 1$, and suppose the
+underlying function is periodic and smooth.  Then we can approximate 
+the first derivative $u_x$ at all of these points by $DU$, where $D$ is
+circulant matrix such as
+\eqlex{a}
+D_- = \frac 1 h \brm 1&&&&-1\\ -1&1\\ &-1&1\\ &&-1&1\\ &&&-1&1\erm,  \qquad
+D_+ = \frac 1 h \brm -1&1\\ &-1&1\\ &&-1&1\\ &&&-1&1\\ 1&&&&-1\erm
+\end{equation} 
+for first-order accurate one-sided approximations or
+\eqlex{b}
+D_0 = \frac 1 {2h} \brm 0&1&&&-1\\ -1&0&1\\ &-1&0&1\\ &&-1&0&1\\ 1&&&-1&0\erm
+\end{equation} 
+for a second-order accurate centered approximation.  (These are illustrated
+for a grid with $m+1=5$ unknowns and $h=1/5$.)
+
+
+The advection equation $u_t + au_x=0$ on the interval $0\leq x \leq
+1$ with periodic boundary conditions  
+gives rise to the MOL discretization $U'(t) = -aDU(t)$
+where $D$ is one of the matrices above.
+
+\begin{enumerate} 
+\item Discretizing $U' = -aD_-U$ by forward Euler gives the first order
+upwind method
+\eqlex{c}
+U_j^{n+1} = U_j^n - \frac{ak}{h} (U_j^n - U_{j-1}^n),
+\end{equation}
+where the index $i$ runs from 0 to $m$ with addition of indices performed
+mod $m+1$ to incorporate the periodic boundary conditions.
+
+Suppose instead we discretize the MOL equation by the second-order Taylor
+series method, 
+\eqlex{d}
+U^{n+1} = U^n - akD_-U^n + \half (ak)^2 D_-^2 U^n.
+\end{equation}
+Compute $D_-^2$ and also write out the formula for $U_j^n$ that results from
+this method.  
+
+\item How accurate is the method derived in part (a) compared to the
+Beam-Warming method, which is also a 3-point one-sided method?
+
+\item Suppose we make the method \eqnex{c} more symmetric:
+\eqlex{e}
+U^{n+1} = U^n - \frac{ak}{2} (D_+ +D_-)U^n + \half (ak)^2 D_+D_- U^n.
+\end{equation}
+Write out the formula for $U_j^n$ that results from this method.  
+What standard method is this?
+
+\end{enumerate}
+

@@ -1,0 +1,6 @@
+# convert a dvi file from latex output to pdf with nice fonts
+# usage:  latex fname;   dvi2pdf fname
+
+  dvips -Ppdf -G0 $*.dvi -o $*.ps4pdf
+  ps2pdf  -dMaxSubsetPct=100 -dCompatibilityLevel=1.2 -dSubsetFonts=true -dEmbedAllFonts=true $*.ps4pdf $*.pdf
+  rm $*.ps4pdf
