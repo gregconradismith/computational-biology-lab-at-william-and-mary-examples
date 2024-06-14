@@ -10,10 +10,9 @@ Most of the contents of this repository are `examples' or `helps' that are organ
 
 [Greg Conradi Smith](https://gregconradismith.wordpress.com)\
 Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/)\
-[William & Mary](https://www.wm.edu)\
-Faculty affiliate of W&M's programs in 
-[Neuroscience](https://www.wm.edu/as/neuroscience/) and [CAMS Mathematical Biology](https://www.wm.edu/as/cams/).
-
+Faculty affiliate of programs in 
+[Neuroscience](https://www.wm.edu/as/neuroscience/) and [CAMS Mathematical Biology](https://www.wm.edu/as/cams/)\
+[William & Mary](https://www.wm.edu)
 
 ## License
 
