@@ -9,8 +9,7 @@ Most of the contents of this repository are `examples' or `helps' that are organ
 ## Author
 
 [Greg Conradi Smith](https://gregconradismith.wordpress.com)\
-Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/)\
-[Neuroscience](https://www.wm.edu/as/neuroscience/) and [Computational and Applied Mathematics and Statistics (CAMS)](https://www.wm.edu/as/cams/) Faculty Affiliate\
+[Applied Science](https://www.wm.edu/as/appliedscience/) |[Neuroscience](https://www.wm.edu/as/neuroscience/) | [CAMS Mathematical Biology](https://www.wm.edu/as/cams/)
 [William & Mary](https://www.wm.edu)
 
 ## License
