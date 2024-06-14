@@ -1,5 +1,4 @@
 # Computational Biology Lab @ William & Mary
-
 # Examples
 
 This repository contains materials for research students in the [Computational Biology Laboratory](https://wmcbl.wordpress.com) at [William & Mary](https://www.wm.edu). Anyone interested in the mathematical aspects of life sciences is welcome to use and contribute to these materials.
