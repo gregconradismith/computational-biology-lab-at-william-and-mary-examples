@@ -4,7 +4,7 @@ This repository contains materials for research students in the [Computational B
 
 ## Decription 
 
-Most of the contents of this repository are _examples_ or _helps_ that are organized topically, e.g., the directory/folder titled 'LaTeX' includes example '.tex' files and other resources to help you learn how to typeset publication-quality mathematical equations. The folders *Nonlinear Dynamics* and *Linear Algebra* contain links to recommended texts and videos as well as Matlab scripts and Sagemath Jupyter Notebooks
+Most of the contents of this repository are _examples_ or _helps_ organized topically. For example, the directory/folder titled `LaTeX` includes example '.tex' files and other resources to help you learn how to typeset publication-quality mathematical equations. The folders `Nonlinear Dynamics` and `Linear Algebra` contain links to recommended videos, Matlab scripts, and Sagemath Jupyter Notebooks to help you explore these mathematical topics.
 
 ## Author
 
