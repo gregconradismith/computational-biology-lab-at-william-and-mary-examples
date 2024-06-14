@@ -15,7 +15,7 @@ Professor, [Department of Applied Science](https://www.wm.edu/as/appliedscience/
 
 ## Contributors 
 
-Contributions from current and former students are acknowledged in directories/folders that bear their names. 
+Contributions from current and former students are acknowledged and can be found in the directories/folders that bear their names. 
 
 ## License
 
