@@ -46,4 +46,3 @@ end
 6. **Return Statement**:
     - The `return` statement is not necessary in this context, as the function will naturally exit after completing all statements. It is kept here as it was in the original code for clarity.
 
-By adding these comments, the code becomes much more understandable for a new programmer, explaining each part of the function step by step.
