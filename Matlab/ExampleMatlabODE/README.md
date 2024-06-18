@@ -71,3 +71,8 @@ end
     - Defines the differential equation `dx/dt = lambda - x^2`.
     - Takes `t` (time, unused in this equation but required by the ODE solver) and `x` as inputs.
     - Computes the RHS of the ODE and returns it.
+
+### Output of Matlab script
+
+![exampleode](https://github.com/gregconradismith/computational-biology-lab-at-william-and-mary-examples/assets/45968995/5ce0938a-1e5b-4af0-8351-ca70f08ac62d)
+
