@@ -21,7 +21,7 @@ function variable_argument_example(varargin)
     end
 
 end
-'''
+```
 
 ### Explanation:
 
