@@ -1,5 +1,3 @@
-Certainly! Below is your MATLAB code with additional comments to help a new programmer understand each part of it:
-
 ```matlab
 function exampleode
 % EXAMPLEODE - Integrates the differential equation dx/dt = lambda - x^2
