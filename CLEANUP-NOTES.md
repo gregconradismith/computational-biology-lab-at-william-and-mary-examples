@@ -13,7 +13,7 @@ This file records conservative recommendations for future structural cleanup.
 
 ### MATLAB
 
-- split `MatlabMore/RandomMatlab` into topic-based folders
+- continue refining `Matlab/RandomMatlab` now that it has been split into topic-based folders
 - decide whether `ExampleMatlabSpeedingUp` and `ExampleSpeedingUpMatlab` should be merged
 - add more subfolder `README.md` files in specialized folders
 

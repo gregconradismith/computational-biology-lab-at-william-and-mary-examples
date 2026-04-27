@@ -1,12 +1,35 @@
 # MATLAB
 
-This folder contains short, approachable MATLAB examples that are good entry points for new students.
+This folder now contains the full MATLAB collection for the repository.
+
+The first few folders are especially approachable for new students, while many of the other folders are larger, more specialized, or more research-oriented.
 
 ## Recommended Order
 
 1. `NumerialIntegrationOfScalarODE`
 2. `VariableNumberOfInputArguments`
 3. `PlottingSubplotsAndMultipleYAxes`
+
+## Good Next Steps After The Basics
+
+After the introductory examples, good next folders include:
+
+- `ExampleMatlabWorksheets`
+- `NumericalIntegrationOf2DLinearODESystem`
+- `ExampleMatlabBindingCurveCooperativity`
+- `ExampleMatlabParameterSearch`
+- `ExampleMatlabGameOfLifeAndNeighbors`
+
+## Larger Reference And Specialized Areas
+
+Other folders in this directory include:
+
+- worksheets and structured teaching materials
+- modeling and numerical integration examples
+- fitting, parameter search, and Markov-chain examples
+- performance and plotting reference material
+- mixed research-note examples
+- `RandomMatlab`, which is a browsable reference shelf rather than a beginner sequence
 
 ## What Each Folder Covers
 
@@ -26,4 +49,4 @@ That example shows a common workflow:
 
 ## Suggested Next Step
 
-After finishing this folder, continue to [../MatlabMore/README.md](../MatlabMore/README.md) for more advanced scripts and topic-specific examples.
+After finishing the three introductory folders above, continue to one of the guided example folders elsewhere in this same `Matlab` directory.

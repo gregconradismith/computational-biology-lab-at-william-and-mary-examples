@@ -18,7 +18,7 @@ If you are new to the lab or new to computational work, use this order:
 
 ### If you want to learn MATLAB
 
-Start in [Matlab](Matlab/README.md). The examples there are short and beginner-friendly.
+Start in [Matlab](Matlab/README.md). It now contains both the introductory examples and the larger collection of advanced or research-oriented materials.
 
 Suggested order:
 
@@ -26,7 +26,7 @@ Suggested order:
 2. `VariableNumberOfInputArguments`
 3. `PlottingSubplotsAndMultipleYAxes`
 
-After that, move to [MatlabMore](MatlabMore/README.md) for more advanced examples.
+After that, continue deeper into the larger example folders within `Matlab`.
 
 ### If you want to write papers, reports, or posters
 
@@ -46,8 +46,7 @@ Start in [HPC-Sciclone](HPC-Sciclone/README.md). This is more specialized and is
 
 ## Repository Map
 
-- [Matlab](Matlab/README.md): small introductory MATLAB examples
-- [MatlabMore](MatlabMore/README.md): larger MATLAB examples, worksheets, and research-oriented scripts
+- [Matlab](Matlab/README.md): introductory MATLAB examples plus larger worksheets, research-oriented scripts, and reference materials
 - [Latex](Latex/README.md): LaTeX examples for manuscripts and mathematical writing
 - [TikZ](TikZ/README.md): figure and diagram examples
 - [Sagemath](Sagemath/README.md): SageMath and SageTeX examples

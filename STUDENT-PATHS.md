@@ -17,11 +17,11 @@ Start here if you are new to Git, MATLAB, and technical writing.
 Start here if your project is mainly computational or mathematical.
 
 1. Begin with [Matlab/README.md](Matlab/README.md).
-2. Continue to [MatlabMore/README.md](MatlabMore/README.md).
+2. Continue within the broader `Matlab` collection.
 3. Try one worksheet or one numerical integration example.
 4. Choose a specialized topic such as parameter search, Markov chains, or binding curves.
 
-Good first `MatlabMore` folders:
+Good next `Matlab` folders:
 
 - `ExampleMatlabWorksheets`
 - `NumericalIntegrationOf2DLinearODESystem`
