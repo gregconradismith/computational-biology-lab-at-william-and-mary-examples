@@ -6,3 +6,26 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+.svn/
+
+# Editor and temp files #
+*.swp
+*.swo
+*~
+
+# MATLAB generated files #
+*.asv
+
+# LaTeX generated files #
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# General local artifacts #
+tmp.mat
