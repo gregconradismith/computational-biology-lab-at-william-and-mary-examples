@@ -1,0 +1,68 @@
+%% Pretty formatted LaTeX/TikZ source
+%% FigGraphC3.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{10pt}
+%\usetikzlibrary{matrix, calc, arrows}
+
+%\newcommand{\midarrow}{\tikz \draw[-triangle 90] (0,0) -- +(.1,0);}
+
+\def\a{\mathsf{a}}
+\def\b{\mathsf{b}}
+\def\c{\mathsf{c}}
+
+\def\abar{\bar{{\a}}}
+\def\bbar{\bar{{\b}}}
+\def\cbar{\bar{{\c}}}
+
+\def\vr{1pt} % set \vr = 2/scale for uniform sizing of vertices
+\def\r{1.24}
+
+\def\DrawVertices{
+\draw (a1) [fill=white] circle (\vr) node[circle,left] {a};
+\draw (a2) [fill=white] circle (\vr) node[circle,above] {b};
+\draw (a3) [fill=white] circle (\vr) node[circle,right] {c};
+}
+
+\def\SetCoordinates{
+\coordinate (a1) at (0,0);
+\coordinate (a2) at (0.5*\r,0.8660*\r);
+\coordinate (a3) at (\r,0);
+}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=2,style=thick,font=\small,>=latex,shorten >=3pt]
+
+    \begin{scope}[xshift=2.5cm]
+        \SetCoordinates
+
+        \draw[->] (a1) to[bend left=15] node[left] {$\a$} (a2);
+        \draw[->] (a2) to[bend left=15] node[fill=white] {$\abar$} (a1);
+
+        \draw[->] (a2) to[bend left=15] node[right] {$\b$} (a3);
+        \draw[->] (a3) to[bend left=15] node[fill=white] {$\bbar$} (a2);
+
+        \draw[->] (a3) to[bend left=15] node[below] {$\c$} (a1);
+        \draw[->] (a1) to[bend left=15] node[above] {$\cbar$} (a3);
+
+        \DrawVertices
+    \end{scope}
+
+    \begin{scope}[xshift=5cm]
+        \SetCoordinates
+
+        \draw[->] (a1) -- node[circle,fill=white,inner sep=1,outer sep=0] {$\a$} (a2);
+        \draw[->] (a2) -- node[circle,fill=white,inner sep=1,outer sep=0] {$\b$}  (a3);
+        \draw[->] (a3) -- node[circle,fill=white,inner sep=1,outer sep=0] {$\c$}  (a1);
+
+        \DrawVertices
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}
+

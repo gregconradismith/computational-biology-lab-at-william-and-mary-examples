@@ -1,0 +1,61 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig10-NucleotideExchangeNotationRepeat.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.7,thick,>=stealth,font=\small]
+
+    \begin{scope}[xshift=0cm]
+
+        \node[draw,circle] (v1) at (-2,-1.4)  {$a$};
+        \node[draw,circle] (v2) at (0,2)  {$b$};
+        \node[draw,circle] (v3) at (2,-1.4)  {$c$};
+
+        \draw[<-,bend right=20,dotted] (v1) to node[fill=white] (A12) {$\bbar$} (v2);
+        \draw[->,bend left=20] (v2) to node[fill=white] (A23) {$\x$} (v3);
+        \draw[->,bend right=20,dotted] (v3) to node[fill=white] (A31) {$\cbar$} (v1);
+
+        \draw[->,bend right=20,red,ultra thick] (v1) to node[fill=white] (A13) {$\c$}  (v3);
+        \draw[->,bend left=20,dotted] (v3) to node[fill=white] {$\xbar$} (v2);
+        \draw[<-,bend right=20,red,ultra thick] (v2) to node[fill=white] {$\b$} (v1);
+    \end{scope}
+
+    \begin{scope}[xshift=7cm]
+
+        \node[draw,circle] (v1) at (-2,-1.4)  {$a_1$};
+        \node[draw,circle] (v2) at (0,2)  {$a_2$};
+        \node[draw,circle] (v3) at (2,-1.4)  {$a_3$};
+
+        \draw[<-,bend right=20,dotted] (v1) to node[fill=white] (A12) {$\ebar_{2}$} (v2);
+        \draw[->,bend left=20] (v2) to node[fill=white] (A23) {$a_2a_3$} (v3);
+        \draw[->,bend right=20,dotted] (v3) to node[fill=white] (A31) {$\ebar_3$} (v1);
+
+        \draw[->,bend right=20,red,ultra thick] (v1) to node[fill=white] (A13) {$\e_3$}  (v3);
+        \draw[->,bend left=20,dotted] (v3) to node[fill=white] {$a_3a_2$} (v2);
+        \draw[<-,bend right=20,red,ultra thick] (v2) to node[fill=white] {$\e_{2}$} (v1);
+    \end{scope}
+
+    \begin{scope}[xshift=14cm]
+
+        \node[draw,circle] (v1) at (-2,-1.4)  {$1$};
+        \node[draw,circle] (v2) at (0,2)  {$2$};
+        \node[draw,circle] (v3) at (2,-1.4)  {$3$};
+
+        \draw[<-,bend right=20,dotted] (v1) to node[fill=white] (A12) {$21$} (v2);
+        \draw[->,bend left=20] (v2) to node[fill=white] (A23) {$23$} (v3);
+        \draw[->,bend right=20,dotted] (v3) to node[fill=white] (A31) {$31$} (v1);
+
+        \draw[->,bend right=20,red,ultra thick] (v1) to node[fill=white] (A13) {$13$}  (v3);
+        \draw[->,bend left=20,dotted] (v3) to node[fill=white] {$32$} (v2);
+        \draw[<-,bend right=20,red,ultra thick] (v2) to node[fill=white] {$12$} (v1);
+    \end{scope}
+
+\end{tikzpicture}
+
+\end{document}
+

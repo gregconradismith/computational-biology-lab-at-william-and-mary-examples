@@ -1,0 +1,59 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig11-DimerAllostericParametersAlpha.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}[scale=1,style=thick,shorten >=3pt,shorten <=3pt,inner sep=2pt,outer sep=2pt]
+    \def\vr{2.5pt} % \vr = vertex radius;  Set \vr = 2/scale
+    \def\rr{1.2}
+    \begin{scope}[xshift=7cm,yshift=0cm]
+        \coordinate (A2) at (0,0);
+        \coordinate (AB) at (2,2*\rr);
+        \coordinate (B2) at (4,4*\rr);
+        \coordinate (AC) at (4,0);
+        \coordinate (BC) at (6,2*\rr);
+        \coordinate (C2) at (8,0);
+        \draw (A2) [fill=white] circle (\vr);
+        \draw (AB) [fill=white]  circle (\vr);
+        \draw (B2)  [fill=white]  circle (\vr);
+        \draw (AC)  [fill=white]  circle (\vr);
+        \draw (BC)  [fill=white]  circle (\vr);
+        \draw (C2)  [fill=white]  circle (\vr);
+        \draw (C2) node [below right] {$c^2$};
+        \draw (B2) node [above] {$b^2$};
+        \draw (A2) node [below left] {$a^2$};
+        \draw (AB) node [above left] {$ab$};
+        \draw (BC) node [above right] {$bc$};
+        \draw (AC) node [below] {$ac$};
+        \draw[red,-latex] (A2) to[bend left=15] node[sloped,fill=white] {$2\alpha_{ab}$} (AB);
+        \draw[red,-latex] (AB) to[bend left=15] node[sloped,fill=white] {$\alpha_{ba}$} (A2);
+        \draw[red,-latex] (AB) to[bend right=15] node[sloped,fill=white] {$\eta_{ab}^{\b} \alpha_{ab}$} (B2);
+        \draw[red,-latex] (B2) to[bend right=15] node[sloped,fill=white] {$2\eta_{ba}^{\b} \alpha_{ba}$} (AB);
+        \draw[red,-latex] (AC) to[bend left=15] node[sloped,fill=white] {$\eta_{ab}^{\c} \alpha_{ab}$} (BC);
+        \draw[red,-latex] (BC) to[bend left=15] node[sloped,fill=white] {$\eta_{ba}^{\c} \alpha_{ba}$} (AC);
+        \draw[-latex] (C2) to[bend right=15] node[sloped,fill=white] {$2\eta_{cb}^{\c}\alpha_{cb}$} (BC);
+        \draw[-latex] (BC) to[bend right=15] node[sloped,fill=white] {$\eta_{bc}^{\c}\alpha_{bc}$} (C2);
+        \draw[-latex] (BC) to[bend left=15] node[sloped,fill=white] {$\eta_{cb}^{\b} \alpha_{cb}$} (B2);
+        \draw[-latex] (B2) to[bend left=15] node[sloped,fill=white] {$2\eta_{bc}^{\b} \alpha_{bc}$} (BC);
+        \draw[-latex] (AC) to[bend left=15] node[sloped,fill=white] {$\alpha_{cb}$} (AB);
+        \draw[-latex] (AB) to[bend left=15] node[sloped,fill=white] {$\alpha_{bc}$} (AC);
+
+        \draw[-latex,blue] (C2) to[bend left=15] node[sloped,fill=white] {$2\eta_{ca}^{\c}\alpha_{ca}$} (AC);
+        \draw[-latex,blue] (AC) to[bend left=15] node[sloped,fill=white] {$\eta_{ac}^{\c}\alpha_{ac}$} (C2);
+
+        \draw[-latex,blue] (AC) to[bend right=15] node[sloped,fill=white] {$\alpha_{ca}$} (A2);
+        \draw[-latex,blue] (A2) to[bend right=15] node[sloped,fill=white] {$2\alpha_{ac}$} (AC);
+
+        \draw[-latex,blue] (BC) to[bend left=15] node[sloped,fill=white] {$\eta_{ca}^{\b}\alpha_{ca}$} (AB);
+        \draw[-latex,blue] (AB) to[bend left=15] node[sloped,fill=white] {$\eta_{ac}^{\b}\alpha_{ac}$} (BC);
+
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
+

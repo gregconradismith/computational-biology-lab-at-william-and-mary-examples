@@ -1,0 +1,76 @@
+%% Binding curve for homodimer of monomers with two sequential binding steps
+%% FigBindingCurveMonomerDimer.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usepackage{pgfplots}
+
+\def\micromolar{\mu{\rm M}}
+
+\begin{document}
+
+\tikzset{every node/.style={font=\huge}}
+
+\pgfplotsset{
+every axis/.style={
+clip=true,
+height=8cm,
+xmax=20,
+xmin=0.1,
+ymin=0,
+ymax=1.1,
+axis x line=bottom,
+legend pos=north west,
+legend style={row sep=10pt,inner sep=9pt},
+legend cell align={left},
+xlabel={$x$ ($\micromolar$)},
+axis y line=left,
+ylabel={},
+ytick={0,0.5,1},
+ylabel near ticks,
+xlabel near ticks,
+ylabel style={rotate=-90},
+domain=0.01:100,
+samples=200
+}
+}
+
+\tikzstyle{style1}=[black,ultra thick,dotted]
+\tikzstyle{style2}=[black,ultra thick,dashed]
+\tikzstyle{style3}=[black,ultra thick]
+\tikzstyle{style6}=[black,thin]
+
+\begin{tikzpicture}
+    \begin{semilogxaxis}
+        \addplot[style1] table[x index=0,y index=1] {figpmonomer1.dat};
+        \addlegendentry{$\pi_a$}
+        \addplot[style2] table[x index=0,y index=2] {figpmonomer1.dat};
+        \addlegendentry{$\pi_b$}
+        \addplot[style3] table[x index=0,y index=3] {figpmonomer1.dat};
+        \addlegendentry{$\pi_c$}
+    \end{semilogxaxis}
+
+    \begin{semilogxaxis}[xshift=10.5cm,xmin=0.01,xmax=100]
+        \addplot[style1] table[x index=0,y index=1] {figpdimer1.dat};
+        \addlegendentry{$\pi_{a^2}$}
+        \addplot[thin,dashdotted] table[x index=0,y index=2] {figpdimer1.dat};
+        \addlegendentry{$\pi_{ab}$}
+        \addplot[style2] table[x index=0,y index=3] {figpdimer1.dat};
+        \addlegendentry{$\pi_{b^2}$}
+        \addplot[style6] table[x index=0,y index=4] {figpdimer1.dat};
+        \addlegendentry{$\pi_{ac}$}
+        \addplot[thick,dashdotted] table[x index=0,y index=5] {figpdimer1.dat};
+        \addlegendentry{$\pi_{bc}$}
+        \addplot[style3] table[x index=0,y index=6] {figpdimer1.dat};
+        \addlegendentry{$\pi_{c^2}$}
+    \end{semilogxaxis}
+
+    \def\height{6.5}
+    \def\left{-1.5}
+    \draw (\left,\height) node[font=\Huge] {{\bf a}};
+    \draw (\left+10.5,\height) node[font=\Huge] {{\bf b}};
+\end{tikzpicture}
+
+\end{document}
+

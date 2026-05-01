@@ -1,0 +1,199 @@
+%% Example Tikz Graph
+
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+ \usepackage{amsmath}
+
+ 
+\begin{document}
+
+\begin{tikzpicture}[scale=3]
+
+%\GraphInit[vstyle=Shade Art]
+\GraphInit[vstyle=Normal]
+
+% \SetVertexSimple[Shape=rectangle,FillColor=blue!50]
+\SetVertexNormal[Shape = rectangle,LineWidth = 1pt,FillColor = blue!20]
+                   
+\definecolor{cv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv0}{rgb}{1.0,1.0,1.0}
+\definecolor{clv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv1}{rgb}{1.0,1.0,1.0}
+\definecolor{clv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv2}{rgb}{1.0,1.0,1.0}
+\definecolor{clv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv3}{rgb}{1.0,1.0,1.0}
+\definecolor{clv3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv4}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv4}{rgb}{1.0,1.0,1.0}
+\definecolor{clv4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv5}{rgb}{1.0,1.0,1.0}
+\definecolor{clv5}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv6}{rgb}{1.0,1.0,1.0}
+\definecolor{clv6}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv7}{rgb}{1.0,1.0,1.0}
+\definecolor{clv7}{rgb}{0.0,0.0,0.0}
+\definecolor{cv8}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv8}{rgb}{1.0,1.0,1.0}
+\definecolor{clv8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv9}{rgb}{1.0,1.0,1.0}
+\definecolor{clv9}{rgb}{0.0,0.0,0.0}
+\definecolor{cv10}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv10}{rgb}{1.0,1.0,1.0}
+\definecolor{clv10}{rgb}{0.0,0.0,0.0}
+\definecolor{cv11}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv11}{rgb}{1.0,1.0,1.0}
+\definecolor{clv11}{rgb}{0.0,0.0,0.0}
+\definecolor{cv12}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv12}{rgb}{1.0,1.0,1.0}
+\definecolor{clv12}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv13}{rgb}{1.0,1.0,1.0}
+\definecolor{clv13}{rgb}{0.0,0.0,0.0}
+\definecolor{cv14}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv14}{rgb}{1.0,1.0,1.0}
+\definecolor{clv14}{rgb}{0.0,0.0,0.0}
+\definecolor{cv15}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv15}{rgb}{1.0,1.0,1.0}
+\definecolor{clv15}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv8v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv11v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv12v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv15v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v12}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v14}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v15}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv10v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv11v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv12v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv14v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v10}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v11}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v3}{rgb}{0.0,0.0,0.0}
+\definecolor{cv3v15}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv8v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv10v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv12v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv15v4}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v5}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v5}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v5}{rgb}{0.0,0.0,0.0}
+\definecolor{cv5v12}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v6}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v11}{rgb}{0.0,0.0,0.0}
+\definecolor{cv6v12}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v6}{rgb}{0.0,0.0,0.0}
+\definecolor{cv14v6}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v7}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v10}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v7}{rgb}{0.0,0.0,0.0}
+\definecolor{cv7v14}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv11v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv15v8}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v9}{rgb}{0.0,0.0,0.0}
+\definecolor{cv9v15}{rgb}{0.0,0.0,0.0}
+\definecolor{cv14v10}{rgb}{0.0,0.0,0.0}
+\definecolor{cv15v10}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v11}{rgb}{0.0,0.0,0.0}
+\definecolor{cv14v12}{rgb}{0.0,0.0,0.0}
+\definecolor{cv13v14}{rgb}{0.0,0.0,0.0}
+%
+\Vertex[style={minimum size=1.0cm,draw=cv0,fill=cfv0,text=clv0,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{d}}, \text{\texttt{c}}, \text{\texttt{a}}\right)$},x=4.7056cm,y=3.8348cm]{v0}
+\Vertex[style={minimum size=1.0cm,draw=cv1,fill=cfv1,text=clv1,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{d}}, \text{\texttt{c}}\right)$},x=3.57cm,y=1.3281cm]{v1}
+\Vertex[style={minimum size=1.0cm,draw=cv2,fill=cfv2,text=clv2,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{d}}, \text{\texttt{b}}, \text{\texttt{a}}\right)$},x=4.2445cm,y=2.5414cm]{v2}
+\Vertex[style={minimum size=1.0cm,draw=cv3,fill=cfv3,text=clv3,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{x}}, \text{\texttt{a}}\right)$},x=0.0cm,y=3.7123cm]{v3}
+\Vertex[style={minimum size=1.0cm,draw=cv4,fill=cfv4,text=clv4,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{c}}, \text{\texttt{b}}, \text{\texttt{a}}\right)$},x=4.0408cm,y=4.6632cm]{v4}
+\Vertex[style={minimum size=1.0cm,draw=cv5,fill=cfv5,text=clv5,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{x}}, \text{\texttt{c}}, \text{\texttt{b}}\right)$},x=2.6076cm,y=2.2519cm]{v5}
+\Vertex[style={minimum size=1.0cm,draw=cv6,fill=cfv6,text=clv6,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{x}}, \text{\texttt{d}}, \text{\texttt{b}}\right)$},x=2.7153cm,y=0.7518cm]{v6}
+\Vertex[style={minimum size=1.0cm,draw=cv7,fill=cfv7,text=clv7,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{x}}, \text{\texttt{b}}\right)$},x=0.0984cm,y=1.397cm]{v7}
+\Vertex[style={minimum size=1.0cm,draw=cv8,fill=cfv8,text=clv8,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{x}}, \text{\texttt{c}}, \text{\texttt{a}}\right)$},x=2.1673cm,y=5.0cm]{v8}
+\Vertex[style={minimum size=1.0cm,draw=cv9,fill=cfv9,text=clv9,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{x}}, \text{\texttt{c}}\right)$},x=0.6484cm,y=2.6506cm]{v9}
+\Vertex[style={minimum size=1.0cm,draw=cv10,fill=cfv10,text=clv10,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{b}}, \text{\texttt{a}}\right)$},x=1.5128cm,y=3.2648cm]{v10}
+\Vertex[style={minimum size=1.0cm,draw=cv11,fill=cfv11,text=clv11,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{x}}, \text{\texttt{d}}, \text{\texttt{a}}\right)$},x=2.7232cm,y=3.2158cm]{v11}
+\Vertex[style={minimum size=1.0cm,draw=cv12,fill=cfv12,text=clv12,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{d}}, \text{\texttt{c}}, \text{\texttt{b}}\right)$},x=5.0cm,y=1.6005cm]{v12}
+\Vertex[style={minimum size=1.0cm,draw=cv13,fill=cfv13,text=clv13,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{x}}, \text{\texttt{d}}\right)$},x=0.9997cm,y=0.7627cm]{v13}
+\Vertex[style={minimum size=1.0cm,draw=cv14,fill=cfv14,text=clv14,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{d}}, \text{\texttt{b}}\right)$},x=2.7592cm,y=0.0cm]{v14}
+\Vertex[style={minimum size=1.0cm,draw=cv15,fill=cfv15,text=clv15,shape=circle},LabelOut=false,L=\hbox{$\left(\text{\texttt{y}}, \text{\texttt{c}}, \text{\texttt{a}}\right)$},x=2.3526cm,y=4.2822cm]{v15}
+%
+\Edge[lw=0.1cm,style={color=cv1v0,},](v1)(v0)
+\Edge[lw=0.1cm,style={color=cv0v2,},](v0)(v2)
+\Edge[lw=0.1cm,style={color=cv0v4,},](v0)(v4)
+\Edge[lw=0.1cm,style={color=cv8v0,},](v8)(v0)
+\Edge[lw=0.1cm,style={color=cv11v0,},](v11)(v0)
+\Edge[lw=0.1cm,style={color=cv12v0,},](v12)(v0)
+\Edge[lw=0.1cm,style={color=cv15v0,},](v15)(v0)
+\Edge[lw=0.1cm,style={color=cv9v1,},](v9)(v1)
+\Edge[lw=0.1cm,style={color=cv1v12,},](v1)(v12)
+\Edge[lw=0.1cm,style={color=cv13v1,},](v13)(v1)
+\Edge[lw=0.1cm,style={color=cv1v14,},](v1)(v14)
+\Edge[lw=0.1cm,style={color=cv1v15,},](v1)(v15)
+\Edge[lw=0.1cm,style={color=cv2v4,},](v2)(v4)
+\Edge[lw=0.1cm,style={color=cv6v2,},](v6)(v2)
+\Edge[lw=0.1cm,style={color=cv10v2,},](v10)(v2)
+\Edge[lw=0.1cm,style={color=cv11v2,},](v11)(v2)
+\Edge[lw=0.1cm,style={color=cv12v2,},](v12)(v2)
+\Edge[lw=0.1cm,style={color=cv14v2,},](v14)(v2)
+\Edge[lw=0.1cm,style={color=cv7v3,},](v7)(v3)
+\Edge[lw=0.1cm,style={color=cv3v8,},](v3)(v8)
+\Edge[lw=0.1cm,style={color=cv9v3,},](v9)(v3)
+\Edge[lw=0.1cm,style={color=cv3v10,},](v3)(v10)
+\Edge[lw=0.1cm,style={color=cv3v11,},](v3)(v11)
+\Edge[lw=0.1cm,style={color=cv13v3,},](v13)(v3)
+\Edge[lw=0.1cm,style={color=cv3v15,},](v3)(v15)
+\Edge[lw=0.1cm,style={color=cv5v4,},](v5)(v4)
+\Edge[lw=0.1cm,style={color=cv8v4,},](v8)(v4)
+\Edge[lw=0.1cm,style={color=cv10v4,},](v10)(v4)
+\Edge[lw=0.1cm,style={color=cv12v4,},](v12)(v4)
+\Edge[lw=0.1cm,style={color=cv15v4,},](v15)(v4)
+\Edge[lw=0.1cm,style={color=cv6v5,},](v6)(v5)
+\Edge[lw=0.1cm,style={color=cv7v5,},](v7)(v5)
+\Edge[lw=0.1cm,style={color=cv5v8,},](v5)(v8)
+\Edge[lw=0.1cm,style={color=cv9v5,},](v9)(v5)
+\Edge[lw=0.1cm,style={color=cv5v12,},](v5)(v12)
+\Edge[lw=0.1cm,style={color=cv7v6,},](v7)(v6)
+\Edge[lw=0.1cm,style={color=cv6v11,},](v6)(v11)
+\Edge[lw=0.1cm,style={color=cv6v12,},](v6)(v12)
+\Edge[lw=0.1cm,style={color=cv13v6,},](v13)(v6)
+\Edge[lw=0.1cm,style={color=cv14v6,},](v14)(v6)
+\Edge[lw=0.1cm,style={color=cv9v7,},](v9)(v7)
+\Edge[lw=0.1cm,style={color=cv7v10,},](v7)(v10)
+\Edge[lw=0.1cm,style={color=cv13v7,},](v13)(v7)
+\Edge[lw=0.1cm,style={color=cv7v14,},](v7)(v14)
+\Edge[lw=0.1cm,style={color=cv9v8,},](v9)(v8)
+\Edge[lw=0.1cm,style={color=cv11v8,},](v11)(v8)
+\Edge[lw=0.1cm,style={color=cv15v8,},](v15)(v8)
+\Edge[lw=0.1cm,style={color=cv13v9,},](v13)(v9)
+\Edge[lw=0.1cm,style={color=cv9v15,},](v9)(v15)
+\Edge[lw=0.1cm,style={color=cv14v10,},](v14)(v10)
+\Edge[lw=0.1cm,style={color=cv15v10,},](v15)(v10)
+\Edge[lw=0.1cm,style={color=cv13v11,},](v13)(v11)
+\Edge[lw=0.1cm,style={color=cv14v12,},](v14)(v12)
+\Edge[lw=0.1cm,style={color=cv13v14,},](v13)(v14)
+%
+\end{tikzpicture}
+
+
+
+\end{document}  

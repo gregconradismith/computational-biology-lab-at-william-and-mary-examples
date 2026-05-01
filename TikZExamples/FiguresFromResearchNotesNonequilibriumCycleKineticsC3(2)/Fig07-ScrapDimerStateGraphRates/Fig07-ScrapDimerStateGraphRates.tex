@@ -1,0 +1,48 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig07-ScrapDimerStateGraphRates.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}[scale=1,thick,>=stealth,font=\small]
+    \begin{scope}[xshift=7cm]
+
+        \node[draw,circle] (v11) at (-2,-1.4)  {$11$};
+        \node[draw,circle] (v12) at (0,2)  {$12$};
+        \node[draw,circle] (v13) at (2,-1.4)  {$13$};
+
+        \node[draw,circle] (v22) at (2,5.4)  {$22$};
+        \node[draw,circle] (v33) at (6,-1.4)  {$33$};
+        \node[draw,circle] (v23) at (4,2)  {$23$};
+
+        \draw[<-,bend right=20,dotted] (v11) to node[fill=white] {$\alpha_{21}$} (v12);
+        \draw[->,bend left=20] (v12) to node[fill=white]  {$\alpha_{23}$} (v13);
+        \draw[->,bend right=20,dotted] (v13) to node[fill=white] {$\alpha_{31}$} (v11);
+        \draw[->,bend right=20] (v11) to node[fill=white]  {$\alpha_{13}$}  (v13);
+        \draw[->,bend left=20,dotted] (v13) to node[fill=white] {$\alpha_{32}$} (v12);
+        \draw[<-,bend right=20] (v12) to node[fill=white] {$\alpha_{12}$} (v11);
+
+        \draw[<-,bend right=20,dotted] (v12) to node[fill=white] {$\alpha_{21}[2]$} (v22);
+        \draw[->,bend left=20] (v22) to node[fill=white]  {$\alpha_{23}[2]$} (v23);
+        \draw[->,bend right=20,dotted] (v23) to node[fill=white] {$\alpha_{31}[2]$} (v12);
+        \draw[->,bend right=20] (v12) to node[fill=white]  {$\alpha_{13}[2]$}  (v23);
+        \draw[->,bend left=20,dotted] (v23) to node[fill=white] {$\alpha_{32}[2]$} (v22);
+        \draw[<-,bend right=20] (v22) to node[fill=white] {$\alpha_{12}[2]$} (v12);
+
+        \draw[<-,bend right=20,dotted] (v13) to node[fill=white] {$\alpha_{21}[3]$} (v23);
+        \draw[->,bend left=20] (v23) to node[fill=white]  {$\alpha_{23}[3]$} (v33);
+        \draw[->,bend right=20,dotted] (v33) to node[fill=white] {$\alpha_{31}[3]$} (v13);
+        \draw[->,bend right=20] (v13) to node[fill=white]  {$\alpha_{13}[3]$}  (v33);
+        \draw[->,bend left=20,dotted] (v33) to node[fill=white] {$\alpha_{32}[3]$} (v23);
+        \draw[<-,bend right=20] (v23) to node[fill=white] {$\alpha_{12}[3]$} (v13);
+
+    \end{scope}
+
+\end{tikzpicture}
+
+\end{document}
+

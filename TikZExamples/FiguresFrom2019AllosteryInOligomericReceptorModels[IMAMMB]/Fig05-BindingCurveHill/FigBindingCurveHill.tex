@@ -1,0 +1,95 @@
+%% Binding curve for homodimer of monomers with two sequential binding steps
+%% FigBindingCurveHill.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,margin=2mm]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+%\usetikzlibrary{math}
+
+\def\b{\mathsf{b}}
+\def\c{\mathsf{c}}
+
+\def\etabb{\eta_{\b\b}}
+\def\etabc{\eta_{\b\c}}
+\def\etacc{\eta_{\c\c}}
+
+\begin{document}
+
+\tikzset{every node/.style={font=\Large}}
+
+\pgfplotsset{every axis/.style={
+clip=true,
+height=6cm,
+width=7cm,
+xmax=20,
+xmin=0.05,
+ymin=0,
+ymax=1.1,
+axis x line=bottom,
+legend pos=south east,
+legend cell align={right},
+legend style={cells={align=left}},
+xlabel={$x$},
+axis y line=left,
+ylabel={$y\quad$},
+ylabel near ticks,
+xlabel near ticks,
+ylabel style={rotate=-90},
+domain=0.01:10,
+samples=200]}}
+
+\tikzstyle{style1}=[black,thick]
+\tikzstyle{style2}=[black,ultra thick,dotted]
+\tikzstyle{style3}=[black,ultra thick,dashed]
+\tikzstyle{style4}=[black,ultra thick,dashdotted]
+\tikzstyle{style5}=[black,ultra thick]
+
+\begin{tikzpicture}
+
+    \def\myspace{\;\,\,}
+    \begin{semilogxaxis}[]
+        \addplot[white] table[x index=0,y index=1] {figdata1.dat};
+        \addlegendentry{$\etabb \; \etabc \;\etacc$}
+        \addplot[style1] table[x index=0,y index=1] {figdata1.dat};
+        \addlegendentry{1 \myspace 1 \myspace 1 \,}
+        \addplot[style2] table[x index=0,y index=1] {figdata2.dat};
+        \addlegendentry{5 \myspace  1 \myspace 1 \,}
+        \addplot[style3] table[x index=0,y index=1] {figdata3.dat};
+        \addlegendentry{1 \myspace 5 \myspace 1 \,}
+        \addplot[style4] table[x index=0,y index=1] {figdata4.dat};
+        \addlegendentry{1 \myspace 1 \myspace 5 \,}
+        \addplot[style5] table[x index=0,y index=1] {figdata5.dat};
+        \addlegendentry{5 \myspace 5 \myspace 5 \,}
+
+    \end{semilogxaxis}
+
+    \begin{loglogaxis}[xshift=9cm,clip=true,ymin=1e-3,ymax=1e3,axis x line=center,ylabel={$\dfrac{y}{1-y}$\!\!\!\!},ylabel style={rotate=0}]
+        \addplot[style1] table[x index=0,y index=2] {figdata1.dat};
+
+        \addplot[style2] table[x index=0,y index=2] {figdata2.dat};
+        \addplot[style3] table[x index=0,y index=2] {figdata3.dat};
+        \addplot[style4] table[x index=0,y index=2] {figdata4.dat};
+        \addplot[style5] table[x index=0,y index=2] {figdata5.dat};
+
+    \end{loglogaxis}
+
+    \begin{semilogxaxis}[xshift=18cm,ymin=0.9,ymax=3.5,ytick={1,1.5,2,2.5,3,3.5},ylabel={$n = \dfrac{d}{d \ln x} \left( \ln   \dfrac{y}{1-y}   \right) $},ylabel style={rotate=90}]
+        \addplot[style1] table[x index=0,y index=3] {figdata1.dat};
+        \addplot[style2] table[x index=0,y index=3] {figdata2.dat};
+        \addplot[style3] table[x index=0,y index=3] {figdata3.dat};
+        \addplot[style4] table[x index=0,y index=3] {figdata4.dat};
+        \addplot[style5] table[x index=0,y index=3] {figdata5.dat};
+
+    \end{semilogxaxis}
+
+    \def\height{5}
+    \def\left{-1.5}
+    \draw (\left,\height) node[font=\Large] {{\bf a}};
+    \draw (\left+9,\height) node[font=\Large] {{\bf b}};
+    \draw (\left+18,\height) node[font=\Large] {{\bf c}};
+
+\end{tikzpicture}
+\end{document}
+

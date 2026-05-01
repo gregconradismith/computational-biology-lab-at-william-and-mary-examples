@@ -1,0 +1,100 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig02-DimerGraph.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.8,style=thick,shorten >=3pt,shorten <=3pt,inner sep=2pt,outer sep=2pt]
+    \def\vr{2.5pt} % \vr = vertex radius;  Set \vr = 2/scale
+    \def\rr{1.2}
+    \begin{scope}[xshift=7cm,yshift=0cm]
+        \coordinate (v00) at (0,0);
+        \coordinate (v01) at (2,2*\rr);
+        \coordinate (v11) at (4,4*\rr);
+        \coordinate (v02) at (4,0);
+        \coordinate (v12) at (6,2*\rr);
+        \coordinate (v22) at (8,0);
+        \draw (v00) [fill=white] circle (\vr);
+        \draw (v01) [fill=white]  circle (\vr);
+        \draw (v11)  [fill=white]  circle (\vr);
+        \draw (v02)  [fill=white]  circle (\vr);
+        \draw (v12)  [fill=white]  circle (\vr);
+        \draw (v22)  [fill=white]  circle (\vr);
+        \draw (v22) node[xshift=4pt,yshift=-4pt] [below right] {$c^2$};
+        \draw (v00) node[xshift=-4pt,yshift=-4pt] [below left] {$a^2$};
+        \draw (v01) node[xshift=-4pt,yshift=4pt] [above left] {$ab$};
+        \draw (v12) node[xshift=4pt,yshift=4pt] [above right] {$bc$};
+        \draw (v02) node[yshift=-6pt] [below] {$ac$};
+        \draw (v11) node[yshift=6pt] [above] {$b^2$};
+        \draw[red,-latex] (v00) to[bend left=15] node[sloped,fill=white] {$2\alpha_{ab}[a]$} (v01);
+        \draw[red,-latex] (v01) to[bend left=15] node[sloped,fill=white] {$\alpha_{ba}[a]$} (v00);
+        \draw[red,-latex] (v01) to[bend left=15] node[sloped,fill=white] {$\alpha_{ab}[b]$} (v11);
+        \draw[red,-latex] (v11) to[bend left=15] node[sloped,fill=white] {$2\alpha_{ba}[b]$} (v01);
+        \draw[red,-latex] (v02) to[bend left=15] node[sloped,fill=white] {$\alpha_{ab}[c]$} (v12);
+        \draw[red,-latex] (v12) to[bend left=15] node[sloped,fill=white] {$\alpha_{ba}[c]$} (v02);
+        \draw[-latex] (v22) to[bend left=15] node[sloped,fill=white] {$2\alpha_{cb}[c]$} (v12);
+        \draw[-latex] (v12) to[bend left=15] node[sloped,fill=white] {$\alpha_{bc}[c]$} (v22);
+        \draw[-latex] (v12) to[bend left=15] node[sloped,fill=white] {$\alpha_{cb}[b]$} (v11);
+        \draw[-latex] (v11) to[bend left=15] node[sloped,fill=white] {$2\alpha_{bc}[b]$} (v12);
+        \draw[-latex] (v02) to[bend left=15] node[sloped,fill=white] {$\alpha_{cb}[a]$} (v01);
+        \draw[-latex] (v01) to[bend left=15] node[sloped,fill=white] {$\alpha_{bc}[a]$} (v02);
+
+        \draw[-latex,blue] (v22) to[bend left=15] node[sloped,fill=white] {$2\alpha_{ca}[c]$} (v02);
+        \draw[-latex,blue] (v02) to[bend left=15] node[sloped,fill=white] {$\alpha_{ac}[c]$} (v22);
+
+        \draw[-latex,blue] (v02) to[bend left=15] node[sloped,fill=white] {$\alpha_{ca}[a]$} (v00);
+        \draw[-latex,blue] (v00) to[bend left=15] node[sloped,fill=white] {$2\alpha_{ac}[a]$} (v02);
+
+        \draw[-latex,blue] (v12) to[bend left=15] node[sloped,fill=white] {$\alpha_{ca}[b]$} (v01);
+        \draw[-latex,blue] (v01) to[bend left=15] node[sloped,fill=white] {$\alpha_{ac}[b]$} (v12);
+    \end{scope}
+
+    \begin{scope}[xshift=17.5cm,yshift=0cm]
+        \coordinate (w00) at (0,0);
+        \coordinate (w01) at (2,2*\rr);
+        \coordinate (w11) at (4,4*\rr);
+        \coordinate (w02) at (4,0);
+        \coordinate (w12) at (6,2*\rr);
+        \coordinate (w22) at (8,0);
+        \draw (w00) [fill=white] circle (\vr);
+        \draw (w01) [fill=white]  circle (\vr);
+        \draw (w11)  [fill=white]  circle (\vr);
+        \draw (w02)  [fill=white]  circle (\vr);
+        \draw (w12)  [fill=white]  circle (\vr);
+        \draw (w22)  [fill=white]  circle (\vr);
+        \draw (w22) node[xshift=4pt,yshift=-4pt] [below right] {$22$};
+        \draw (w11) node[yshift=6pt] [above] {$11$};
+        \draw (w00) node[xshift=-4pt,yshift=-4pt] [below left] {$00$};
+        \draw (w01) node[xshift=-4pt,yshift=4pt] [above left] {$01$};
+        \draw (w12) node[xshift=4pt,yshift=4pt] [above right] {$12$};
+        \draw (w02) node[yshift=-6pt] [below] {$02$};
+        \draw[red,-latex] (w00) to[bend left=15] node[sloped,fill=white] {$2\a_0$} (w01);
+        \draw[red,-latex] (w01) to[bend left=15] node[sloped,fill=white] {$\abar_0$} (w00);
+        \draw[red,-latex] (w01) to[bend left=15] node[sloped,fill=white] {$\a_1$} (w11);
+        \draw[red,-latex] (w11) to[bend left=15] node[sloped,fill=white] {$2\abar_1$} (w01);
+        \draw[red,-latex] (w02) to[bend left=15] node[sloped,fill=white] {$\a_2$} (w12);
+        \draw[red,-latex] (w12) to[bend left=15] node[sloped,fill=white] {$\abar_2$} (w02);
+        \draw[-latex] (w22) to[bend left=15] node[sloped,fill=white] {$2\bbar_2$} (w12);
+        \draw[-latex] (w12) to[bend left=15] node[sloped,fill=white] {$\b_2$} (w22);
+        \draw[-latex] (w12) to[bend left=15] node[sloped,fill=white] {$\bbar_1$} (w11);
+        \draw[-latex] (w11) to[bend left=15] node[sloped,fill=white] {$2\b_1$} (w12);
+        \draw[-latex] (w02) to[bend left=15] node[sloped,fill=white] {$\bbar_0$} (w01);
+        \draw[-latex] (w01) to[bend left=15] node[sloped,fill=white] {$\b_0$} (w02);
+
+        \draw[-latex,blue] (w22) to[bend left=15] node[sloped,fill=white] {$2\c_2$} (w02);
+        \draw[-latex,blue] (w02) to[bend left=15] node[sloped,fill=white] {$\cbar_2$} (w22);
+
+        \draw[-latex,blue] (w02) to[bend left=15] node[sloped,fill=white] {$\c_0$} (w00);
+        \draw[-latex,blue] (w00) to[bend left=15] node[sloped,fill=white] {$2\cbar_0$} (w02);
+
+        \draw[-latex,blue] (w12) to[bend left=15] node[sloped,fill=white] {$\c_1$} (w01);
+        \draw[-latex,blue] (w01) to[bend left=15] node[sloped,fill=white] {$\cbar_1$} (w12);
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
+

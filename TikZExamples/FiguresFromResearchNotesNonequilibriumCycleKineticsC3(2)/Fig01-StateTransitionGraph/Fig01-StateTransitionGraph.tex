@@ -1,0 +1,53 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig01-StateTransitionGraph.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}[scale=1,style=thick,shorten >=3pt,shorten <=3pt,inner sep=2pt,outer sep=2pt]
+    \def\vr{2.5pt} % \vr = vertex radius;  Set \vr = 2/scale
+    \begin{scope}
+        \coordinate (v0) at (0,0);
+        \coordinate (v1) at (2,2.5);
+        \coordinate (v2) at (4,0);
+        \draw[-latex,red] (v0) to[bend left=15] node[sloped,fill=white] {$\alpha_{ab}$} (v1);
+        \draw[-latex,red] (v1) to[bend left=15] node[sloped,fill=white] {$\alpha_{ba}$}  (v0);
+        \draw[-latex] (v1)  to[bend left=15] node[sloped,fill=white] {$\alpha_{bc}$}  (v2);
+        \draw[-latex] (v2) to[bend left=15] node[sloped,fill=white] {$\alpha_{cb}$}  (v1);
+        \draw[-latex,blue] (v2)  to[bend left=15] node[sloped,fill=white] {$\alpha_{ca}$}  (v0);
+        \draw[-latex,blue] (v0)  to[bend left=15] node[sloped,fill=white] {$\alpha_{ac}$}  (v2);
+
+        \draw (v0) [fill=white] circle (\vr);
+        \draw (v1) [fill=white]  circle (\vr);
+        \draw (v2) [fill=white]  circle (\vr);
+        \draw (v0)  node[xshift=-4pt,yshift=-4pt] [below left] {$a$};
+        \draw (v1)  node[yshift=6pt] [above] {$b$};
+        \draw (v2)  node[xshift=4pt,yshift=-4pt] [below right]  {$c$};
+    \end{scope}
+
+    \begin{scope}[xshift=6.5cm]
+        \coordinate (w0) at (0,0);
+        \coordinate (w1) at (2,2.5);
+        \coordinate (w2) at (4,0);
+        \draw[-latex,red] (w0) to[bend left=15] node[sloped,fill=white] {$\a$} (w1);
+        \draw[-latex,red] (w1) to[bend left=15] node[sloped,fill=white] {$\abar$}  (w0);
+        \draw[-latex] (w1)  to[bend left=15] node[sloped,fill=white] {$\b$}  (w2);
+        \draw[-latex] (w2) to[bend left=15] node[sloped,fill=white] {$\bbar$}  (w1);
+        \draw[-latex,blue] (w2)  to[bend left=15] node[sloped,fill=white] {$\c$}  (w0);
+        \draw[-latex,blue] (w0)  to[bend left=15] node[sloped,fill=white] {$\cbar$}  (w2);
+
+        \draw (w0) [fill=white] circle (\vr);
+        \draw (w1) [fill=white]  circle (\vr);
+        \draw (w2) [fill=white]  circle (\vr);
+        \draw (w0)  node[xshift=-4pt,yshift=-4pt] [below left] {$0$};
+        \draw (w1)  node[yshift=6pt] [above] {$1$};
+        \draw (w2)  node[xshift=4pt,yshift=-4pt] [below right]  {$2$};
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
+

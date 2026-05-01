@@ -1,0 +1,108 @@
+%% Binding curve for homodimer of monomers with two sequential binding steps
+%% FigBindingCurveTCM.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\def\RT{[{\rm R}]_T}
+
+\def\L{{\rm L}}
+\def\G{{\rm G}}
+\def\R{{\rm R}}
+\def\LR{{\rm L}{\rm R}}
+\def\RG{{\rm R}{\rm G}}
+\def\LRG{{\rm L}{\rm R}{\rm G}}
+
+\def\RT{[{\rm R}]_T}
+\def\micromolar{\mu{\rm M}}
+
+\begin{document}
+
+%\tikzset{every pin/.style={fill=blue!10!white,rectangle,rounded corners}}
+\pgfplotsset{every axis/.style={
+clip=true,
+height=8cm,
+xmax=100,
+xmin=0.01,
+ymin=0,
+ymax=1.1,
+axis x line=bottom,
+legend pos=north east,
+%legend style={at={(1,0.5)}},
+legend cell align={right},
+xlabel={$[\L]\,(\micromolar)$},
+axis y line=left,
+ylabel={fraction},
+ylabel near ticks,
+xlabel near ticks,
+ylabel style={rotate=0},
+domain=0.01:100,
+samples=200]}}
+
+\tikzstyle{style1}=[ultra thick,dotted]
+\tikzstyle{style2}=[ultra thick,dashed]
+\tikzstyle{style3}=[ultra thick,dashdotted]
+\tikzstyle{style4}=[ultra thick]
+\tikzstyle{style5}=[thin,dashed]
+\tikzstyle{style6}=[thin]
+
+\def\figKLconc{0.5*x} % KL*[L] (x in uM)
+\def\figKGconc#1{0.1*#1} % KG*[G] (x in uM)
+
+\def\figR{1}
+\def\figLR{\figKLconc}
+\def\figRG#1{\figKLconc*#1} %  #1=figKGconc that is KG*[G]
+\def\figLRG#1#2{\figKGconc{#1}*#2*\figKLconc} % #1=figKGconc that is KG*[G], #2=figgamma,
+
+\def\figRT#1#2{(\figR+\figLR+\figRG{#1}+\figLRG{#1}{#2})}
+
+\begin{tikzpicture}
+
+    \begin{semilogxaxis}
+        \def\figgamma{40}
+        \def\figG{5}
+        \addplot[style1] { \figR / \figRT{\figKGconc{\figG}}{\figgamma} };
+        \addlegendentry{$[\R]/\RT$}
+        \addplot[style2] { \figLR / \figRT{\figKGconc{\figG}}{\figgamma} };
+        \addlegendentry{$[\LR]/\RT$}
+        \addplot[style3] { \figRG{\figKGconc{\figG}} / \figRT{\figKGconc{\figG}}{\figgamma} };
+        \addlegendentry{$[\RG]/\RT$}
+        \addplot[style4] { \figLRG{\figKGconc{\figG}}{\figgamma} / \figRT{\figKGconc{\figG}}{\figgamma} };
+        \addlegendentry{$[\LRG]/\RT$}
+        %\addplot[red] {(  \figR +  \figLR  + \figRG{\figKGconc{\figG}} + \figLRG{\figKGconc{\figG}}{\figgamma} ) / \figRT{\figKGconc{\figG}}{\figgamma} };
+        %\addlegendentry{total}
+    \end{semilogxaxis}
+
+    \begin{semilogxaxis}[xshift=10cm,ylabel={$([\LR]+{\LRG})/\RT$}, legend cell align={left},legend pos=north west]
+        \def\figgammaA{2}
+        \def\figGLowA{1}
+        \def\figGHighA{10}
+        \addplot[style2,thick] { (\figLR + \figLRG{\figKGconc{\figGLowA}}{\figgammaA}) / \figRT{\figKGconc{\figGLowA}}{\figgammaA} };
+        \addlegendentry{$\gamma=\figgammaA$, $[\G]=\figGLowA\,\micromolar$}
+        \addplot[style4,thick] { (\figLR + \figLRG{\figKGconc{\figGHighA}}{\figgammaA}) / \figRT{\figKGconc{\figGHighA}}{\figgammaA} };
+        \addlegendentry{$\gamma=\figgammaA$, $[\G]=\figGHighA\,\micromolar$}
+
+        \def\figgammaB{40}
+        \def\figGLowB{1}
+        \def\figGHighB{10}
+        \addplot[style2] { (\figLR + \figLRG{\figKGconc{\figGLowB}}{\figgammaB}) / \figRT{\figKGconc{\figGLowB}}{\figgammaB} };
+        \addlegendentry{$\gamma=\figgammaB$, $[\G]=\figGLowB\,\micromolar$}
+        \addplot[style4] { (\figLR + \figLRG{\figKGconc{\figGHighB}}{\figgammaB}) / \figRT{\figKGconc{\figGHighB}}{\figgammaB} };
+        \addlegendentry{$\gamma=\figgammaB$, $[\G]=\figGHighB\,\micromolar$}
+
+    \end{semilogxaxis}
+
+    \def\height{6.5}
+    \def\left{-1.5}
+    \draw (\left,\height) node[font=\Large] {a};
+    \draw (\left+10,\height) node[font=\Large] {b};
+
+    \pgfresetboundingbox
+    \path (-0.5,-1.5) -- (18,-1.5) -- (18,7) -- (-0.5,7) -- cycle;
+\end{tikzpicture}
+
+\end{document}
+

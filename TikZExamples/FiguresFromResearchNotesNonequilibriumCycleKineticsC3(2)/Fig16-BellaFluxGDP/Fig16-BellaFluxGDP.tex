@@ -1,0 +1,53 @@
+%% Pretty formatted LaTeX/TikZ source
+%% Fig16-BellaFluxGDP.tex
+%% Unused packages and definitions removed; TikZ/PGFPlots source formatted.
+
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\input{../../definitions}
+
+\begin{document}
+\begin{tikzpicture}
+    \pgfplotsset{every axis/.style={
+    clip=true,
+    height=8cm,
+    width=10cm,
+    xmax=10,
+    xmin=0,
+    ymin=-1.1,
+    ymax=1.1,
+    axis x line=bottom,
+    legend pos=north west,
+    xlabel={$\gd$},
+    axis y line=left,
+    ylabel near ticks,
+    xlabel near ticks,
+    ylabel style={rotate=-90},
+    domain=0:10,
+    samples=200]}}
+
+    \def\figr{1}
+    \def\figgt{1}
+    \def\figrgt{1}
+    \def\figrgd{1}
+    \def\figrtp{1}
+    \def\figrtm{1}
+    \def\figrdp{1}
+    \def\figrdm{1}
+    \def\figad{1}
+    \def\figat{1}
+
+    \begin{axis}[ylabel={$J_*/N$}]
+
+        %graph of flux as G_D varies
+        \addplot[red] {(\figrdp*\figr*x*\figat*\figrgd*\figrtm*\figrgt - \figrtp*\figr*\figgt*\figad*\figrgt*\figrdm*\figrgd)/(\figrdm*\figrgd*\figrtm*\figrgt + \figad*\figrgt*\figrdm*\figrgd + \figat*\figrgd*\figrtm*\figrgt + \figrtm*\figrgt*\figrdp*\figr*x + \figrtp*\figr*\figgt*\figad*\figrgt + \figrdm*\figrgd*\figrtp*\figr*\figgt + \figrdp*\figr*x*\figat*\figrgd + \figrtp*\figr*\figgt*\figat*\figrgd)};
+
+        %\addlegendentry{$\kappabstar = \KappabstarBlue,  \kappacstar = \KappacstarBlue$}
+
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}
+
