@@ -1,6 +1,6 @@
 # 📓 Jupyter Notebooks for W&M Students
 
-The simplest way to begin using a Jupyter Notebook is by visiting:
+Jupyter Notebook is available to W&M students by visiting:
 
 👉 https://jupyterhub.wm.edu/
 
@@ -13,19 +13,17 @@ The simplest way to begin using a Jupyter Notebook is by visiting:
 
 ------------------------------------------------------------------------
 
-# 🧮 Installing SageMath for Use in Jupyter
+# Research Computing at W&M
 
-To install **SageMath**, open a terminal and run:
+https://www.wm.edu/offices/it/services/researchcomputing/atwm/
 
-``` bash
-conda create -n sage sage python=3.11
-```
+## 🔑 Getting a SciClone Account
 
-This creates a dedicated environment with Sage and Python 3.11.
+Students in the Computational Biology Lab should request a SciClone account using this form:
 
-------------------------------------------------------------------------
+👉 https://www.wm.edu/offices/it/services/researchcomputing/acctreq/
 
-# 🖥️ Jupyter Notebooks on SciClone
+## 🖥️ Jupyter Notebooks on SciClone
 
 Access SciClone notebooks here:
 
@@ -33,16 +31,25 @@ Access SciClone notebooks here:
 
 ------------------------------------------------------------------------
 
-# 🔑 Getting a SciClone Account
+# Sagemath 
 
-Request access using this form:
+SageMath is a free open-source mathematics software system used CBL research students. 
 
-👉 https://www.wm.edu/offices/it/services/researchcomputing/acctreq/
+https://www.sagemath.org
 
-------------------------------------------------------------------------
+## Sage Textbook and Other Resources 
 
-# 🌐 SageMath Cell Server
+Many resources for learning Sagemath can be found at [http://gregorybard.com/Sage.html](http://gregorybard.com/Sage.html). Gregory Bard has written a textbook titled 
+[Sage for Undergraduates](http://gregorybard.com/sage_for_undergraduates_color.pdf.zip) that you can download.
+
+## 🌐 SageMath Cell Server
 
 For quick Sage computations without installation:
 
 👉 https://sagecell.sagemath.org/
+
+
+
+
+
+
