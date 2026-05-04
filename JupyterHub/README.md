@@ -25,6 +25,8 @@ Students in the Computational Biology Lab should request a SciClone account usin
 
 ## 🖥️ Jupyter Notebooks on SciClone
 
+👉 https://www.wm.edu/offices/it/services/researchcomputing/jupyter/#a1
+
 Access SciClone notebooks here:
 
 👉 https://notebooks.sciclone.wm.edu/
@@ -35,7 +37,7 @@ Access SciClone notebooks here:
 
 SageMath is a free open-source mathematics software system used CBL research students. 
 
-https://www.sagemath.org
+👉 https://www.sagemath.org
 
 ## Sage Textbook and Other Resources 
 
