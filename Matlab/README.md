@@ -14,11 +14,11 @@ The first few folders are especially approachable for new students, while many o
 
 After the introductory examples, good next folders include:
 
-- `ExampleMatlabWorksheets`
+- `Worksheets`
 - `NumericalIntegrationOf2DLinearODESystem`
-- `ExampleMatlabBindingCurveCooperativity`
-- `ExampleMatlabParameterSearch`
-- `ExampleMatlabGameOfLifeAndNeighbors`
+- `BindingCurveCooperativity`
+- `ParameterSearch`
+- `GameOfLifeAndNeighbors`
 
 ## Larger Reference And Specialized Areas
 
