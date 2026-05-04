@@ -14,4 +14,6 @@ When you are ready to install LaTeX on your own Mac use
 
 ## Examples 
 
-This folder contains LaTeX examples for mathematical writing, manuscripts, and posters.
+This folder contains LaTeX examples for mathematical writing, manuscripts, and posters. 
+
+Feel free to upload the LaTeX source as a new project in [Overleaf](https://www.overleaf.com/) and make changes.
