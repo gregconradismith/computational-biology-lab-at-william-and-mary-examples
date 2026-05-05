@@ -1,8 +1,0 @@
-#!/bin/tcsh
-
-git add --all
-git commit -m "I made some changes." 
-git push
-
-
-
