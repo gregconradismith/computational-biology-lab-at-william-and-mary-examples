@@ -1,6 +1,6 @@
 # REU Onboarding and How To's
 
-This folder arranges the contents imported from the Evernote export `REU - Onboarding and How To's.enex` into Markdown notes with local attachment links.
+This folder arranges the contents imported from the Evernote export `REU - Onboarding and How To's.enex` into a small set of Markdown files with local attachment links.
 
 ## Evernote Prefix Convention
 
@@ -21,6 +21,6 @@ This folder arranges the contents imported from the Evernote export `REU - Onboa
 
 ## Notes
 
-- Attachments are stored next to the note that referenced them, inside an `attachments/` folder.
+- Each section is a single `README.md`; attachments for that section are collected in that section's `attachments/` folder.
 - Evernote-only internal links were converted to readable text when no repository target could be inferred.
 - Some attachments are large PDFs or ZIP files because they were embedded directly in the export.
