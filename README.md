@@ -73,6 +73,7 @@ Use earphones to listen to music because some people cannot think with music in 
 - [Sagemath](Sagemath/README.md): SageMath and SageTeX examples
 - [Notebooks](Notebooks/README.md): notebook-based notes and examples
 - [HPC-Sciclone](HPC-Sciclone/README.md): cluster computing examples
+- [REU Onboarding and How To's](REU-Onboarding/README.md): arranged notes, assignments, project ideas, tools, and references imported from the Evernote export
  
 ## For Student Contributors
 

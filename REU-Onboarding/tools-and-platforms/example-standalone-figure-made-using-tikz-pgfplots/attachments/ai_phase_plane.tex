@@ -1,0 +1,64 @@
+%
+% Nullclines of the activator/inhibitor model presented in Ding et al. 2020.
+%
+\documentclass[12pt]{standalone}
+
+\usepackage{graphicx}
+\usepackage{tikz,pgfplots}
+
+\begin{document}
+
+\tikzstyle{myplot}=[ultra thick]
+\tikzstyle{mycircle}=[circle,draw,thick,inner sep=2pt]
+\tikzset{every pin/.style={fill=blue!10!white,rectangle,rounded corners}}
+\pgfplotsset{every axis/.style={
+        clip=true,
+        legend cell align=left,
+        width=12cm,
+        ymax=0.3,
+        ymin=0,
+        xmax=1,
+        xmin=0,
+        axis x line=left,
+        x label style={fill=white},
+        xlabel={Activator ($A$)},
+        xlabel style={{at=(current axis.right of origin)},anchor=north west},
+        xtick=\empty,
+        axis y line=middle,
+        ylabel={Inhibitor ($I$)}, 
+        ylabel style={{at=(current axis.above origin)},anchor=east},
+        ytick=\empty,
+        domain=0:2,
+        samples=200]}}
+
+\begin{tikzpicture}
+\begin{axis}
+
+\pgfmathsetmacro{\gammaa}{0.08} 
+\pgfmathsetmacro{\betaa}{0.03} 
+\pgfmathsetmacro{\gammai}{0.12} 
+\pgfmathsetmacro{\betai}{0.03}
+\pgfmathsetmacro{\kappa}{0.1}
+\pgfmathsetmacro{\Azero}{0.5}
+\pgfmathsetmacro{\Izero}{0}
+\pgfmathsetmacro{\m}{2}
+
+\addplot[myplot,blue,dashed] {\gammaa*\kappa/\betaa*x+\gammaa*\kappa/\betaa*\Azero^2/x-\kappa};
+\addlegendentry{$dA/dt=0$ (control)}
+\addplot[myplot,blue] {\gammaa*\kappa/\betaa*x/\m+\gammaa*\kappa/\betaa/\m*\Azero^2/x-\kappa};
+\addlegendentry{$dA/dt=0$ (experiment)}
+
+\addplot[myplot,red] {\gammai*\kappa/\betai*x^2+\Izero/\betai/\kappa};
+\addlegendentry{$dI/dt=0$}
+
+\coordinate (control) at (axis cs: 0.67,0.178);
+\coordinate (experiment) at (axis cs: 0.335,0.045);
+\draw (control) node[mycircle,fill=white] {};
+\draw (experiment) node[mycircle,fill=black] {};
+\draw[line width=4pt,-latex,gray!50,bend left,shorten >=10pt,shorten <=10pt] (control) to (experiment);
+
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
